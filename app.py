@@ -1,13 +1,3 @@
-# ============================================================
-#  ⚖️  Legal Contract RAG Assistant
-#  Week 3 Assignment — Retrieval-Augmented Generation
-#  Using: HuggingFace Embeddings (FREE) + Groq LLM (FREE)
-# ============================================================
-#
-#  RAG Pipeline:
-#  PDF ──► Text ──► Chunks ──► Embeddings ──► FAISS
-#  Question ──► Embed ──► Search FAISS ──► LLM ──► Answer
-# ============================================================
 
 import os
 import tempfile
@@ -16,7 +6,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# ── Page Configuration ─────────────────────────────────────
 st.set_page_config(
     page_title="Legal Contract Assistant",
     page_icon="⚖️",
@@ -26,12 +15,10 @@ st.set_page_config(
 st.title("⚖️ Legal Contract Assistant")
 st.caption("Upload a legal contract PDF — ask questions — get answers with source citations.")
 
-# ── Session State ──────────────────────────────────────────
 for key in ["vector_store", "contract_name"]:
     if key not in st.session_state:
         st.session_state[key] = None
 
-# ── Sidebar ────────────────────────────────────────────────
 with st.sidebar:
     st.subheader("🔑 Groq API Key (FREE)")
     api_key = st.text_input(
@@ -64,11 +51,6 @@ with st.sidebar:
         st.markdown("---")
         st.success(f"✅ Loaded:\n{st.session_state.contract_name}")
 
-
-# ═══════════════════════════════════════════════════════════
-# STEP 1 — UPLOAD & PROCESS CONTRACT
-# ═══════════════════════════════════════════════════════════
-
 def process_contract(uploaded_file):
     """
     Ingestion Pipeline:
@@ -80,31 +62,27 @@ def process_contract(uploaded_file):
     from langchain_community.embeddings import HuggingFaceEmbeddings
     from langchain_community.vectorstores import FAISS
 
-    # Save uploaded PDF to a temp file
+  
     with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp:
         tmp.write(uploaded_file.getvalue())
         tmp_path = tmp.name
 
-    # ── Step 1: Extract text from PDF ─────────────────────
     loader = PyPDFLoader(tmp_path)
     documents = loader.load()
     os.unlink(tmp_path)
 
-    # ── Step 2: Split into chunks ──────────────────────────
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=500,
         chunk_overlap=50,
     )
     chunks = splitter.split_documents(documents)
 
-    # ── Step 3: Generate embeddings (runs locally, FREE) ───
-    # Uses sentence-transformers model "all-MiniLM-L6-v2"
-    # First run: downloads ~90MB model automatically
+
     embeddings = HuggingFaceEmbeddings(
         model_name="all-MiniLM-L6-v2"
     )
 
-    # ── Step 4: Store in FAISS ─────────────────────────────
+  
     vector_store = FAISS.from_documents(chunks, embeddings)
 
     return vector_store, len(chunks)
@@ -130,11 +108,6 @@ if uploaded:
             except Exception as e:
                 st.error(f"❌ Error while processing: {e}")
 
-
-# ═══════════════════════════════════════════════════════════
-# STEP 2 — ASK A QUESTION
-# ═══════════════════════════════════════════════════════════
-
 def get_answer(question, vector_store, api_key):
     """
     Retrieval + Generation Pipeline:
@@ -145,14 +118,13 @@ def get_answer(question, vector_store, api_key):
     from langchain_core.prompts import ChatPromptTemplate
     from langchain_core.output_parsers import StrOutputParser
 
-    # ── Retrieve relevant chunks from FAISS ───────────────
+   
     retriever = vector_store.as_retriever(search_kwargs={"k": 3})
     source_docs = retriever.invoke(question)
 
-    # Combine chunks into one context string
     context = "\n\n---\n\n".join(doc.page_content for doc in source_docs)
 
-    # ── Build the prompt ───────────────────────────────────
+   
     prompt = ChatPromptTemplate.from_template("""You are a legal contract assistant.
 Answer the question using ONLY the contract context provided below.
 If the answer is not in the context, respond with:
@@ -166,8 +138,6 @@ Question: {question}
 
 Answer:""")
 
-    # ── Call Groq LLM (FREE) ───────────────────────────────
-    # Groq runs Llama3 — fast and completely free
     llm = ChatGroq(
         groq_api_key=api_key,
         model_name="openai/gpt-oss-20b",
@@ -185,7 +155,7 @@ if st.session_state.vector_store:
     st.header("❓ Step 2 — Ask a Question")
     st.markdown(f"*Contract loaded: **{st.session_state.contract_name}***")
 
-    # Quick question buttons
+   
     st.markdown("**Quick questions:**")
     quick_qs = [
         "What is the notice period?",
