@@ -1,0 +1,65 @@
+EMPLOYMENT AGREEMENT
+
+This Employment Agreement is entered into as of January 1, 2024,
+between TechCorp Pvt. Ltd. ("Company") and John Smith ("Employee").
+
+1. POSITION AND DUTIES
+The Employee is hired as a Software Engineer. The Employee shall report
+to the Engineering Manager and perform duties as assigned by the Company.
+
+2. EFFECTIVE DATE
+This Agreement commences on January 1, 2024, and continues until
+terminated by either party in accordance with this Agreement.
+
+3. SALARY AND COMPENSATION
+The Employee shall receive a monthly gross salary of Rs. 80,000
+(Eighty Thousand Rupees), payable on the last working day of each month.
+The Employee is also eligible for an annual performance bonus at the
+sole discretion of the Company.
+
+4. WORKING HOURS
+The standard working hours are Monday to Friday, 9:00 AM to 6:00 PM,
+with a one-hour lunch break. The Employee may be required to work
+additional hours to meet business needs.
+
+5. LEAVE POLICY
+The Employee is entitled to the following paid leave per year:
+  - 18 days of Annual Leave
+  - 10 days of Sick Leave
+  - 3 days of Personal Leave
+  - Public holidays as declared by the Company
+
+6. NOTICE PERIOD
+Either party may terminate this Agreement by providing 30 (thirty)
+days written notice. The Company reserves the right to pay salary
+in lieu of notice.
+
+7. TERMINATION
+The Company may terminate this Agreement immediately without notice for:
+  - Gross misconduct or negligence
+  - Theft, fraud, or dishonesty
+  - Serious breach of Company policies
+  - Willful breach of confidentiality
+
+8. CONFIDENTIALITY
+The Employee agrees to keep all Confidential Information strictly private,
+during and after employment. This includes business plans, client data,
+financial information, technical documentation, and trade secrets.
+
+9. NON-COMPETE CLAUSE
+During employment and for 6 (six) months after termination, the Employee
+agrees not to work for any direct competitor of the Company operating
+in the same geographic region.
+
+10. INTELLECTUAL PROPERTY
+All work created by the Employee during the course of employment shall
+be the sole property of the Company.
+
+11. GOVERNING LAW
+This Agreement is governed by the laws of India. Any disputes shall be
+subject to the jurisdiction of courts in Bengaluru, Karnataka.
+
+---
+Signed:
+Company: TechCorp Pvt. Ltd.      Date: January 1, 2024
+Employee: John Smith              Date: January 1, 2024
