@@ -1,0 +1,722 @@
+[
+  {
+    "id": "parties",
+    "question": "Which company and individual signed this contract?",
+    "no_answer_expected": false,
+    "expected_chunks": [
+      1
+    ],
+    "answer_keywords": [
+      "TechCorp",
+      "John Smith"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 1,
+        "page": 1,
+        "content": "This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024,\nbetween TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\")."
+      },
+      {
+        "chunk_idx": 30,
+        "page": 2,
+        "content": "SIGNATURES\nCompany Representative: __________________   Date: ______________\n                      TechCorp Pvt. Ltd."
+      },
+      {
+        "chunk_idx": 0,
+        "page": 1,
+        "content": "TechCorp Pvt. Ltd. - Confidential\nEMPLOYMENT AGREEMENT\nEmployment Agreement - TechCorp Pvt. Ltd."
+      }
+    ],
+    "answer": "TechCorp Pvt. Ltd. and John Smith."
+  },
+  {
+    "id": "job_role",
+    "question": "What position is being filled by this hire?",
+    "no_answer_expected": false,
+    "expected_chunks": [
+      2
+    ],
+    "answer_keywords": [
+      "Software Engineer"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 2,
+        "page": 1,
+        "content": "1. POSITION AND DUTIES\nThe Employee is hired as a Software Engineer. The Employee shall report to the"
+      },
+      {
+        "chunk_idx": 1,
+        "page": 1,
+        "content": "This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024,\nbetween TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\")."
+      },
+      {
+        "chunk_idx": 26,
+        "page": 2,
+        "content": "course of employment shall be the sole and exclusive property of the Company."
+      }
+    ],
+    "answer": "Software Engineer."
+  },
+  {
+    "id": "reports_to",
+    "question": "Who is my direct manager?",
+    "no_answer_expected": false,
+    "expected_chunks": [
+      2,
+      3
+    ],
+    "answer_keywords": [
+      "Engineering Manager"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 3,
+        "page": 1,
+        "content": "Engineering Manager and perform duties as reasonably assigned by the Company.\n2. EFFECTIVE DATE"
+      },
+      {
+        "chunk_idx": 23,
+        "page": 2,
+        "content": "termination, the Employee agrees not to directly or indirectly work for, consult with,"
+      },
+      {
+        "chunk_idx": 31,
+        "page": 2,
+        "content": "Employee:             __________________   Date: ______________\n                      John Smith\nPage 2"
+      }
+    ],
+    "answer": "This information was not found in the contract."
+  },
+  {
+    "id": "effective_date",
+    "question": "When does this employment officially begin?",
+    "no_answer_expected": false,
+    "expected_chunks": [
+      4
+    ],
+    "answer_keywords": [
+      "January 1, 2024",
+      "January 1"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 1,
+        "page": 1,
+        "content": "This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024,\nbetween TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\")."
+      },
+      {
+        "chunk_idx": 4,
+        "page": 1,
+        "content": "2. EFFECTIVE DATE\nThis Agreement commences on January 1, 2024, and continues until terminated by"
+      },
+      {
+        "chunk_idx": 22,
+        "page": 2,
+        "content": "9. NON-COMPETE CLAUSE\nDuring the term of employment and for a period of 6 (six) months following"
+      }
+    ],
+    "answer": "The employment officially begins on January 1, 2024."
+  },
+  {
+    "id": "salary",
+    "question": "What is my take-home pay every month?",
+    "no_answer_expected": false,
+    "expected_chunks": [
+      6,
+      7
+    ],
+    "answer_keywords": [
+      "80,000",
+      "Eighty Thousand"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 6,
+        "page": 1,
+        "content": "The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand"
+      },
+      {
+        "chunk_idx": 7,
+        "page": 1,
+        "content": "Rupees), payable on the last working day of each month. The Employee is also eligible"
+      },
+      {
+        "chunk_idx": 22,
+        "page": 2,
+        "content": "9. NON-COMPETE CLAUSE\nDuring the term of employment and for a period of 6 (six) months following"
+      }
+    ],
+    "answer": "This information was not found in the contract."
+  },
+  {
+    "id": "bonus",
+    "question": "Could I get extra pay for good performance?",
+    "no_answer_expected": false,
+    "expected_chunks": [
+      7,
+      8
+    ],
+    "answer_keywords": [
+      "bonus"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 8,
+        "page": 1,
+        "content": "for an annual performance bonus at the sole discretion of the Company.\n4. WORKING HOURS"
+      },
+      {
+        "chunk_idx": 6,
+        "page": 1,
+        "content": "The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand"
+      },
+      {
+        "chunk_idx": 7,
+        "page": 1,
+        "content": "Rupees), payable on the last working day of each month. The Employee is also eligible"
+      }
+    ],
+    "answer": "Yes. The contract allows for an annual performance bonus, but it is awarded at the sole discretion of the Company."
+  },
+  {
+    "id": "working_hours",
+    "question": "What time am I supposed to be at work, and when can I leave?",
+    "no_answer_expected": false,
+    "expected_chunks": [
+      9
+    ],
+    "answer_keywords": [
+      "9:00 AM",
+      "9 AM",
+      "Monday to Friday"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 9,
+        "page": 1,
+        "content": "4. WORKING HOURS\nThe standard working hours are Monday to Friday, 9:00 AM to 6:00 PM, with a"
+      },
+      {
+        "chunk_idx": 13,
+        "page": 1,
+        "content": "Leave must be applied for in advance and approved by the Employee's manager.\n6. NOTICE PERIOD"
+      },
+      {
+        "chunk_idx": 10,
+        "page": 1,
+        "content": "one-hour lunch break. The Employee may be required to work reasonable additional hours"
+      }
+    ],
+    "answer": "You should be at work by 9:00 AM and can leave at 6:00 PM."
+  },
+  {
+    "id": "overtime",
+    "question": "Do I get paid extra for staying late?",
+    "no_answer_expected": false,
+    "expected_chunks": [
+      10,
+      11
+    ],
+    "answer_keywords": [
+      "overtime"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 7,
+        "page": 1,
+        "content": "Rupees), payable on the last working day of each month. The Employee is also eligible"
+      },
+      {
+        "chunk_idx": 15,
+        "page": 1,
+        "content": "notice to the other party. The Company reserves the right to pay salary in lieu of\nnotice and ask the Employee to leave immediately.\n7. TERMINATION"
+      },
+      {
+        "chunk_idx": 10,
+        "page": 1,
+        "content": "one-hour lunch break. The Employee may be required to work reasonable additional hours"
+      }
+    ],
+    "answer": "This information was not found in the contract."
+  },
+  {
+    "id": "annual_leave",
+    "question": "How much vacation do I get each year?",
+    "no_answer_expected": false,
+    "expected_chunks": [
+      12
+    ],
+    "answer_keywords": [
+      "18 days",
+      "18"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 12,
+        "page": 1,
+        "content": "- 18 days of Annual Leave\n  - 10 days of Sick Leave\n  - 3 days of Personal Leave\n  - Public holidays as declared by the Company"
+      },
+      {
+        "chunk_idx": 6,
+        "page": 1,
+        "content": "The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand"
+      },
+      {
+        "chunk_idx": 11,
+        "page": 1,
+        "content": "to meet business needs. Overtime is compensated as per Company policy.\n5. LEAVE POLICY\nThe Employee is entitled to the following paid leave per year:"
+      }
+    ],
+    "answer": "You are entitled to **18 days of annual (vacation) leave per year**."
+  },
+  {
+    "id": "sick_leave",
+    "question": "What's the deal with sick days?",
+    "no_answer_expected": false,
+    "expected_chunks": [
+      12
+    ],
+    "answer_keywords": [
+      "10 days",
+      "10"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 12,
+        "page": 1,
+        "content": "- 18 days of Annual Leave\n  - 10 days of Sick Leave\n  - 3 days of Personal Leave\n  - Public holidays as declared by the Company"
+      },
+      {
+        "chunk_idx": 14,
+        "page": 1,
+        "content": "6. NOTICE PERIOD\nEither party may terminate this Agreement by providing 30 (thirty) days written"
+      },
+      {
+        "chunk_idx": 7,
+        "page": 1,
+        "content": "Rupees), payable on the last working day of each month. The Employee is also eligible"
+      }
+    ],
+    "answer": "The contract provides for **10 days of Sick Leave**."
+  },
+  {
+    "id": "leave_approval",
+    "question": "Can I just take time off whenever I feel like it?",
+    "no_answer_expected": false,
+    "expected_chunks": [
+      13
+    ],
+    "answer_keywords": [
+      "approved",
+      "in advance"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 10,
+        "page": 1,
+        "content": "one-hour lunch break. The Employee may be required to work reasonable additional hours"
+      },
+      {
+        "chunk_idx": 12,
+        "page": 1,
+        "content": "- 18 days of Annual Leave\n  - 10 days of Sick Leave\n  - 3 days of Personal Leave\n  - Public holidays as declared by the Company"
+      },
+      {
+        "chunk_idx": 9,
+        "page": 1,
+        "content": "4. WORKING HOURS\nThe standard working hours are Monday to Friday, 9:00 AM to 6:00 PM, with a"
+      }
+    ],
+    "answer": "No. The contract specifies only 18 days of Annual Leave, 10 days of Sick Leave, 3 days of Personal Leave, and public holidays. Time off must be taken under those categories and in accordance with the company’s procedures."
+  },
+  {
+    "id": "notice_period",
+    "question": "If I want to quit, how much heads-up do I need to give?",
+    "no_answer_expected": false,
+    "expected_chunks": [
+      14
+    ],
+    "answer_keywords": [
+      "30",
+      "thirty"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 10,
+        "page": 1,
+        "content": "one-hour lunch break. The Employee may be required to work reasonable additional hours"
+      },
+      {
+        "chunk_idx": 12,
+        "page": 1,
+        "content": "- 18 days of Annual Leave\n  - 10 days of Sick Leave\n  - 3 days of Personal Leave\n  - Public holidays as declared by the Company"
+      },
+      {
+        "chunk_idx": 6,
+        "page": 1,
+        "content": "The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand"
+      }
+    ],
+    "answer": "This information was not found in the contract."
+  },
+  {
+    "id": "pay_in_lieu",
+    "question": "Could they just pay me off instead of letting me work my notice?",
+    "no_answer_expected": false,
+    "expected_chunks": [
+      15
+    ],
+    "answer_keywords": [
+      "in lieu of notice",
+      "lieu of notice"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 15,
+        "page": 1,
+        "content": "notice to the other party. The Company reserves the right to pay salary in lieu of\nnotice and ask the Employee to leave immediately.\n7. TERMINATION"
+      },
+      {
+        "chunk_idx": 16,
+        "page": 1,
+        "content": "7. TERMINATION\nThe Company may terminate this Agreement immediately and without notice for:\nPage 1"
+      },
+      {
+        "chunk_idx": 14,
+        "page": 1,
+        "content": "6. NOTICE PERIOD\nEither party may terminate this Agreement by providing 30 (thirty) days written"
+      }
+    ],
+    "answer": "Yes. The contract states that the Company reserves the right to pay salary in lieu of notice and ask the Employee to leave immediately."
+  },
+  {
+    "id": "immediate_termination_fraud",
+    "question": "What happens if I get caught stealing from the company?",
+    "no_answer_expected": false,
+    "expected_chunks": [
+      16,
+      17
+    ],
+    "answer_keywords": [
+      "theft",
+      "fraud"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 17,
+        "page": 2,
+        "content": "TechCorp Pvt. Ltd. - Confidential\n  - Gross misconduct or negligence\n  - Persistent underperformance\n  - Theft, fraud, or dishonesty"
+      },
+      {
+        "chunk_idx": 18,
+        "page": 2,
+        "content": "- Serious or repeated breach of Company policies\n  - Willful breach of confidentiality\n8. CONFIDENTIALITY"
+      },
+      {
+        "chunk_idx": 26,
+        "page": 2,
+        "content": "course of employment shall be the sole and exclusive property of the Company."
+      }
+    ],
+    "answer": "It is classified as gross misconduct or negligence."
+  },
+  {
+    "id": "confidentiality_dismissal",
+    "question": "Could breaking a confidentiality rule get me fired on the spot?",
+    "no_answer_expected": false,
+    "expected_chunks": [
+      18
+    ],
+    "answer_keywords": [
+      "willful breach of confidentiality",
+      "breach of confidentiality"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 18,
+        "page": 2,
+        "content": "- Serious or repeated breach of Company policies\n  - Willful breach of confidentiality\n8. CONFIDENTIALITY"
+      },
+      {
+        "chunk_idx": 19,
+        "page": 2,
+        "content": "8. CONFIDENTIALITY\nThe Employee agrees to keep all Confidential Information strictly private, both"
+      },
+      {
+        "chunk_idx": 20,
+        "page": 2,
+        "content": "during and after employment. Confidential Information includes but is not limited to:"
+      }
+    ],
+    "answer": "This information was not found in the contract."
+  },
+  {
+    "id": "confidentiality_after",
+    "question": "After I resign, can I still be sued for leaking client info?",
+    "no_answer_expected": false,
+    "expected_chunks": [
+      19,
+      20,
+      21
+    ],
+    "answer_keywords": [
+      "after employment"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 21,
+        "page": 2,
+        "content": "business plans, client lists, financial data, technical documentation, and trade secrets.\nUnauthorized disclosure may result in legal action."
+      },
+      {
+        "chunk_idx": 20,
+        "page": 2,
+        "content": "during and after employment. Confidential Information includes but is not limited to:"
+      },
+      {
+        "chunk_idx": 19,
+        "page": 2,
+        "content": "8. CONFIDENTIALITY\nThe Employee agrees to keep all Confidential Information strictly private, both"
+      }
+    ],
+    "answer": "Yes. The confidentiality clause applies “during and after employment,” so you can still be sued for leaking client information after resigning."
+  },
+  {
+    "id": "confidential_info_scope",
+    "question": "What counts as secret information I'm not allowed to share?",
+    "no_answer_expected": false,
+    "expected_chunks": [
+      20,
+      21
+    ],
+    "answer_keywords": [
+      "business plans",
+      "client lists",
+      "trade secrets"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 19,
+        "page": 2,
+        "content": "8. CONFIDENTIALITY\nThe Employee agrees to keep all Confidential Information strictly private, both"
+      },
+      {
+        "chunk_idx": 20,
+        "page": 2,
+        "content": "during and after employment. Confidential Information includes but is not limited to:"
+      },
+      {
+        "chunk_idx": 21,
+        "page": 2,
+        "content": "business plans, client lists, financial data, technical documentation, and trade secrets.\nUnauthorized disclosure may result in legal action."
+      }
+    ],
+    "answer": "Secret information you cannot share includes:\n\n- Business plans  \n- Client lists  \n- Financial data  \n- Technical documentation  \n- Trade secrets  \n\nThese are covered under the confidentiality clause and must remain private during and after your employment."
+  },
+  {
+    "id": "noncompete_duration",
+    "question": "If I leave, how soon can I go work for a competitor?",
+    "no_answer_expected": false,
+    "expected_chunks": [
+      22
+    ],
+    "answer_keywords": [
+      "6",
+      "six months"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 22,
+        "page": 2,
+        "content": "9. NON-COMPETE CLAUSE\nDuring the term of employment and for a period of 6 (six) months following"
+      },
+      {
+        "chunk_idx": 12,
+        "page": 1,
+        "content": "- 18 days of Annual Leave\n  - 10 days of Sick Leave\n  - 3 days of Personal Leave\n  - Public holidays as declared by the Company"
+      },
+      {
+        "chunk_idx": 13,
+        "page": 1,
+        "content": "Leave must be applied for in advance and approved by the Employee's manager.\n6. NOTICE PERIOD"
+      }
+    ],
+    "answer": "After 6 months following the end of your employment."
+  },
+  {
+    "id": "noncompete_consulting",
+    "question": "Am I allowed to freelance for a rival firm right after I resign?",
+    "no_answer_expected": false,
+    "expected_chunks": [
+      22,
+      23
+    ],
+    "answer_keywords": [
+      "consult",
+      "competitor"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 15,
+        "page": 1,
+        "content": "notice to the other party. The Company reserves the right to pay salary in lieu of\nnotice and ask the Employee to leave immediately.\n7. TERMINATION"
+      },
+      {
+        "chunk_idx": 23,
+        "page": 2,
+        "content": "termination, the Employee agrees not to directly or indirectly work for, consult with,"
+      },
+      {
+        "chunk_idx": 22,
+        "page": 2,
+        "content": "9. NON-COMPETE CLAUSE\nDuring the term of employment and for a period of 6 (six) months following"
+      }
+    ],
+    "answer": "No. The contract’s termination clause requires the employee not to work for or consult with a rival, and the non‑compete clause extends that restriction for six months after resignation."
+  },
+  {
+    "id": "ip_ownership",
+    "question": "Does the company own an app I build on the job?",
+    "no_answer_expected": false,
+    "expected_chunks": [
+      25,
+      26
+    ],
+    "answer_keywords": [
+      "sole and exclusive property",
+      "Company"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 26,
+        "page": 2,
+        "content": "course of employment shall be the sole and exclusive property of the Company."
+      },
+      {
+        "chunk_idx": 25,
+        "page": 2,
+        "content": "All inventions, software, designs, and other work created by the Employee in the"
+      },
+      {
+        "chunk_idx": 1,
+        "page": 1,
+        "content": "This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024,\nbetween TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\")."
+      }
+    ],
+    "answer": "Yes. The agreement states that all inventions, software, designs, and other work created by the Employee in the course of employment are the sole and exclusive property of the Company."
+  },
+  {
+    "id": "ip_assignment",
+    "question": "If asked, do I have to formally hand over my IP rights?",
+    "no_answer_expected": false,
+    "expected_chunks": [
+      27
+    ],
+    "answer_keywords": [
+      "assign"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 27,
+        "page": 2,
+        "content": "The Employee agrees to assign all such rights to the Company upon request.\n11. GOVERNING LAW"
+      },
+      {
+        "chunk_idx": 16,
+        "page": 1,
+        "content": "7. TERMINATION\nThe Company may terminate this Agreement immediately and without notice for:\nPage 1"
+      },
+      {
+        "chunk_idx": 24,
+        "page": 2,
+        "content": "or hold ownership interest in any direct competitor of the Company operating in the\nsame geographic region.\n10. INTELLECTUAL PROPERTY"
+      }
+    ],
+    "answer": "Yes. The Employee agrees to assign all such rights to the Company upon request."
+  },
+  {
+    "id": "jurisdiction",
+    "question": "If we end up in a legal fight, which city's courts handle it?",
+    "no_answer_expected": false,
+    "expected_chunks": [
+      29
+    ],
+    "answer_keywords": [
+      "Bengaluru",
+      "Karnataka"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 29,
+        "page": 2,
+        "content": "India. Any disputes arising under this Agreement shall be subject to the exclusive\njurisdiction of the courts in Bengaluru, Karnataka.\nSIGNATURES"
+      },
+      {
+        "chunk_idx": 28,
+        "page": 2,
+        "content": "11. GOVERNING LAW\nThis Agreement shall be governed by and construed in accordance with the laws of"
+      },
+      {
+        "chunk_idx": 23,
+        "page": 2,
+        "content": "termination, the Employee agrees not to directly or indirectly work for, consult with,"
+      }
+    ],
+    "answer": "Bengaluru, Karnataka."
+  },
+  {
+    "id": "maternity_leave",
+    "question": "Does this contract mention maternity or paternity leave?",
+    "no_answer_expected": true,
+    "expected_chunks": [],
+    "answer_keywords": [
+      "not found"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 16,
+        "page": 1,
+        "content": "7. TERMINATION\nThe Company may terminate this Agreement immediately and without notice for:\nPage 1"
+      },
+      {
+        "chunk_idx": 13,
+        "page": 1,
+        "content": "Leave must be applied for in advance and approved by the Employee's manager.\n6. NOTICE PERIOD"
+      },
+      {
+        "chunk_idx": 23,
+        "page": 2,
+        "content": "termination, the Employee agrees not to directly or indirectly work for, consult with,"
+      }
+    ],
+    "answer": "This information was not found in the contract."
+  },
+  {
+    "id": "probation",
+    "question": "Is there a probation period mentioned anywhere?",
+    "no_answer_expected": true,
+    "expected_chunks": [],
+    "answer_keywords": [
+      "not found"
+    ],
+    "retrieved": [
+      {
+        "chunk_idx": 22,
+        "page": 2,
+        "content": "9. NON-COMPETE CLAUSE\nDuring the term of employment and for a period of 6 (six) months following"
+      },
+      {
+        "chunk_idx": 14,
+        "page": 1,
+        "content": "6. NOTICE PERIOD\nEither party may terminate this Agreement by providing 30 (thirty) days written"
+      },
+      {
+        "chunk_idx": 20,
+        "page": 2,
+        "content": "during and after employment. Confidential Information includes but is not limited to:"
+      }
+    ],
+    "answer": "This information was not found in the contract."
+  }
+]
