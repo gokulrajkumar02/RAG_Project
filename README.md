@@ -13,7 +13,7 @@ no guessing or hallucinating.
 ```
 Upload PDF ──► Extract Text ──► Split Chunks ──► Embed ──► FAISS
                                                               │
-                          Question ──► Embed ──► Search FAISS ──► LLM ──► Answer + Source
+        Question ──► Search FAISS (top 10) ──► Rerank (top 3) ──► LLM ──► Answer + Source
 ```
 
 ### Example
@@ -32,14 +32,15 @@ It also shows **which part of the contract** was used to generate the answer.
 
 ## 🛠️ Tech Stack
 
-| Component       | Technology               |
-|-----------------|--------------------------|
-| UI              | Streamlit                |
-| LLM             | OpenAI GPT-3.5-Turbo     |
-| Embeddings      | OpenAI Embeddings        |
-| Vector Database | FAISS (local)            |
-| PDF Loader      | PyPDF via LangChain      |
-| RAG Framework   | LangChain                |
+| Component       | Technology                              |
+|-----------------|------------------------------------------|
+| UI              | Streamlit                                |
+| LLM             | Groq (`openai/gpt-oss-20b`, free tier)   |
+| Embeddings      | HuggingFace `all-MiniLM-L6-v2` (local)   |
+| Vector Database | FAISS (local)                            |
+| Reranker        | Cross-encoder `ms-marco-MiniLM-L-6-v2`   |
+| PDF Loader      | PyPDF via LangChain                      |
+| RAG Framework   | LangChain                                |
 
 ---
 
@@ -47,13 +48,23 @@ It also shows **which part of the contract** was used to generate the answer.
 
 ```
 legal-contract-rag/
-├── app.py                 ← Main Streamlit app (the whole RAG system)
+├── app.py                 ← Streamlit UI (upload, ask, show sources)
+├── rag_core.py             ← Shared chunking / retrieval / generation logic
 ├── requirements.txt       ← Python packages to install
 ├── .env.example           ← Template for your API key
 ├── create_sample_pdf.py   ← Script to generate a test PDF contract
 ├── README.md              ← This file
-└── data/
-    └── sample_contract.txt  ← Sample contract (reference text)
+├── data/
+│   └── sample_contract.txt  ← Sample contract (reference text)
+├── eval/                  ← Week 4 — retrieval debugging & evaluation
+│   ├── questions.py         ← Labeled test questions (expected chunks + keywords)
+│   ├── retrieval_eval.py    ← Runs baseline vs. reranked retrieval, computes hit-rate@3
+│   └── results.md            ← Generated report (inspection view + before/after numbers)
+└── error_analysis/       ← Week 5 — error analysis (reading traces, ranked taxonomy)
+    ├── collect_traces.py    ← Runs the real app pipeline + Groq LLM, saves full traces
+    ├── traces.md             ← 24 real question → context → answer traces, read by hand
+    ├── open_coding_notes.md  ← Honest per-trace failure notes, written before grouping
+    └── error_taxonomy.md     ← Named, ranked problem groups + chosen fix target
 ```
 
 ---
@@ -91,11 +102,11 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-This installs Streamlit, LangChain, FAISS, OpenAI, and everything else.
+This installs Streamlit, LangChain, FAISS, sentence-transformers, and everything else.
 
 ---
 
-### Step 4 — Add Your OpenAI API Key
+### Step 4 — Add Your Groq API Key (free)
 
 **Option A** — Create a `.env` file:
 ```bash
@@ -103,12 +114,15 @@ This installs Streamlit, LangChain, FAISS, OpenAI, and everything else.
 cp .env.example .env
 
 # Open .env and replace the placeholder with your real key:
-OPENAI_API_KEY=sk-your-actual-key-here
+GROQ_API_KEY=gsk-your-actual-key-here
 ```
 
 **Option B** — Just type it in the app's sidebar when it opens.
 
-> Get a key at: https://platform.openai.com/api-keys
+> Get a free key at: https://console.groq.com
+
+Embeddings and reranking run **locally** and don't need this key at all —
+it's only used for the final answer-generation call.
 
 ---
 
@@ -165,18 +179,28 @@ The last one is important — a good RAG system says "not found" instead of maki
 | Step | What Happens | Why It Matters |
 |------|-------------|---------------|
 | PDF Loading | Text extracted from PDF pages | Makes document readable by code |
-| Chunking (500 chars) | Contract split into small pieces | LLM token limits; retrieval works better on small chunks |
+| Chunking (150 chars) | Contract split into small, per-clause pieces | Fine enough that retrieval has to genuinely pick the right clause |
 | Embeddings | Each chunk → vector of numbers | Enables semantic (meaning-based) search |
 | FAISS | Stores and indexes all vectors | Super fast nearest-neighbour search |
-| Retrieval (k=3) | 3 chunks most similar to question | Gives LLM relevant context, not the whole doc |
-| Generation | LLM reads chunks → writes answer | Grounds the answer in real contract data |
+| Retrieval (top 10) | 10 chunks most similar to question | Casts a wide net before narrowing down |
+| Reranking (cross-encoder) | Re-scores those 10 chunks against the question, keeps top 3 | Catches cases where embedding similarity alone picks the wrong clause |
+| Generation | LLM reads the top 3 chunks → writes answer | Grounds the answer in real contract data |
+
+See [`eval/`](eval/) for the Week 4 retrieval-debugging exercise: labeled
+failure cases, a before/after hit-rate@3 measurement of the reranking
+step above, and an inspection view showing question → fetched chunks →
+answer side by side.
+
+See [`error_analysis/`](error_analysis/) for the Week 5 error-analysis
+exercise: 24 real end-to-end traces read by hand, honest failure notes
+written before any category existed, grouped into a named, ranked
+taxonomy, with one chosen fix target and a written prediction.
 
 ---
 
 ## ⚠️ Notes
 
-- The OpenAI API costs a tiny amount per question (usually less than $0.01)
-- Never commit your `.env` file to GitHub — keep your API key private
+- The Groq API is free, but never commit your `.env` file to GitHub — keep your API key private
 - The app resets if you refresh the page — re-upload the contract to continue
 
 ---
@@ -185,7 +209,7 @@ The last one is important — a good RAG system says "not found" instead of maki
 
 | Error | Fix |
 |-------|-----|
-| `AuthenticationError` | Check your OpenAI API key |
+| `AuthenticationError` | Check your Groq API key |
 | `ModuleNotFoundError` | Run `pip install -r requirements.txt` again |
 | `PDFSyntaxError` | Try a different or simpler PDF |
-| App is slow on first question | Normal — embeddings take a moment |
+| App is slow on first question | Normal — embedding/reranker models download once, then run locally |
