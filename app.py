@@ -15,7 +15,7 @@ st.set_page_config(
 st.title("⚖️ Legal Contract Assistant")
 st.caption("Upload a legal contract PDF — ask questions — get answers with source citations.")
 
-for key in ["vector_store", "contract_name"]:
+for key in ["index", "contract_name"]:
     if key not in st.session_state:
         st.session_state[key] = None
 
@@ -34,13 +34,13 @@ with st.sidebar:
     st.markdown("""
 **Phase 1 — Ingestion (Upload)**
 1. 📄 Load PDF → extract text
-2. ✂️  Split into 500-char chunks
+2. ✂️  Split into 150-char chunks
 3. 🔢 Embed chunks → vectors (local)
 4. 🗃️  Store vectors in FAISS
 
 **Phase 2 — Q&A (Ask)**
 5. ❓ Embed your question (local)
-6. 🔍 Find similar chunks in FAISS
+6. 🔍 FAISS finds top 10 candidates → cross-encoder reranks to the best 3
 7. 🤖 Groq LLM reads chunks → Answer
     """)
 
@@ -57,35 +57,18 @@ def process_contract(uploaded_file):
     PDF → Text Extraction → Chunking → HuggingFace Embeddings → FAISS
     NOTE: Embeddings run locally — no API key needed for this step!
     """
-    from langchain_community.document_loaders import PyPDFLoader
-    from langchain_text_splitters import RecursiveCharacterTextSplitter
-    from langchain_community.embeddings import HuggingFaceEmbeddings
-    from langchain_community.vectorstores import FAISS
+    from rag_core import load_pdf_chunks, ContractIndex
 
-  
     with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp:
         tmp.write(uploaded_file.getvalue())
         tmp_path = tmp.name
 
-    loader = PyPDFLoader(tmp_path)
-    documents = loader.load()
+    chunks = load_pdf_chunks(tmp_path)
     os.unlink(tmp_path)
 
-    splitter = RecursiveCharacterTextSplitter(
-        chunk_size=500,
-        chunk_overlap=50,
-    )
-    chunks = splitter.split_documents(documents)
+    index = ContractIndex(chunks)
 
-
-    embeddings = HuggingFaceEmbeddings(
-        model_name="all-MiniLM-L6-v2"
-    )
-
-  
-    vector_store = FAISS.from_documents(chunks, embeddings)
-
-    return vector_store, len(chunks)
+    return index, len(chunks)
 
 
 st.header("📄 Step 1 — Upload Contract")
@@ -99,58 +82,29 @@ if uploaded:
     if process_btn:
         with st.spinner("⏳ Processing contract... (first run may take a minute to download the embedding model)"):
             try:
-                vs, num_chunks = process_contract(uploaded)
-                st.session_state.vector_store  = vs
+                index, num_chunks = process_contract(uploaded)
+                st.session_state.index = index
                 st.session_state.contract_name = uploaded.name
                 st.success(
-                    f"✅ Done! Contract split into **{num_chunks} chunks** and stored in FAISS."
+                    f"✅ Done! Contract split into **{num_chunks} chunks** and indexed in FAISS."
                 )
             except Exception as e:
                 st.error(f"❌ Error while processing: {e}")
 
-def get_answer(question, vector_store, api_key):
+def get_answer(question, index, api_key):
     """
     Retrieval + Generation Pipeline:
-    Question → Embed (local) → FAISS Search → Groq LLM → Answer
+    Question → FAISS Search (top 10) → Cross-Encoder Rerank (top 3) → Groq LLM → Answer
     """
-    from langchain_community.embeddings import HuggingFaceEmbeddings
-    from langchain_groq import ChatGroq
-    from langchain_core.prompts import ChatPromptTemplate
-    from langchain_core.output_parsers import StrOutputParser
+    from rag_core import generate_answer
 
-   
-    retriever = vector_store.as_retriever(search_kwargs={"k": 3})
-    source_docs = retriever.invoke(question)
-
-    context = "\n\n---\n\n".join(doc.page_content for doc in source_docs)
-
-   
-    prompt = ChatPromptTemplate.from_template("""You are a legal contract assistant.
-Answer the question using ONLY the contract context provided below.
-If the answer is not in the context, respond with:
-"This information was not found in the contract."
-Be clear and concise.
-
-Contract Context:
-{context}
-
-Question: {question}
-
-Answer:""")
-
-    llm = ChatGroq(
-        groq_api_key=api_key,
-        model_name="openai/gpt-oss-20b",
-        temperature=0
-    )
-
-    chain = prompt | llm | StrOutputParser()
-    answer = chain.invoke({"context": context, "question": question})
+    source_docs = index.search_reranked(question, k=3, pool=10)
+    answer = generate_answer(question, source_docs, api_key)
 
     return answer, source_docs
 
 
-if st.session_state.vector_store:
+if st.session_state.index:
     st.markdown("---")
     st.header("❓ Step 2 — Ask a Question")
     st.markdown(f"*Contract loaded: **{st.session_state.contract_name}***")
@@ -184,7 +138,7 @@ if st.session_state.vector_store:
             try:
                 answer, sources = get_answer(
                     question,
-                    st.session_state.vector_store,
+                    st.session_state.index,
                     api_key
                 )
 
