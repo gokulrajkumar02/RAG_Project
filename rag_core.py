@@ -70,6 +70,34 @@ class ContractIndex:
         ranked = sorted(zip(candidates, scores), key=lambda pair: pair[1], reverse=True)
         return [doc for doc, _score in ranked[:k]]
 
+    def expand_with_neighbors(self, docs):
+        """
+        Stitch each retrieved chunk's immediate predecessor (chunk_idx - 1)
+        into the context, deduplicated, each neighbor placed right before
+        the chunk it precedes.
+
+        Week 5 error analysis (error_analysis/error_taxonomy.md, Group 1 —
+        "over-cautious refusal on split clauses") found that a clause's
+        connecting verb, a number's second half, or a causal header
+        sometimes lands in the chunk immediately before the one retrieval
+        picks (150-char chunks cut mid-sentence). The model then refuses to
+        infer across a boundary it never got to see, and answers "not found"
+        for a fact that's sitting right there in the contract. This doesn't
+        change what retrieval picks — search_reranked's output is still what
+        gets shown to the user as the cited sources — it only changes what
+        the LLM sees when generating the answer.
+        """
+        seen = {doc.metadata["chunk_idx"] for doc in docs}
+        expanded = []
+        for doc in docs:
+            idx = doc.metadata["chunk_idx"]
+            neighbor_idx = idx - 1
+            if neighbor_idx >= 0 and neighbor_idx not in seen:
+                expanded.append(self.chunks[neighbor_idx])
+                seen.add(neighbor_idx)
+            expanded.append(doc)
+        return expanded
+
 
 ANSWER_PROMPT = """You are a legal contract assistant.
 Answer the question using ONLY the contract context provided below.

@@ -94,12 +94,18 @@ if uploaded:
 def get_answer(question, index, api_key):
     """
     Retrieval + Generation Pipeline:
-    Question → FAISS Search (top 10) → Cross-Encoder Rerank (top 3) → Groq LLM → Answer
+    Question → FAISS Search (top 10) → Cross-Encoder Rerank (top 3) →
+    stitch in each chunk's neighbor → Groq LLM → Answer
+
+    The neighbor stitch (Week 6 fix, see rag_core.ContractIndex.expand_with_neighbors)
+    only changes what context the LLM reads — the cited "Source" chunks
+    shown below are still exactly the top-3 reranked chunks.
     """
     from rag_core import generate_answer
 
     source_docs = index.search_reranked(question, k=3, pool=10)
-    answer = generate_answer(question, source_docs, api_key)
+    context_docs = index.expand_with_neighbors(source_docs)
+    answer = generate_answer(question, context_docs, api_key)
 
     return answer, source_docs
 

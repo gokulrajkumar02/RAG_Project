@@ -56,10 +56,16 @@ legal-contract-rag/
 ├── README.md              ← This file
 ├── data/
 │   └── sample_contract.txt  ← Sample contract (reference text)
-├── eval/                  ← Week 4 — retrieval debugging & evaluation
-│   ├── questions.py         ← Labeled test questions (expected chunks + keywords)
-│   ├── retrieval_eval.py    ← Runs baseline vs. reranked retrieval, computes hit-rate@3
-│   └── results.md            ← Generated report (inspection view + before/after numbers)
+├── eval/                  ← Week 4 & 6 — retrieval debugging & evals
+│   ├── questions.py         ← Labeled test set (chunks + keywords + Week 5 problem_type/human_verdict)
+│   ├── retrieval_eval.py    ← Week 4: baseline vs. reranked retrieval, hit-rate@3
+│   ├── results.md            ← Week 4: generated report
+│   ├── judge.py              ← Week 6: LLM-as-judge (binary PASS/FAIL, groundedness)
+│   ├── validate_judge.py     ← Week 6: judge vs. human-verdict agreement check
+│   ├── judge_validation.md   ← Week 6: generated report
+│   ├── run_evals.py          ← Week 6: one-command eval — validates judge, then
+│   │                            before/after score per problem type (neighbor-stitch fix)
+│   └── eval_report.md        ← Week 6: generated report
 └── error_analysis/       ← Week 5 — error analysis (reading traces, ranked taxonomy)
     ├── collect_traces.py    ← Runs the real app pipeline + Groq LLM, saves full traces
     ├── traces.md             ← 24 real question → context → answer traces, read by hand
@@ -195,6 +201,14 @@ See [`error_analysis/`](error_analysis/) for the Week 5 error-analysis
 exercise: 24 real end-to-end traces read by hand, honest failure notes
 written before any category existed, grouped into a named, ranked
 taxonomy, with one chosen fix target and a written prediction.
+
+See [`eval/`](eval/) for the Week 6 evals exercise: the Week 5 fix
+prediction (stitch each retrieved chunk's neighbor into the context —
+now live in `rag_core.ContractIndex.expand_with_neighbors` and `app.py`)
+implemented and measured with a one-command harness (`eval/run_evals.py`)
+— free rule checks, an LLM judge validated against the Week 5 human
+labels before being trusted, and a before/after pass rate per problem
+type.
 
 ---
 
