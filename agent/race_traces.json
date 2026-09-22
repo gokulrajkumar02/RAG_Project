@@ -1,0 +1,1857 @@
+[
+  {
+    "id": "parties",
+    "problem_type": "baseline_pass",
+    "question": "Which company and individual signed this contract?",
+    "fixed": {
+      "answer": "TechCorp\u202fPvt.\u202fLtd. and John\u202fSmith.",
+      "chunk_ids": [
+        1,
+        30,
+        0
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 2.456984281539917,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "Which company and individual signed this contract?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [1, 30, 0]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "TechCorp\u202fPvt.\u202fLtd. and John\u202fSmith."
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    },
+    "agent": {
+      "answer": "The contract is signed by TechCorp Pvt. Ltd. (the Company) and John Smith (the Employee).",
+      "chunk_ids": [
+        1,
+        30
+      ],
+      "llm_calls": 3,
+      "tool_calls": 1,
+      "elapsed": 3.8846797943115234,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "",
+          "tool": "",
+          "args": {},
+          "parse_error": "",
+          "result": "Unknown tool ''. Available tools: search_contract, list_section_headings, final_answer."
+        },
+        {
+          "step": 2,
+          "thought": "Search for the signature clause to identify the company and individual who signed the contract",
+          "tool": "search_contract",
+          "args": {
+            "query": "signature",
+            "k": 5
+          },
+          "result": "[chunk 30] SIGNATURES\nCompany Representative: __________________   Date: ______________\n                      TechCorp Pvt. Ltd.\n\n[chunk 28] 11. GOVERNING LAW\nThis Agreement shall be governed by and construed in accordance with the laws of\n\n[chunk 29] India. Any disputes arising under this Agreement shall be subject to the exclusive\njurisdiction of the courts in Bengaluru, Karnataka.\nSIGNATURES\n\n[chunk 0] TechCorp Pvt. Ltd. - Confidential\nEMPLOYMENT AGREEMENT\nEmployment Agreement - TechCorp Pvt. Ltd.\n\n[chunk 1] This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024,\nbetween TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\").\n\n[chunk 25] All inventions, software, designs, and other work created by the Employee in the\n\n[chunk 26] course of employment shall be the sole and exclusive property of the Company.\n\n[chunk 13] Leave must be applied for in advance and approved by the Employee's manager.\n6. NOTICE PERIOD\n\n[chunk 14] 6. NOTICE PERIOD\nEither party may terminate this Agreement by providing 30 (thirty) days written"
+        },
+        {
+          "step": 3,
+          "thought": "Provide the answer using the clause that names the parties and the signature block.",
+          "tool": "final_answer",
+          "args": {
+            "answer": "The contract is signed by TechCorp Pvt. Ltd. (the Company) and John Smith (the Employee).",
+            "chunk_ids": [
+              1,
+              30
+            ]
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    }
+  },
+  {
+    "id": "job_role",
+    "problem_type": "baseline_pass",
+    "question": "What position is being filled by this hire?",
+    "fixed": {
+      "answer": "Software Engineer.",
+      "chunk_ids": [
+        2,
+        1,
+        26
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 1.0526344776153564,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "What position is being filled by this hire?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [2, 1, 26]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "Software Engineer."
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    },
+    "agent": {
+      "answer": "The hire is for the position of Software Engineer.",
+      "chunk_ids": [
+        2
+      ],
+      "llm_calls": 2,
+      "tool_calls": 1,
+      "elapsed": 2.5123937129974365,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "Search for the clause that states the job title/position being hired.",
+          "tool": "search_contract",
+          "args": {
+            "query": "position",
+            "k": 5
+          },
+          "result": "[chunk 1] This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024,\nbetween TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\").\n\n[chunk 2] 1. POSITION AND DUTIES\nThe Employee is hired as a Software Engineer. The Employee shall report to the\n\n[chunk 3] Engineering Manager and perform duties as reasonably assigned by the Company.\n2. EFFECTIVE DATE\n\n[chunk 25] All inventions, software, designs, and other work created by the Employee in the\n\n[chunk 26] course of employment shall be the sole and exclusive property of the Company.\n\n[chunk 30] SIGNATURES\nCompany Representative: __________________   Date: ______________\n                      TechCorp Pvt. Ltd.\n\n[chunk 31] Employee:             __________________   Date: ______________\n                      John Smith\nPage 2\n\n[chunk 0] TechCorp Pvt. Ltd. - Confidential\nEMPLOYMENT AGREEMENT\nEmployment Agreement - TechCorp Pvt. Ltd."
+        },
+        {
+          "step": 2,
+          "thought": "The search returned the clause stating the position; I can now answer.",
+          "tool": "final_answer",
+          "args": {
+            "answer": "The hire is for the position of Software Engineer.",
+            "chunk_ids": [
+              2
+            ]
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    }
+  },
+  {
+    "id": "reports_to",
+    "problem_type": "split_clause_refusal",
+    "question": "Who is my direct manager?",
+    "fixed": {
+      "answer": "Engineering Manager.",
+      "chunk_ids": [
+        3,
+        23,
+        31
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 1.1514883041381836,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "Who is my direct manager?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [3, 23, 31]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "Engineering Manager."
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    },
+    "agent": {
+      "answer": "Your direct manager is the Engineering Manager.",
+      "chunk_ids": [
+        2,
+        3
+      ],
+      "llm_calls": 3,
+      "tool_calls": 1,
+      "elapsed": 3.98148512840271,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "Search for clause mentioning direct manager to locate who is my manager.",
+          "tool": "search_contract",
+          "args": {
+            "query": "direct manager",
+            "k": 5
+          },
+          "result": "[chunk 2] 1. POSITION AND DUTIES\nThe Employee is hired as a Software Engineer. The Employee shall report to the\n\n[chunk 3] Engineering Manager and perform duties as reasonably assigned by the Company.\n2. EFFECTIVE DATE\n\n[chunk 22] 9. NON-COMPETE CLAUSE\nDuring the term of employment and for a period of 6 (six) months following\n\n[chunk 23] termination, the Employee agrees not to directly or indirectly work for, consult with,\n\n[chunk 30] SIGNATURES\nCompany Representative: __________________   Date: ______________\n                      TechCorp Pvt. Ltd.\n\n[chunk 31] Employee:             __________________   Date: ______________\n                      John Smith\nPage 2\n\n[chunk 25] All inventions, software, designs, and other work created by the Employee in the\n\n[chunk 26] course of employment shall be the sole and exclusive property of the Company.\n\n[chunk 7] Rupees), payable on the last working day of each month. The Employee is also eligible\n\n[chunk 8] for an annual performance bonus at the sole discretion of the Company.\n4. WORKING HOURS"
+        },
+        {
+          "step": 2,
+          "thought": "",
+          "tool": "",
+          "args": {},
+          "parse_error": "",
+          "result": "Unknown tool ''. Available tools: search_contract, list_section_headings, final_answer."
+        },
+        {
+          "step": 3,
+          "thought": "Provide the answer using the clause that states reporting line",
+          "tool": "final_answer",
+          "args": {
+            "answer": "Your direct manager is the Engineering Manager.",
+            "chunk_ids": [
+              2,
+              3
+            ]
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    }
+  },
+  {
+    "id": "effective_date",
+    "problem_type": "baseline_pass",
+    "question": "When does this employment officially begin?",
+    "fixed": {
+      "answer": "The employment officially begins on January\u202f1,\u202f2024.",
+      "chunk_ids": [
+        1,
+        4,
+        22
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 1.302058458328247,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "When does this employment officially begin?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [1, 4, 22]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "The employment officially begins on January\u202f1,\u202f2024."
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": false
+    },
+    "agent": {
+      "answer": "The employment officially begins on January 1, 2024.",
+      "chunk_ids": [
+        4
+      ],
+      "llm_calls": 2,
+      "tool_calls": 1,
+      "elapsed": 2.5831220149993896,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "Search for the clause that states the employment start date",
+          "tool": "search_contract",
+          "args": {
+            "query": "commencement date",
+            "k": 5
+          },
+          "result": "[chunk 4] 2. EFFECTIVE DATE\nThis Agreement commences on January 1, 2024, and continues until terminated by\n\n[chunk 0] TechCorp Pvt. Ltd. - Confidential\nEMPLOYMENT AGREEMENT\nEmployment Agreement - TechCorp Pvt. Ltd.\n\n[chunk 1] This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024,\nbetween TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\").\n\n[chunk 31] Employee:             __________________   Date: ______________\n                      John Smith\nPage 2\n\n[chunk 2] 1. POSITION AND DUTIES\nThe Employee is hired as a Software Engineer. The Employee shall report to the\n\n[chunk 3] Engineering Manager and perform duties as reasonably assigned by the Company.\n2. EFFECTIVE DATE\n\n[chunk 29] India. Any disputes arising under this Agreement shall be subject to the exclusive\njurisdiction of the courts in Bengaluru, Karnataka.\nSIGNATURES\n\n[chunk 30] SIGNATURES\nCompany Representative: __________________   Date: ______________\n                      TechCorp Pvt. Ltd."
+        },
+        {
+          "step": 2,
+          "thought": "The search already found the effective date clause indicating the start date, so I can answer directly.",
+          "tool": "final_answer",
+          "args": {
+            "answer": "The employment officially begins on January 1, 2024.",
+            "chunk_ids": [
+              4
+            ]
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    }
+  },
+  {
+    "id": "salary",
+    "problem_type": "split_clause_refusal",
+    "question": "What is my take-home pay every month?",
+    "fixed": {
+      "answer": "This information was not found in the contract.",
+      "chunk_ids": [
+        6,
+        7,
+        22
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 1.1548142433166504,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "What is my take-home pay every month?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [6, 7, 22]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "This information was not found in the contract."
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": false
+    },
+    "agent": {
+      "answer": "This information was not found in the contract.",
+      "chunk_ids": [],
+      "llm_calls": 6,
+      "tool_calls": 1,
+      "elapsed": 31.38614797592163,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "",
+          "tool": "",
+          "args": {},
+          "parse_error": "",
+          "result": "Unknown tool ''. Available tools: search_contract, list_section_headings, final_answer."
+        },
+        {
+          "step": 2,
+          "thought": "Search the contract for the clause that specifies monthly take\u2011home (net) pay.",
+          "tool": "search_contract",
+          "args": {
+            "query": "monthly net salary",
+            "k": 5
+          },
+          "result": "[chunk 6] The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand\n\n[chunk 7] Rupees), payable on the last working day of each month. The Employee is also eligible\n\n[chunk 4] 2. EFFECTIVE DATE\nThis Agreement commences on January 1, 2024, and continues until terminated by\n\n[chunk 5] either party in accordance with the terms of this Agreement.\n3. SALARY AND COMPENSATION\n\n[chunk 10] one-hour lunch break. The Employee may be required to work reasonable additional hours\n\n[chunk 11] to meet business needs. Overtime is compensated as per Company policy.\n5. LEAVE POLICY\nThe Employee is entitled to the following paid leave per year:\n\n[chunk 8] for an annual performance bonus at the sole discretion of the Company.\n4. WORKING HOURS"
+        },
+        {
+          "step": 3,
+          "thought": "",
+          "tool": "",
+          "args": {},
+          "parse_error": "The answer is: This information was not found in the contract.",
+          "result": "Unknown tool ''. Available tools: search_contract, list_section_headings, final_answer."
+        },
+        {
+          "step": 4,
+          "thought": "",
+          "tool": "",
+          "args": {},
+          "parse_error": "",
+          "result": "Unknown tool ''. Available tools: search_contract, list_section_headings, final_answer."
+        },
+        {
+          "step": 5,
+          "thought": "",
+          "tool": "",
+          "args": {},
+          "parse_error": "",
+          "result": "Unknown tool ''. Available tools: search_contract, list_section_headings, final_answer."
+        },
+        {
+          "step": 6,
+          "tool": "final_answer (forced by budget)",
+          "args": {},
+          "result": "This information was not found in the contract."
+        }
+      ],
+      "stopped_early": true,
+      "passed": false
+    }
+  },
+  {
+    "id": "bonus",
+    "problem_type": "baseline_pass",
+    "question": "Could I get extra pay for good performance?",
+    "fixed": {
+      "answer": "Yes. The contract provides for an annual performance bonus that is awarded at the sole discretion of the Company.",
+      "chunk_ids": [
+        8,
+        6,
+        7
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 1.1690800189971924,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "Could I get extra pay for good performance?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [8, 6, 7]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "Yes. The contract provides for an annual performance bonus that is awarded at the sole discretion of the Company."
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    },
+    "agent": {
+      "answer": "Yes, the contract provides for an annual performance bonus that may be awarded for good performance, but it is granted at the sole discretion of the Company.",
+      "chunk_ids": [
+        8
+      ],
+      "llm_calls": 2,
+      "tool_calls": 1,
+      "elapsed": 10.75009822845459,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "Search for clauses about performance-based extra pay or bonuses",
+          "tool": "search_contract",
+          "args": {
+            "query": "performance bonus",
+            "k": 5
+          },
+          "result": "[chunk 8] for an annual performance bonus at the sole discretion of the Company.\n4. WORKING HOURS\n\n[chunk 7] Rupees), payable on the last working day of each month. The Employee is also eligible\n\n[chunk 5] either party in accordance with the terms of this Agreement.\n3. SALARY AND COMPENSATION\n\n[chunk 6] The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand\n\n[chunk 30] SIGNATURES\nCompany Representative: __________________   Date: ______________\n                      TechCorp Pvt. Ltd.\n\n[chunk 31] Employee:             __________________   Date: ______________\n                      John Smith\nPage 2\n\n[chunk 2] 1. POSITION AND DUTIES\nThe Employee is hired as a Software Engineer. The Employee shall report to the\n\n[chunk 3] Engineering Manager and perform duties as reasonably assigned by the Company.\n2. EFFECTIVE DATE"
+        },
+        {
+          "step": 2,
+          "thought": "The search result includes a clause about an annual performance bonus at the company's discretion, which answers the question.",
+          "tool": "final_answer",
+          "args": {
+            "answer": "Yes, the contract provides for an annual performance bonus that may be awarded for good performance, but it is granted at the sole discretion of the Company.",
+            "chunk_ids": [
+              8
+            ]
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    }
+  },
+  {
+    "id": "working_hours",
+    "problem_type": "baseline_pass",
+    "question": "What time am I supposed to be at work, and when can I leave?",
+    "fixed": {
+      "answer": "You are expected to start work at **9:00\u202fAM** and finish at **6:00\u202fPM** (Monday to Friday). The schedule includes a one\u2011hour lunch break, but the start and end times remain 9:00\u202fAM to 6:00\u202fPM.",
+      "chunk_ids": [
+        9,
+        13,
+        10
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 1.1813652515411377,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "What time am I supposed to be at work, and when can I leave?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [9, 13, 10]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "You are expected to start work at **9:00\u202fAM** and finish at **6:00\u202fPM** (Monday to Friday). The schedule includes a one\u2011hour lunch break, but the start and end times remain 9:00\u202fAM to 6:00\u202fPM."
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": false
+    },
+    "agent": {
+      "answer": "You are expected to be at work from 9:00\u202fAM to 6:00\u202fPM, Monday\u2011Friday (the schedule includes a one\u2011hour lunch break).",
+      "chunk_ids": [
+        9,
+        10
+      ],
+      "llm_calls": 2,
+      "tool_calls": 1,
+      "elapsed": 10.293477773666382,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "Search for the clause that defines working hours or start/end times.",
+          "tool": "search_contract",
+          "args": {
+            "query": "working hours",
+            "k": 5
+          },
+          "result": "[chunk 9] 4. WORKING HOURS\nThe standard working hours are Monday to Friday, 9:00 AM to 6:00 PM, with a\n\n[chunk 8] for an annual performance bonus at the sole discretion of the Company.\n4. WORKING HOURS\n\n[chunk 10] one-hour lunch break. The Employee may be required to work reasonable additional hours\n\n[chunk 6] The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand\n\n[chunk 7] Rupees), payable on the last working day of each month. The Employee is also eligible\n\n[chunk 30] SIGNATURES\nCompany Representative: __________________   Date: ______________\n                      TechCorp Pvt. Ltd.\n\n[chunk 31] Employee:             __________________   Date: ______________\n                      John Smith\nPage 2"
+        },
+        {
+          "step": 2,
+          "thought": "Provide the answer using the working hours clause and lunch break info",
+          "tool": "final_answer",
+          "args": {
+            "answer": "You are expected to be at work from 9:00\u202fAM to 6:00\u202fPM, Monday\u2011Friday (the schedule includes a one\u2011hour lunch break).",
+            "chunk_ids": [
+              9,
+              10
+            ]
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": false
+    }
+  },
+  {
+    "id": "overtime",
+    "problem_type": "never_retrieved_false_notfound",
+    "question": "Do I get paid extra for staying late?",
+    "fixed": {
+      "answer": "This information was not found in the contract.",
+      "chunk_ids": [
+        7,
+        15,
+        10
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 1.4862816333770752,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "Do I get paid extra for staying late?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [7, 15, 10]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "This information was not found in the contract."
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": false
+    },
+    "agent": {
+      "answer": "Yes. The contract states that overtime is compensated according to the Company\u2019s policy.",
+      "chunk_ids": [
+        11
+      ],
+      "llm_calls": 2,
+      "tool_calls": 1,
+      "elapsed": 10.75509786605835,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "Search for overtime or extra compensation clauses to see if extra pay is provided for staying late.",
+          "tool": "search_contract",
+          "args": {
+            "query": "overtime pay",
+            "k": 5
+          },
+          "result": "[chunk 10] one-hour lunch break. The Employee may be required to work reasonable additional hours\n\n[chunk 11] to meet business needs. Overtime is compensated as per Company policy.\n5. LEAVE POLICY\nThe Employee is entitled to the following paid leave per year:\n\n[chunk 5] either party in accordance with the terms of this Agreement.\n3. SALARY AND COMPENSATION\n\n[chunk 6] The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand\n\n[chunk 7] Rupees), payable on the last working day of each month. The Employee is also eligible\n\n[chunk 8] for an annual performance bonus at the sole discretion of the Company.\n4. WORKING HOURS\n\n[chunk 14] 6. NOTICE PERIOD\nEither party may terminate this Agreement by providing 30 (thirty) days written\n\n[chunk 15] notice to the other party. The Company reserves the right to pay salary in lieu of\nnotice and ask the Employee to leave immediately.\n7. TERMINATION"
+        },
+        {
+          "step": 2,
+          "thought": "Provide answer based on overtime compensation clause",
+          "tool": "final_answer",
+          "args": {
+            "answer": "Yes. The contract states that overtime is compensated according to the Company\u2019s policy.",
+            "chunk_ids": [
+              11
+            ]
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    }
+  },
+  {
+    "id": "annual_leave",
+    "problem_type": "baseline_pass",
+    "question": "How much vacation do I get each year?",
+    "fixed": {
+      "answer": "You are entitled to **18 days of annual (vacation) leave per year**.",
+      "chunk_ids": [
+        12,
+        6,
+        11
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 0.9045772552490234,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "How much vacation do I get each year?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [12, 6, 11]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "You are entitled to **18 days of annual (vacation) leave per year**."
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    },
+    "agent": {
+      "answer": "You are entitled to 18 days of Annual Leave each year.",
+      "chunk_ids": [
+        12
+      ],
+      "llm_calls": 2,
+      "tool_calls": 1,
+      "elapsed": 11.355611324310303,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "Search for the clause that specifies annual vacation entitlement.",
+          "tool": "search_contract",
+          "args": {
+            "query": "vacation",
+            "k": 5
+          },
+          "result": "[chunk 11] to meet business needs. Overtime is compensated as per Company policy.\n5. LEAVE POLICY\nThe Employee is entitled to the following paid leave per year:\n\n[chunk 12] - 18 days of Annual Leave\n  - 10 days of Sick Leave\n  - 3 days of Personal Leave\n  - Public holidays as declared by the Company\n\n[chunk 6] The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand\n\n[chunk 7] Rupees), payable on the last working day of each month. The Employee is also eligible\n\n[chunk 13] Leave must be applied for in advance and approved by the Employee's manager.\n6. NOTICE PERIOD\n\n[chunk 14] 6. NOTICE PERIOD\nEither party may terminate this Agreement by providing 30 (thirty) days written\n\n[chunk 30] SIGNATURES\nCompany Representative: __________________   Date: ______________\n                      TechCorp Pvt. Ltd.\n\n[chunk 31] Employee:             __________________   Date: ______________\n                      John Smith\nPage 2\n\n[chunk 21] business plans, client lists, financial data, technical documentation, and trade secrets.\nUnauthorized disclosure may result in legal action.\n\n[chunk 22] 9. NON-COMPETE CLAUSE\nDuring the term of employment and for a period of 6 (six) months following"
+        },
+        {
+          "step": 2,
+          "thought": "The search returned the leave policy showing 18 days of Annual Leave per year, which answers the vacation question.",
+          "tool": "final_answer",
+          "args": {
+            "answer": "You are entitled to 18 days of Annual Leave each year.",
+            "chunk_ids": [
+              12
+            ]
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    }
+  },
+  {
+    "id": "sick_leave",
+    "problem_type": "baseline_pass",
+    "question": "What's the deal with sick days?",
+    "fixed": {
+      "answer": "The contract provides that the employee is entitled to **10 paid sick days per year**. These days must be requested in advance and approved by the employee\u2019s manager.",
+      "chunk_ids": [
+        12,
+        14,
+        7
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 1.183142900466919,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "What's the deal with sick days?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [12, 14, 7]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "The contract provides that the employee is entitled to **10 paid sick days per year**. These days must be requested in advance and approved by the employee\u2019s manager."
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": false
+    },
+    "agent": {
+      "answer": "The contract grants the employee 10 days of paid Sick Leave per year.",
+      "chunk_ids": [
+        12
+      ],
+      "llm_calls": 2,
+      "tool_calls": 1,
+      "elapsed": 12.22994613647461,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "Search for the clause on sick days to locate the relevant contract text.",
+          "tool": "search_contract",
+          "args": {
+            "query": "sick days",
+            "k": 5
+          },
+          "result": "[chunk 11] to meet business needs. Overtime is compensated as per Company policy.\n5. LEAVE POLICY\nThe Employee is entitled to the following paid leave per year:\n\n[chunk 12] - 18 days of Annual Leave\n  - 10 days of Sick Leave\n  - 3 days of Personal Leave\n  - Public holidays as declared by the Company\n\n[chunk 13] Leave must be applied for in advance and approved by the Employee's manager.\n6. NOTICE PERIOD\n\n[chunk 14] 6. NOTICE PERIOD\nEither party may terminate this Agreement by providing 30 (thirty) days written\n\n[chunk 8] for an annual performance bonus at the sole discretion of the Company.\n4. WORKING HOURS\n\n[chunk 9] 4. WORKING HOURS\nThe standard working hours are Monday to Friday, 9:00 AM to 6:00 PM, with a\n\n[chunk 6] The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand\n\n[chunk 7] Rupees), payable on the last working day of each month. The Employee is also eligible\n\n[chunk 30] SIGNATURES\nCompany Representative: __________________   Date: ______________\n                      TechCorp Pvt. Ltd.\n\n[chunk 31] Employee:             __________________   Date: ______________\n                      John Smith\nPage 2"
+        },
+        {
+          "step": 2,
+          "thought": "Provide the answer about sick days using the clause that lists sick leave entitlement.",
+          "tool": "final_answer",
+          "args": {
+            "answer": "The contract grants the employee 10 days of paid Sick Leave per year.",
+            "chunk_ids": [
+              12
+            ]
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": false
+    }
+  },
+  {
+    "id": "leave_approval",
+    "problem_type": "never_retrieved_lucky_pass",
+    "question": "Can I just take time off whenever I feel like it?",
+    "fixed": {
+      "answer": "This information was not found in the contract.",
+      "chunk_ids": [
+        10,
+        12,
+        9
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 1.4217383861541748,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "Can I just take time off whenever I feel like it?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [10, 12, 9]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "This information was not found in the contract."
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": false
+    },
+    "agent": {
+      "answer": "No. The contract requires you to apply for leave in advance and obtain your manager\u2019s approval; you are limited to the specified annual, sick, personal, and public holiday leave days.",
+      "chunk_ids": [
+        12,
+        13
+      ],
+      "llm_calls": 2,
+      "tool_calls": 1,
+      "elapsed": 8.661335706710815,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "Search for clauses about leave or time off to see if unrestricted time off is allowed.",
+          "tool": "search_contract",
+          "args": {
+            "query": "time off",
+            "k": 5
+          },
+          "result": "[chunk 8] for an annual performance bonus at the sole discretion of the Company.\n4. WORKING HOURS\n\n[chunk 9] 4. WORKING HOURS\nThe standard working hours are Monday to Friday, 9:00 AM to 6:00 PM, with a\n\n[chunk 11] to meet business needs. Overtime is compensated as per Company policy.\n5. LEAVE POLICY\nThe Employee is entitled to the following paid leave per year:\n\n[chunk 12] - 18 days of Annual Leave\n  - 10 days of Sick Leave\n  - 3 days of Personal Leave\n  - Public holidays as declared by the Company\n\n[chunk 10] one-hour lunch break. The Employee may be required to work reasonable additional hours\n\n[chunk 3] Engineering Manager and perform duties as reasonably assigned by the Company.\n2. EFFECTIVE DATE\n\n[chunk 4] 2. EFFECTIVE DATE\nThis Agreement commences on January 1, 2024, and continues until terminated by\n\n[chunk 13] Leave must be applied for in advance and approved by the Employee's manager.\n6. NOTICE PERIOD"
+        },
+        {
+          "step": 2,
+          "thought": "Provide answer based on leave policy clauses indicating need for advance request and manager approval.",
+          "tool": "final_answer",
+          "args": {
+            "answer": "No. The contract requires you to apply for leave in advance and obtain your manager\u2019s approval; you are limited to the specified annual, sick, personal, and public holiday leave days.",
+            "chunk_ids": [
+              12,
+              13
+            ]
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": false
+    }
+  },
+  {
+    "id": "notice_period",
+    "problem_type": "never_retrieved_false_notfound",
+    "question": "If I want to quit, how much heads-up do I need to give?",
+    "fixed": {
+      "answer": "This information was not found in the contract.",
+      "chunk_ids": [
+        10,
+        12,
+        6
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 1.2087855339050293,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "If I want to quit, how much heads-up do I need to give?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [10, 12, 6]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "This information was not found in the contract."
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": false
+    },
+    "agent": {
+      "answer": "You need to give 30 days written notice before quitting.",
+      "chunk_ids": [
+        14
+      ],
+      "llm_calls": 2,
+      "tool_calls": 1,
+      "elapsed": 13.366918087005615,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "Search for the clause about notice period for resignation",
+          "tool": "search_contract",
+          "args": {
+            "query": "notice period",
+            "k": 5
+          },
+          "result": "[chunk 14] 6. NOTICE PERIOD\nEither party may terminate this Agreement by providing 30 (thirty) days written\n\n[chunk 12] - 18 days of Annual Leave\n  - 10 days of Sick Leave\n  - 3 days of Personal Leave\n  - Public holidays as declared by the Company\n\n[chunk 13] Leave must be applied for in advance and approved by the Employee's manager.\n6. NOTICE PERIOD\n\n[chunk 15] notice to the other party. The Company reserves the right to pay salary in lieu of\nnotice and ask the Employee to leave immediately.\n7. TERMINATION\n\n[chunk 16] 7. TERMINATION\nThe Company may terminate this Agreement immediately and without notice for:\nPage 1\n\n[chunk 21] business plans, client lists, financial data, technical documentation, and trade secrets.\nUnauthorized disclosure may result in legal action.\n\n[chunk 22] 9. NON-COMPETE CLAUSE\nDuring the term of employment and for a period of 6 (six) months following"
+        },
+        {
+          "step": 2,
+          "thought": "Provide the notice period required for resignation based on the notice clause found.",
+          "tool": "final_answer",
+          "args": {
+            "answer": "You need to give 30 days written notice before quitting.",
+            "chunk_ids": [
+              14
+            ]
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    }
+  },
+  {
+    "id": "pay_in_lieu",
+    "problem_type": "baseline_pass",
+    "question": "Could they just pay me off instead of letting me work my notice?",
+    "fixed": {
+      "answer": "Yes. The contract states that the Company reserves the right to pay salary in lieu of notice and ask the Employee to leave immediately.",
+      "chunk_ids": [
+        15,
+        16,
+        14
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 1.1586430072784424,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "Could they just pay me off instead of letting me work my notice?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [15, 16, 14]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "Yes. The contract states that the Company reserves the right to pay salary in lieu of notice and ask the Employee to leave immediately."
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    },
+    "agent": {
+      "answer": "Yes. The contract states that the Company may pay salary in lieu of notice and require you to leave immediately, rather than having you work out the notice period.",
+      "chunk_ids": [
+        15
+      ],
+      "llm_calls": 2,
+      "tool_calls": 1,
+      "elapsed": 8.687171697616577,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "Search for clause about notice period and payment in lieu of notice to answer if employer can pay instead of requiring work.",
+          "tool": "search_contract",
+          "args": {
+            "query": "notice period payment in lieu",
+            "k": 5
+          },
+          "result": "[chunk 15] notice to the other party. The Company reserves the right to pay salary in lieu of\nnotice and ask the Employee to leave immediately.\n7. TERMINATION\n\n[chunk 14] 6. NOTICE PERIOD\nEither party may terminate this Agreement by providing 30 (thirty) days written\n\n[chunk 12] - 18 days of Annual Leave\n  - 10 days of Sick Leave\n  - 3 days of Personal Leave\n  - Public holidays as declared by the Company\n\n[chunk 13] Leave must be applied for in advance and approved by the Employee's manager.\n6. NOTICE PERIOD\n\n[chunk 16] 7. TERMINATION\nThe Company may terminate this Agreement immediately and without notice for:\nPage 1\n\n[chunk 3] Engineering Manager and perform duties as reasonably assigned by the Company.\n2. EFFECTIVE DATE\n\n[chunk 4] 2. EFFECTIVE DATE\nThis Agreement commences on January 1, 2024, and continues until terminated by"
+        },
+        {
+          "step": 2,
+          "thought": "I have found the clause allowing payment in lieu of notice, so I can answer the question.",
+          "tool": "final_answer",
+          "args": {
+            "answer": "Yes. The contract states that the Company may pay salary in lieu of notice and require you to leave immediately, rather than having you work out the notice period.",
+            "chunk_ids": [
+              15
+            ]
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    }
+  },
+  {
+    "id": "immediate_termination_fraud",
+    "problem_type": "wrong_item_selected",
+    "question": "What happens if I get caught stealing from the company?",
+    "fixed": {
+      "answer": "The company may terminate your agreement immediately and without notice if you are found to have stolen from the company.",
+      "chunk_ids": [
+        17,
+        18,
+        26
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 1.1757681369781494,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "What happens if I get caught stealing from the company?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [17, 18, 26]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "The company may terminate your agreement immediately and without notice if you are found to have stolen from the company."
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": false
+    },
+    "agent": {
+      "answer": "If you are found stealing from the company, the agreement allows the Company to terminate your employment immediately and without notice (theft is listed as a ground for immediate termination).",
+      "chunk_ids": [
+        16,
+        17
+      ],
+      "llm_calls": 3,
+      "tool_calls": 1,
+      "elapsed": 15.45239543914795,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "Search for clauses about theft or misconduct to find consequences.",
+          "tool": "search_contract",
+          "args": {
+            "query": "theft",
+            "k": 5
+          },
+          "result": "[chunk 16] 7. TERMINATION\nThe Company may terminate this Agreement immediately and without notice for:\nPage 1\n\n[chunk 17] TechCorp Pvt. Ltd. - Confidential\n  - Gross misconduct or negligence\n  - Persistent underperformance\n  - Theft, fraud, or dishonesty\n\n[chunk 20] during and after employment. Confidential Information includes but is not limited to:\n\n[chunk 21] business plans, client lists, financial data, technical documentation, and trade secrets.\nUnauthorized disclosure may result in legal action.\n\n[chunk 18] - Serious or repeated breach of Company policies\n  - Willful breach of confidentiality\n8. CONFIDENTIALITY\n\n[chunk 26] course of employment shall be the sole and exclusive property of the Company.\n\n[chunk 24] or hold ownership interest in any direct competitor of the Company operating in the\nsame geographic region.\n10. INTELLECTUAL PROPERTY\n\n[chunk 25] All inventions, software, designs, and other work created by the Employee in the"
+        },
+        {
+          "step": 2,
+          "thought": "",
+          "tool": "",
+          "args": {},
+          "parse_error": "",
+          "result": "Unknown tool ''. Available tools: search_contract, list_section_headings, final_answer."
+        },
+        {
+          "step": 3,
+          "thought": "Provide answer based on termination clause indicating immediate termination without notice for theft",
+          "tool": "final_answer",
+          "args": {
+            "answer": "If you are found stealing from the company, the agreement allows the Company to terminate your employment immediately and without notice (theft is listed as a ground for immediate termination).",
+            "chunk_ids": [
+              16,
+              17
+            ]
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    }
+  },
+  {
+    "id": "confidentiality_dismissal",
+    "problem_type": "split_clause_refusal",
+    "question": "Could breaking a confidentiality rule get me fired on the spot?",
+    "fixed": {
+      "answer": "Yes. A willful breach of confidentiality is listed as a serious or repeated breach of company policies, which can lead to immediate termination.",
+      "chunk_ids": [
+        18,
+        19,
+        20
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 2.584993600845337,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "Could breaking a confidentiality rule get me fired on the spot?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [18, 19, 20]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "Yes. A willful breach of confidentiality is listed as a serious or repeated breach of company policies, which can lead to immediate termination."
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": false
+    },
+    "agent": {
+      "answer": "Yes. The contract states that a willful breach of confidentiality is a serious violation that allows the Company to terminate your employment immediately, i.e., you can be fired on the spot.",
+      "chunk_ids": [
+        16,
+        18
+      ],
+      "llm_calls": 2,
+      "tool_calls": 1,
+      "elapsed": 11.546297073364258,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "Search for confidentiality clause and any termination consequences",
+          "tool": "search_contract",
+          "args": {
+            "query": "confidentiality breach termination",
+            "k": 5
+          },
+          "result": "[chunk 17] TechCorp Pvt. Ltd. - Confidential\n  - Gross misconduct or negligence\n  - Persistent underperformance\n  - Theft, fraud, or dishonesty\n\n[chunk 18] - Serious or repeated breach of Company policies\n  - Willful breach of confidentiality\n8. CONFIDENTIALITY\n\n[chunk 19] 8. CONFIDENTIALITY\nThe Employee agrees to keep all Confidential Information strictly private, both\n\n[chunk 22] 9. NON-COMPETE CLAUSE\nDuring the term of employment and for a period of 6 (six) months following\n\n[chunk 23] termination, the Employee agrees not to directly or indirectly work for, consult with,\n\n[chunk 20] during and after employment. Confidential Information includes but is not limited to:\n\n[chunk 15] notice to the other party. The Company reserves the right to pay salary in lieu of\nnotice and ask the Employee to leave immediately.\n7. TERMINATION\n\n[chunk 16] 7. TERMINATION\nThe Company may terminate this Agreement immediately and without notice for:\nPage 1"
+        },
+        {
+          "step": 2,
+          "thought": "Identify clause linking confidentiality breach to immediate termination and cite relevant chunks.",
+          "tool": "final_answer",
+          "args": {
+            "answer": "Yes. The contract states that a willful breach of confidentiality is a serious violation that allows the Company to terminate your employment immediately, i.e., you can be fired on the spot.",
+            "chunk_ids": [
+              16,
+              18
+            ]
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": false
+    }
+  },
+  {
+    "id": "confidentiality_after",
+    "problem_type": "baseline_pass",
+    "question": "After I resign, can I still be sued for leaking client info?",
+    "fixed": {
+      "answer": "Yes, you can still be sued for leaking client info after resigning.",
+      "chunk_ids": [
+        21,
+        20,
+        19
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 1.3024253845214844,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "After I resign, can I still be sued for leaking client info?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [21, 20, 19]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "Yes, you can still be sued for leaking client info after resigning."
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": false
+    },
+    "agent": {
+      "answer": "Yes. The confidentiality clause states that you must keep all Confidential Information private both during and after employment. A willful breach of confidentiality after you resign would constitute a breach of the agreement, and the company could pursue legal action against you for damages.",
+      "chunk_ids": [
+        19,
+        20
+      ],
+      "llm_calls": 2,
+      "tool_calls": 1,
+      "elapsed": 10.75843620300293,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "Search for confidentiality or post\u2011termination liability clauses to see if liability continues after resignation.",
+          "tool": "search_contract",
+          "args": {
+            "query": "confidentiality post termination client information",
+            "k": 5
+          },
+          "result": "[chunk 19] 8. CONFIDENTIALITY\nThe Employee agrees to keep all Confidential Information strictly private, both\n\n[chunk 20] during and after employment. Confidential Information includes but is not limited to:\n\n[chunk 17] TechCorp Pvt. Ltd. - Confidential\n  - Gross misconduct or negligence\n  - Persistent underperformance\n  - Theft, fraud, or dishonesty\n\n[chunk 18] - Serious or repeated breach of Company policies\n  - Willful breach of confidentiality\n8. CONFIDENTIALITY\n\n[chunk 22] 9. NON-COMPETE CLAUSE\nDuring the term of employment and for a period of 6 (six) months following\n\n[chunk 23] termination, the Employee agrees not to directly or indirectly work for, consult with,\n\n[chunk 15] notice to the other party. The Company reserves the right to pay salary in lieu of\nnotice and ask the Employee to leave immediately.\n7. TERMINATION\n\n[chunk 16] 7. TERMINATION\nThe Company may terminate this Agreement immediately and without notice for:\nPage 1"
+        },
+        {
+          "step": 2,
+          "thought": "Provide answer based on confidentiality clause indicating post\u2011termination obligations and potential legal action",
+          "tool": "final_answer",
+          "args": {
+            "answer": "Yes. The confidentiality clause states that you must keep all Confidential Information private both during and after employment. A willful breach of confidentiality after you resign would constitute a breach of the agreement, and the company could pursue legal action against you for damages.",
+            "chunk_ids": [
+              19,
+              20
+            ]
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    }
+  },
+  {
+    "id": "confidential_info_scope",
+    "problem_type": "baseline_pass",
+    "question": "What counts as secret information I'm not allowed to share?",
+    "fixed": {
+      "answer": "Secret information you cannot share includes:\n\n- Business plans  \n- Client lists  \n- Financial data  \n- Technical documentation  \n- Trade secrets  \n\n(Any other confidential information is also protected.)",
+      "chunk_ids": [
+        19,
+        20,
+        21
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 1.1545121669769287,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "What counts as secret information I'm not allowed to share?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [19, 20, 21]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "Secret information you cannot share includes:\n\n- Business plans  \n- Client lists  \n- Financial data  \n- Technical documentation  \n- Trade secrets  \n\n(Any other confidential information is also protected.)"
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    },
+    "agent": {
+      "answer": "Secret (confidential) information you may not share includes, but is not limited to:\n\n- Business plans  \n- Client lists  \n- Financial data  \n- Technical documentation  \n- Trade secrets  \n\nThese categories are defined in the contract\u2019s Confidentiality section.",
+      "chunk_ids": [],
+      "llm_calls": 6,
+      "tool_calls": 3,
+      "elapsed": 37.30340027809143,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "",
+          "tool": "",
+          "args": {},
+          "parse_error": "",
+          "result": "Unknown tool ''. Available tools: search_contract, list_section_headings, final_answer."
+        },
+        {
+          "step": 2,
+          "thought": "Search for the clause that defines what constitutes secret or confidential information in the employment contract.",
+          "tool": "search_contract",
+          "args": {
+            "query": "confidential information",
+            "k": 5
+          },
+          "result": "[chunk 20] during and after employment. Confidential Information includes but is not limited to:\n\n[chunk 19] 8. CONFIDENTIALITY\nThe Employee agrees to keep all Confidential Information strictly private, both\n\n[chunk 18] - Serious or repeated breach of Company policies\n  - Willful breach of confidentiality\n8. CONFIDENTIALITY\n\n[chunk 21] business plans, client lists, financial data, technical documentation, and trade secrets.\nUnauthorized disclosure may result in legal action.\n\n[chunk 16] 7. TERMINATION\nThe Company may terminate this Agreement immediately and without notice for:\nPage 1\n\n[chunk 17] TechCorp Pvt. Ltd. - Confidential\n  - Gross misconduct or negligence\n  - Persistent underperformance\n  - Theft, fraud, or dishonesty"
+        },
+        {
+          "step": 3,
+          "thought": "Need the specific definition of Confidential Information to answer what counts as secret information",
+          "tool": "search_contract",
+          "args": {
+            "query": "Confidential Information includes",
+            "k": 10
+          },
+          "result": "[chunk 20] during and after employment. Confidential Information includes but is not limited to:\n\n[chunk 19] 8. CONFIDENTIALITY\nThe Employee agrees to keep all Confidential Information strictly private, both\n\n[chunk 21] business plans, client lists, financial data, technical documentation, and trade secrets.\nUnauthorized disclosure may result in legal action.\n\n[chunk 18] - Serious or repeated breach of Company policies\n  - Willful breach of confidentiality\n8. CONFIDENTIALITY\n\n[chunk 16] 7. TERMINATION\nThe Company may terminate this Agreement immediately and without notice for:\nPage 1\n\n[chunk 17] TechCorp Pvt. Ltd. - Confidential\n  - Gross misconduct or negligence\n  - Persistent underperformance\n  - Theft, fraud, or dishonesty\n\n[chunk 0] TechCorp Pvt. Ltd. - Confidential\nEMPLOYMENT AGREEMENT\nEmployment Agreement - TechCorp Pvt. Ltd.\n\n[chunk 25] All inventions, software, designs, and other work created by the Employee in the\n\n[chunk 26] course of employment shall be the sole and exclusive property of the Company.\n\n[chunk 27] The Employee agrees to assign all such rights to the Company upon request.\n11. GOVERNING LAW\n\n[chunk 28] 11. GOVERNING LAW\nThis Agreement shall be governed by and construed in accordance with the laws of\n\n[chunk 1] This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024,\nbetween TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\").\n\n[chunk 2] 1. POSITION AND DUTIES\nThe Employee is hired as a Software Engineer. The Employee shall report to the"
+        },
+        {
+          "step": 4,
+          "thought": "",
+          "tool": "",
+          "args": {},
+          "result": "Unknown tool ''. Available tools: search_contract, list_section_headings, final_answer."
+        },
+        {
+          "step": 5,
+          "thought": "Need to see section headings to locate the full confidentiality clause for detailed definition",
+          "tool": "list_section_headings",
+          "args": {},
+          "result": "1. POSITION AND DUTIES\n2. EFFECTIVE DATE\n3. SALARY AND COMPENSATION\n4. WORKING HOURS\n5. LEAVE POLICY\n6. NOTICE PERIOD\n7. TERMINATION\n8. CONFIDENTIALITY\n9. NON-COMPETE CLAUSE\n10. INTELLECTUAL PROPERTY\n11. GOVERNING LAW\nSIGNATURES"
+        },
+        {
+          "step": 6,
+          "tool": "final_answer (forced by budget)",
+          "args": {},
+          "result": "Secret (confidential) information you may not share includes, but is not limited to:\n\n- Business plans  \n- Client lists  \n- Financial data  \n- Technical documentation  \n- Trade secrets  \n\nThese categories are defined in the contract\u2019s Confidentiality section."
+        }
+      ],
+      "stopped_early": true,
+      "passed": true
+    }
+  },
+  {
+    "id": "noncompete_duration",
+    "problem_type": "baseline_pass",
+    "question": "If I leave, how soon can I go work for a competitor?",
+    "fixed": {
+      "answer": "You may not work for a competitor for 6 (six) months after leaving the company.",
+      "chunk_ids": [
+        22,
+        12,
+        13
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 1.245140552520752,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "If I leave, how soon can I go work for a competitor?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [22, 12, 13]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "You may not work for a competitor for 6 (six) months after leaving the company."
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    },
+    "agent": {
+      "answer": "You must wait six (6) months after your employment ends before you can work for, consult with, or hold an ownership interest in a competitor of the Company.",
+      "chunk_ids": [
+        22,
+        23
+      ],
+      "llm_calls": 3,
+      "tool_calls": 1,
+      "elapsed": 15.194273948669434,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "",
+          "tool": "",
+          "args": {},
+          "parse_error": "",
+          "result": "Unknown tool ''. Available tools: search_contract, list_section_headings, final_answer."
+        },
+        {
+          "step": 2,
+          "thought": "Search for the clause about post\u2011termination non\u2011competition restrictions",
+          "tool": "search_contract",
+          "args": {
+            "query": "non-compete",
+            "k": 5
+          },
+          "result": "[chunk 21] business plans, client lists, financial data, technical documentation, and trade secrets.\nUnauthorized disclosure may result in legal action.\n\n[chunk 22] 9. NON-COMPETE CLAUSE\nDuring the term of employment and for a period of 6 (six) months following\n\n[chunk 24] or hold ownership interest in any direct competitor of the Company operating in the\nsame geographic region.\n10. INTELLECTUAL PROPERTY\n\n[chunk 23] termination, the Employee agrees not to directly or indirectly work for, consult with,\n\n[chunk 25] All inventions, software, designs, and other work created by the Employee in the\n\n[chunk 26] course of employment shall be the sole and exclusive property of the Company.\n\n[chunk 4] 2. EFFECTIVE DATE\nThis Agreement commences on January 1, 2024, and continues until terminated by\n\n[chunk 5] either party in accordance with the terms of this Agreement.\n3. SALARY AND COMPENSATION"
+        },
+        {
+          "step": 3,
+          "thought": "Provide answer based on non-compete clause indicating 6-month restriction after termination.",
+          "tool": "final_answer",
+          "args": {
+            "answer": "You must wait six (6) months after your employment ends before you can work for, consult with, or hold an ownership interest in a competitor of the Company.",
+            "chunk_ids": [
+              22,
+              23
+            ]
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": false
+    }
+  },
+  {
+    "id": "noncompete_consulting",
+    "problem_type": "baseline_pass",
+    "question": "Am I allowed to freelance for a rival firm right after I resign?",
+    "fixed": {
+      "answer": "No. The contract\u2019s non\u2011compete clause bars you from working for or consulting with a rival firm for a period of six months after your employment ends.",
+      "chunk_ids": [
+        15,
+        23,
+        22
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 1.2870283126831055,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "Am I allowed to freelance for a rival firm right after I resign?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [15, 23, 22]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "No. The contract\u2019s non\u2011compete clause bars you from working for or consulting with a rival firm for a period of six months after your employment ends."
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    },
+    "agent": {
+      "answer": "No. The contract\u2019s non\u2011compete clause states that for a period of six (6) months after termination you may not directly or indirectly work for, consult with, or hold an ownership interest in any direct competitor of the Company in the same geographic region. Therefore freelancing for a rival firm immediately after you resign would violate this provision.",
+      "chunk_ids": [
+        22,
+        23
+      ],
+      "llm_calls": 2,
+      "tool_calls": 1,
+      "elapsed": 10.769243717193604,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "Search for clauses about post\u2011employment competition or freelance work with a rival after resignation.",
+          "tool": "search_contract",
+          "args": {
+            "query": "post\u2011employment competition freelance rival",
+            "k": 5
+          },
+          "result": "[chunk 21] business plans, client lists, financial data, technical documentation, and trade secrets.\nUnauthorized disclosure may result in legal action.\n\n[chunk 22] 9. NON-COMPETE CLAUSE\nDuring the term of employment and for a period of 6 (six) months following\n\n[chunk 23] termination, the Employee agrees not to directly or indirectly work for, consult with,\n\n[chunk 24] or hold ownership interest in any direct competitor of the Company operating in the\nsame geographic region.\n10. INTELLECTUAL PROPERTY\n\n[chunk 1] This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024,\nbetween TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\").\n\n[chunk 0] TechCorp Pvt. Ltd. - Confidential\nEMPLOYMENT AGREEMENT\nEmployment Agreement - TechCorp Pvt. Ltd.\n\n[chunk 25] All inventions, software, designs, and other work created by the Employee in the\n\n[chunk 26] course of employment shall be the sole and exclusive property of the Company."
+        },
+        {
+          "step": 2,
+          "thought": "Provide answer based on non-compete clause found in chunks 22-23",
+          "tool": "final_answer",
+          "args": {
+            "answer": "No. The contract\u2019s non\u2011compete clause states that for a period of six (6) months after termination you may not directly or indirectly work for, consult with, or hold an ownership interest in any direct competitor of the Company in the same geographic region. Therefore freelancing for a rival firm immediately after you resign would violate this provision.",
+            "chunk_ids": [
+              22,
+              23
+            ]
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": false
+    }
+  },
+  {
+    "id": "ip_ownership",
+    "problem_type": "baseline_pass",
+    "question": "Does the company own an app I build on the job?",
+    "fixed": {
+      "answer": "Yes. All inventions, software, designs, and other work created by the Employee in the course of employment are the sole and exclusive property of the Company.",
+      "chunk_ids": [
+        26,
+        25,
+        1
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 0.8804311752319336,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "Does the company own an app I build on the job?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [26, 25, 1]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "Yes. All inventions, software, designs, and other work created by the Employee in the course of employment are the sole and exclusive property of the Company."
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    },
+    "agent": {
+      "answer": "Yes. The agreement states that any inventions, software, designs, or other work (including an app) created by you in the course of your employment are the sole and exclusive property of the Company.",
+      "chunk_ids": [
+        26,
+        25
+      ],
+      "llm_calls": 2,
+      "tool_calls": 1,
+      "elapsed": 9.422423601150513,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "Search for clause on ownership of work product or inventions created during employment",
+          "tool": "search_contract",
+          "args": {
+            "query": "ownership of work product",
+            "k": 5
+          },
+          "result": "[chunk 26] course of employment shall be the sole and exclusive property of the Company.\n\n[chunk 23] termination, the Employee agrees not to directly or indirectly work for, consult with,\n\n[chunk 24] or hold ownership interest in any direct competitor of the Company operating in the\nsame geographic region.\n10. INTELLECTUAL PROPERTY\n\n[chunk 1] This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024,\nbetween TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\").\n\n[chunk 25] All inventions, software, designs, and other work created by the Employee in the\n\n[chunk 0] TechCorp Pvt. Ltd. - Confidential\nEMPLOYMENT AGREEMENT\nEmployment Agreement - TechCorp Pvt. Ltd."
+        },
+        {
+          "step": 2,
+          "thought": "Provide answer that company owns app built on the job, citing IP clauses",
+          "tool": "final_answer",
+          "args": {
+            "answer": "Yes. The agreement states that any inventions, software, designs, or other work (including an app) created by you in the course of your employment are the sole and exclusive property of the Company.",
+            "chunk_ids": [
+              26,
+              25
+            ]
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    }
+  },
+  {
+    "id": "ip_assignment",
+    "problem_type": "baseline_pass",
+    "question": "If asked, do I have to formally hand over my IP rights?",
+    "fixed": {
+      "answer": "Yes. The Employee agrees to assign all such rights to the Company upon request, so you must formally hand over your IP rights when asked.",
+      "chunk_ids": [
+        27,
+        16,
+        24
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 1.1550562381744385,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "If asked, do I have to formally hand over my IP rights?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [27, 16, 24]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "Yes. The Employee agrees to assign all such rights to the Company upon request, so you must formally hand over your IP rights when asked."
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    },
+    "agent": {
+      "answer": "Yes. According to the contract\u2019s Intellectual Property clause (section\u202f10), any inventions, software, designs, or other work you create in the course of employment are the sole and exclusive property of the Company, and you agree to assign all such rights to the Company upon request. Therefore, if asked, you must formally hand over your IP rights.",
+      "chunk_ids": [],
+      "llm_calls": 6,
+      "tool_calls": 1,
+      "elapsed": 29.347144603729248,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "",
+          "tool": "",
+          "args": {},
+          "parse_error": "",
+          "result": "Unknown tool ''. Available tools: search_contract, list_section_headings, final_answer."
+        },
+        {
+          "step": 2,
+          "thought": "Search for the clause about assignment or transfer of intellectual property rights",
+          "tool": "search_contract",
+          "args": {
+            "query": "intellectual property assignment",
+            "k": 5
+          },
+          "result": "[chunk 23] termination, the Employee agrees not to directly or indirectly work for, consult with,\n\n[chunk 24] or hold ownership interest in any direct competitor of the Company operating in the\nsame geographic region.\n10. INTELLECTUAL PROPERTY\n\n[chunk 26] course of employment shall be the sole and exclusive property of the Company.\n\n[chunk 27] The Employee agrees to assign all such rights to the Company upon request.\n11. GOVERNING LAW\n\n[chunk 25] All inventions, software, designs, and other work created by the Employee in the\n\n[chunk 28] 11. GOVERNING LAW\nThis Agreement shall be governed by and construed in accordance with the laws of"
+        },
+        {
+          "step": 3,
+          "thought": "",
+          "tool": "",
+          "args": {},
+          "parse_error": "",
+          "result": "Unknown tool ''. Available tools: search_contract, list_section_headings, final_answer."
+        },
+        {
+          "step": 4,
+          "thought": "",
+          "tool": "",
+          "args": {},
+          "parse_error": "",
+          "result": "Unknown tool ''. Available tools: search_contract, list_section_headings, final_answer."
+        },
+        {
+          "step": 5,
+          "thought": "",
+          "tool": "",
+          "args": {},
+          "parse_error": "",
+          "result": "Unknown tool ''. Available tools: search_contract, list_section_headings, final_answer."
+        },
+        {
+          "step": 6,
+          "tool": "final_answer (forced by budget)",
+          "args": {},
+          "result": "Yes. According to the contract\u2019s Intellectual Property clause (section\u202f10), any inventions, software, designs, or other work you create in the course of employment are the sole and exclusive property of the Company, and you agree to assign all such rights to the Company upon request. Therefore, if asked, you must formally hand over your IP rights."
+        }
+      ],
+      "stopped_early": true,
+      "passed": false
+    }
+  },
+  {
+    "id": "jurisdiction",
+    "problem_type": "baseline_pass",
+    "question": "If we end up in a legal fight, which city's courts handle it?",
+    "fixed": {
+      "answer": "Bengaluru, Karnataka.",
+      "chunk_ids": [
+        29,
+        28,
+        23
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 1.1313316822052002,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "If we end up in a legal fight, which city's courts handle it?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [29, 28, 23]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "Bengaluru, Karnataka."
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    },
+    "agent": {
+      "answer": "Disputes will be handled by the courts in Bengaluru, Karnataka.",
+      "chunk_ids": [
+        29
+      ],
+      "llm_calls": 3,
+      "tool_calls": 1,
+      "elapsed": 11.0279700756073,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "",
+          "tool": "",
+          "args": {},
+          "parse_error": "",
+          "result": "Unknown tool ''. Available tools: search_contract, list_section_headings, final_answer."
+        },
+        {
+          "step": 2,
+          "thought": "Search for the jurisdiction/venue clause to find which city's courts handle disputes",
+          "tool": "search_contract",
+          "args": {
+            "query": "jurisdiction",
+            "k": 5
+          },
+          "result": "[chunk 29] India. Any disputes arising under this Agreement shall be subject to the exclusive\njurisdiction of the courts in Bengaluru, Karnataka.\nSIGNATURES\n\n[chunk 27] The Employee agrees to assign all such rights to the Company upon request.\n11. GOVERNING LAW\n\n[chunk 28] 11. GOVERNING LAW\nThis Agreement shall be governed by and construed in accordance with the laws of\n\n[chunk 25] All inventions, software, designs, and other work created by the Employee in the\n\n[chunk 26] course of employment shall be the sole and exclusive property of the Company.\n\n[chunk 23] termination, the Employee agrees not to directly or indirectly work for, consult with,\n\n[chunk 24] or hold ownership interest in any direct competitor of the Company operating in the\nsame geographic region.\n10. INTELLECTUAL PROPERTY"
+        },
+        {
+          "step": 3,
+          "thought": "The search result directly states the jurisdiction city for disputes.",
+          "tool": "final_answer",
+          "args": {
+            "answer": "Disputes will be handled by the courts in Bengaluru, Karnataka.",
+            "chunk_ids": [
+              29
+            ]
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    }
+  },
+  {
+    "id": "maternity_leave",
+    "problem_type": "no_answer_control",
+    "question": "Does this contract mention maternity or paternity leave?",
+    "fixed": {
+      "answer": "This information was not found in the contract.",
+      "chunk_ids": [
+        16,
+        13,
+        23
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 1.1045727729797363,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "Does this contract mention maternity or paternity leave?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [16, 13, 23]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "This information was not found in the contract."
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    },
+    "agent": {
+      "answer": "No, the contract does not mention maternity or paternity leave.",
+      "chunk_ids": [
+        11,
+        12
+      ],
+      "llm_calls": 4,
+      "tool_calls": 3,
+      "elapsed": 20.894035577774048,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "Search for clauses about maternity or paternity leave",
+          "tool": "search_contract",
+          "args": {
+            "query": "maternity leave",
+            "k": 5
+          },
+          "result": "[chunk 11] to meet business needs. Overtime is compensated as per Company policy.\n5. LEAVE POLICY\nThe Employee is entitled to the following paid leave per year:\n\n[chunk 12] - 18 days of Annual Leave\n  - 10 days of Sick Leave\n  - 3 days of Personal Leave\n  - Public holidays as declared by the Company\n\n[chunk 13] Leave must be applied for in advance and approved by the Employee's manager.\n6. NOTICE PERIOD\n\n[chunk 23] termination, the Employee agrees not to directly or indirectly work for, consult with,\n\n[chunk 14] 6. NOTICE PERIOD\nEither party may terminate this Agreement by providing 30 (thirty) days written\n\n[chunk 15] notice to the other party. The Company reserves the right to pay salary in lieu of\nnotice and ask the Employee to leave immediately.\n7. TERMINATION\n\n[chunk 21] business plans, client lists, financial data, technical documentation, and trade secrets.\nUnauthorized disclosure may result in legal action.\n\n[chunk 22] 9. NON-COMPETE CLAUSE\nDuring the term of employment and for a period of 6 (six) months following"
+        },
+        {
+          "step": 2,
+          "thought": "Search for paternity leave to see if contract mentions it",
+          "tool": "search_contract",
+          "args": {
+            "query": "paternity leave",
+            "k": 5
+          },
+          "result": "[chunk 13] Leave must be applied for in advance and approved by the Employee's manager.\n6. NOTICE PERIOD\n\n[chunk 11] to meet business needs. Overtime is compensated as per Company policy.\n5. LEAVE POLICY\nThe Employee is entitled to the following paid leave per year:\n\n[chunk 12] - 18 days of Annual Leave\n  - 10 days of Sick Leave\n  - 3 days of Personal Leave\n  - Public holidays as declared by the Company\n\n[chunk 3] Engineering Manager and perform duties as reasonably assigned by the Company.\n2. EFFECTIVE DATE\n\n[chunk 4] 2. EFFECTIVE DATE\nThis Agreement commences on January 1, 2024, and continues until terminated by\n\n[chunk 15] notice to the other party. The Company reserves the right to pay salary in lieu of\nnotice and ask the Employee to leave immediately.\n7. TERMINATION\n\n[chunk 14] 6. NOTICE PERIOD\nEither party may terminate this Agreement by providing 30 (thirty) days written"
+        },
+        {
+          "step": 3,
+          "thought": "Search didn't find maternity/paternity; need to view all headings to locate relevant section",
+          "tool": "list_section_headings",
+          "args": {},
+          "result": "1. POSITION AND DUTIES\n2. EFFECTIVE DATE\n3. SALARY AND COMPENSATION\n4. WORKING HOURS\n5. LEAVE POLICY\n6. NOTICE PERIOD\n7. TERMINATION\n8. CONFIDENTIALITY\n9. NON-COMPETE CLAUSE\n10. INTELLECTUAL PROPERTY\n11. GOVERNING LAW\nSIGNATURES"
+        },
+        {
+          "step": 4,
+          "thought": "The contract's leave policy sections (chunks 11 and 12) list only annual, sick, personal, and public holidays, with no mention of maternity or paternity leave.",
+          "tool": "final_answer",
+          "args": {
+            "answer": "No, the contract does not mention maternity or paternity leave.",
+            "chunk_ids": [
+              11,
+              12
+            ]
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": false
+    }
+  },
+  {
+    "id": "probation",
+    "problem_type": "no_answer_control",
+    "question": "Is there a probation period mentioned anywhere?",
+    "fixed": {
+      "answer": "This information was not found in the contract.",
+      "chunk_ids": [
+        22,
+        14,
+        20
+      ],
+      "llm_calls": 1,
+      "tool_calls": 1,
+      "elapsed": 1.1099963188171387,
+      "transcript": [
+        {
+          "step": 1,
+          "tool": "search_contract",
+          "args": {
+            "query": "Is there a probation period mentioned anywhere?",
+            "k": 3
+          },
+          "result": "3 chunks retrieved: [22, 14, 20]"
+        },
+        {
+          "step": 2,
+          "tool": "final_answer",
+          "args": {
+            "answer": "This information was not found in the contract."
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    },
+    "agent": {
+      "answer": "This information was not found in the contract.",
+      "chunk_ids": [],
+      "llm_calls": 5,
+      "tool_calls": 3,
+      "elapsed": 22.2625732421875,
+      "transcript": [
+        {
+          "step": 1,
+          "thought": "",
+          "tool": "",
+          "args": {},
+          "parse_error": "",
+          "result": "Unknown tool ''. Available tools: search_contract, list_section_headings, final_answer."
+        },
+        {
+          "step": 2,
+          "thought": "Search the contract for any mention of a probation period.",
+          "tool": "search_contract",
+          "args": {
+            "query": "probation period",
+            "k": 5
+          },
+          "result": "[chunk 21] business plans, client lists, financial data, technical documentation, and trade secrets.\nUnauthorized disclosure may result in legal action.\n\n[chunk 22] 9. NON-COMPETE CLAUSE\nDuring the term of employment and for a period of 6 (six) months following\n\n[chunk 14] 6. NOTICE PERIOD\nEither party may terminate this Agreement by providing 30 (thirty) days written\n\n[chunk 3] Engineering Manager and perform duties as reasonably assigned by the Company.\n2. EFFECTIVE DATE\n\n[chunk 4] 2. EFFECTIVE DATE\nThis Agreement commences on January 1, 2024, and continues until terminated by\n\n[chunk 13] Leave must be applied for in advance and approved by the Employee's manager.\n6. NOTICE PERIOD\n\n[chunk 11] to meet business needs. Overtime is compensated as per Company policy.\n5. LEAVE POLICY\nThe Employee is entitled to the following paid leave per year:\n\n[chunk 12] - 18 days of Annual Leave\n  - 10 days of Sick Leave\n  - 3 days of Personal Leave\n  - Public holidays as declared by the Company"
+        },
+        {
+          "step": 3,
+          "thought": "Search didn't find probation; need to view section headings to locate relevant clause",
+          "tool": "list_section_headings",
+          "args": {},
+          "result": "1. POSITION AND DUTIES\n2. EFFECTIVE DATE\n3. SALARY AND COMPENSATION\n4. WORKING HOURS\n5. LEAVE POLICY\n6. NOTICE PERIOD\n7. TERMINATION\n8. CONFIDENTIALITY\n9. NON-COMPETE CLAUSE\n10. INTELLECTUAL PROPERTY\n11. GOVERNING LAW\nSIGNATURES"
+        },
+        {
+          "step": 4,
+          "thought": "Search for 'probation' to confirm if any clause mentions a probation period",
+          "tool": "search_contract",
+          "args": {
+            "query": "probation",
+            "k": 5
+          },
+          "result": "[chunk 21] business plans, client lists, financial data, technical documentation, and trade secrets.\nUnauthorized disclosure may result in legal action.\n\n[chunk 22] 9. NON-COMPETE CLAUSE\nDuring the term of employment and for a period of 6 (six) months following\n\n[chunk 13] Leave must be applied for in advance and approved by the Employee's manager.\n6. NOTICE PERIOD\n\n[chunk 14] 6. NOTICE PERIOD\nEither party may terminate this Agreement by providing 30 (thirty) days written\n\n[chunk 3] Engineering Manager and perform duties as reasonably assigned by the Company.\n2. EFFECTIVE DATE\n\n[chunk 4] 2. EFFECTIVE DATE\nThis Agreement commences on January 1, 2024, and continues until terminated by\n\n[chunk 15] notice to the other party. The Company reserves the right to pay salary in lieu of\nnotice and ask the Employee to leave immediately.\n7. TERMINATION\n\n[chunk 16] 7. TERMINATION\nThe Company may terminate this Agreement immediately and without notice for:\nPage 1"
+        },
+        {
+          "step": 5,
+          "thought": "No clause about probation found after searches; answer that info is not in contract.",
+          "tool": "final_answer",
+          "args": {
+            "answer": "This information was not found in the contract.",
+            "chunk_ids": []
+          }
+        }
+      ],
+      "stopped_early": false,
+      "passed": true
+    }
+  }
+]

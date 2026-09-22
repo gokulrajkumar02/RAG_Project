@@ -100,33 +100,38 @@ class PDF(FPDF):
         self.cell(0, 10, f"Page {self.page_no()}", align="C")
 
 
-pdf = PDF()
-pdf.set_margins(25, 20, 25)
-pdf.add_page()
+def build_pdf():
+    pdf = PDF()
+    pdf.set_margins(25, 20, 25)
+    pdf.add_page()
 
-pdf.set_font("Helvetica", "B", 18)
-pdf.set_text_color(30, 30, 100)
-pdf.cell(0, 12, TITLE, align="C", new_x="LMARGIN", new_y="NEXT")
-
-pdf.set_font("Helvetica", size=10)
-pdf.set_text_color(100, 100, 100)
-pdf.cell(0, 6, "Employment Agreement - TechCorp Pvt. Ltd.", align="C", new_x="LMARGIN", new_y="NEXT")
-pdf.ln(8)
-
-for heading, body in SECTIONS:
-    if heading:
-        pdf.set_font("Helvetica", "B", 11)
-        pdf.set_text_color(30, 30, 100)
-        pdf.multi_cell(0, 7, heading, new_x="LMARGIN", new_y="NEXT")
-        pdf.ln(1)
+    pdf.set_font("Helvetica", "B", 18)
+    pdf.set_text_color(30, 30, 100)
+    pdf.cell(0, 12, TITLE, align="C", new_x="LMARGIN", new_y="NEXT")
 
     pdf.set_font("Helvetica", size=10)
-    pdf.set_text_color(40, 40, 40)
-    pdf.multi_cell(0, 6, body.strip(), new_x="LMARGIN", new_y="NEXT")
-    pdf.ln(5)
+    pdf.set_text_color(100, 100, 100)
+    pdf.cell(0, 6, "Employment Agreement - TechCorp Pvt. Ltd.", align="C", new_x="LMARGIN", new_y="NEXT")
+    pdf.ln(8)
 
-os.makedirs("data", exist_ok=True)
-out_path = os.path.join("data", "sample_contract.pdf")
-pdf.output(out_path)
-print(f"✅ Sample PDF created: {out_path}")
-print("   Upload this file to the app to test your RAG system.")
+    for heading, body in SECTIONS:
+        if heading:
+            pdf.set_font("Helvetica", "B", 11)
+            pdf.set_text_color(30, 30, 100)
+            pdf.multi_cell(0, 7, heading, new_x="LMARGIN", new_y="NEXT")
+            pdf.ln(1)
+
+        pdf.set_font("Helvetica", size=10)
+        pdf.set_text_color(40, 40, 40)
+        pdf.multi_cell(0, 6, body.strip(), new_x="LMARGIN", new_y="NEXT")
+        pdf.ln(5)
+
+    os.makedirs("data", exist_ok=True)
+    out_path = os.path.join("data", "sample_contract.pdf")
+    pdf.output(out_path)
+    print(f"✅ Sample PDF created: {out_path}")
+    print("   Upload this file to the app to test your RAG system.")
+
+
+if __name__ == "__main__":
+    build_pdf()

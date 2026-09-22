@@ -66,11 +66,18 @@ legal-contract-rag/
 │   ├── run_evals.py          ← Week 6: one-command eval — validates judge, then
 │   │                            before/after score per problem type (neighbor-stitch fix)
 │   └── eval_report.md        ← Week 6: generated report
-└── error_analysis/       ← Week 5 — error analysis (reading traces, ranked taxonomy)
-    ├── collect_traces.py    ← Runs the real app pipeline + Groq LLM, saves full traces
-    ├── traces.md             ← 24 real question → context → answer traces, read by hand
-    ├── open_coding_notes.md  ← Honest per-trace failure notes, written before grouping
-    └── error_taxonomy.md     ← Named, ranked problem groups + chosen fix target
+├── error_analysis/       ← Week 5 — error analysis (reading traces, ranked taxonomy)
+│   ├── collect_traces.py    ← Runs the real app pipeline + Groq LLM, saves full traces
+│   ├── traces.md             ← 24 real question → context → answer traces, read by hand
+│   ├── open_coding_notes.md  ← Honest per-trace failure notes, written before grouping
+│   └── error_taxonomy.md     ← Named, ranked problem groups + chosen fix target
+└── agent/                ← Week 7 — hand-built agent vs. fixed workflow, raced
+    ├── tools.py              ← search_contract + list_section_headings, the agent's 2 tools
+    ├── contract_agent.py     ← the hand-rolled agent loop (no framework) + stop conditions
+    ├── fixed_workflow.py     ← the plain sequence (= what app.py already runs live)
+    ├── race.py               ← one command: races both, scores with Week 6's judge
+    ├── race_report.md        ← generated report (speed/cost/reliability, per problem type)
+    └── race_traces.json      ← generated: every agent step, every question
 ```
 
 ---
@@ -209,6 +216,14 @@ implemented and measured with a one-command harness (`eval/run_evals.py`)
 — free rule checks, an LLM judge validated against the Week 5 human
 labels before being trusted, and a before/after pass rate per problem
 type.
+
+See [`agent/`](agent/) for the Week 7 agents exercise: a hand-built
+agent loop (no framework) that can retry a search with reformulated
+wording when the fixed pipeline's one-shot retrieval misses — raced
+against that same fixed pipeline on the Week 6 eval set
+(`agent/race.py`), with real speed/cost/reliability numbers per problem
+type and a shipping verdict written from the result, not asserted ahead
+of it.
 
 ---
 
