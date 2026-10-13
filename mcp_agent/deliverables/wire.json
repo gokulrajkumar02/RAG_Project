@@ -1,0 +1,301 @@
+{
+  "about": "Hand-written annotations for the raw JSON-RPC exchange between the agent's host and the contract-repository server (stdio, newline-delimited JSON). Written by reading the captured frames, not generated. capture_wire.py refuses to write wire.json if any top-level field, or any field one level inside params/result, has no annotation here.",
+  "where_the_model_runs": "The model call happens ONLY in the host process (agent_core/loop.py, the llm(prompt) call); it does NOT happen in the MCP client, on this wire (which carries tool names and arguments, never a prompt), or in the server, which cannot even ask for one because the client offers no `sampling` capability.",
+  "server": "contract-repository (STAND-IN, synthetic data) over stdio",
+  "captured_with": "scripts/wiretap.py between the agent's real McpHost and the server; raw = the exact line on the wire",
+  "tool_call_made": {
+    "tool": "get_amendment_chain",
+    "arguments": {
+      "contract_id": "MSA-2021-0142"
+    },
+    "isError": false
+  },
+  "frames": [
+    {
+      "n": 1,
+      "direction": "client->server",
+      "label": "initialize.request",
+      "raw": "{\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2025-11-25\",\"capabilities\":{},\"clientInfo\":{\"name\":\"mcp\",\"version\":\"0.1.0\"}},\"jsonrpc\":\"2.0\",\"id\":0}",
+      "message": {
+        "method": "initialize",
+        "params": {
+          "protocolVersion": "2025-11-25",
+          "capabilities": {},
+          "clientInfo": {
+            "name": "mcp",
+            "version": "0.1.0"
+          }
+        },
+        "jsonrpc": "2.0",
+        "id": 0
+      },
+      "what_it_is": "Client -> server. The mandatory first message: 'here is who I am and what I can do; what about you?'",
+      "annotations": {
+        "method": "'initialize' - the opening request of the handshake. No other request is legal until it has been answered and acknowledged.",
+        "params": "The client's opening offer: the three fields below.",
+        "params.protocolVersion": "The newest MCP spec revision this client speaks (2025-11-25). The server replies with the one version both sides will use.",
+        "params.capabilities": "{} - the optional features this client offers the server (e.g. `sampling` = 'you may ask me to run an LLM', `roots`, `elicitation`). Empty, because our host offers none: server two has no way to make our host call a model.",
+        "params.clientInfo": "Who is calling, for logs only. These are the SDK's defaults (name 'mcp', version '0.1.0') - not our agent's name and not a model name. The server learns nothing about which AI, if any, is behind the host.",
+        "jsonrpc": "Protocol tag; always the literal string '2.0'. Every MCP message is a JSON-RPC 2.0 message.",
+        "id": "0 - the request id, chosen by the client (this SDK counts from 0). The server must echo it in its answer so the client can pair question and answer; a message with NO id is a notification and gets no answer."
+      }
+    },
+    {
+      "n": 2,
+      "direction": "server->client",
+      "label": "initialize.response",
+      "raw": "{\"jsonrpc\":\"2.0\",\"id\":0,\"result\":{\"protocolVersion\":\"2025-11-25\",\"capabilities\":{\"experimental\":{},\"prompts\":{\"listChanged\":false},\"resources\":{\"subscribe\":false,\"listChanged\":false},\"tools\":{\"listChanged\":false}},\"serverInfo\":{\"name\":\"contract-repository\",\"version\":\"1.30.0\"}}}",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 0,
+        "result": {
+          "protocolVersion": "2025-11-25",
+          "capabilities": {
+            "experimental": {},
+            "prompts": {
+              "listChanged": false
+            },
+            "resources": {
+              "subscribe": false,
+              "listChanged": false
+            },
+            "tools": {
+              "listChanged": false
+            }
+          },
+          "serverInfo": {
+            "name": "contract-repository",
+            "version": "1.30.0"
+          }
+        }
+      },
+      "what_it_is": "Server -> client. The answer to initialize (same id): the server's identity and what it offers.",
+      "annotations": {
+        "jsonrpc": "'2.0', as above.",
+        "id": "0 - echoes the request's id; this is how the client knows this is the answer to #1.",
+        "result": "Present instead of `error` because the request succeeded. Holds the three fields below.",
+        "result.protocolVersion": "2025-11-25 - the version the server agreed to speak. Had the server not supported the client's offer it would have answered with a version of its own and the client could disconnect.",
+        "result.capabilities": "What this server offers. `tools` is present (listChanged:false = the tool list is fixed for the session, so the client need not re-list). `resources` and `prompts` are declared by the SDK by default; this server registers none. `experimental` is empty.",
+        "result.serverInfo": "Server identity: name 'contract-repository'; version '1.30.0' is the version FastMCP reports (the SDK's), not a version of the knowledge team's code."
+      }
+    },
+    {
+      "n": 3,
+      "direction": "client->server",
+      "label": "initialized.notification",
+      "raw": "{\"method\":\"notifications/initialized\",\"jsonrpc\":\"2.0\"}",
+      "message": {
+        "method": "notifications/initialized",
+        "jsonrpc": "2.0"
+      },
+      "what_it_is": "Client -> server. One-way 'handshake complete, I am ready'. After this the session is open for normal requests.",
+      "annotations": {
+        "method": "'notifications/initialized' - the client acknowledging the initialize result. A notification: it has no `id`, and the server sends no response.",
+        "jsonrpc": "'2.0', as above. Note there is no `id` field at all - that absence is what makes this a notification rather than a request."
+      }
+    },
+    {
+      "n": 4,
+      "direction": "client->server",
+      "label": "tools_list.request",
+      "raw": "{\"method\":\"tools/list\",\"jsonrpc\":\"2.0\",\"id\":1}",
+      "message": {
+        "method": "tools/list",
+        "jsonrpc": "2.0",
+        "id": 1
+      },
+      "what_it_is": "Client -> server. Discovery: 'what tools do you have?' This is the message that makes adding a server a config-only change - the client asks instead of being told.",
+      "annotations": {
+        "method": "'tools/list' - ask for the server's tool definitions.",
+        "jsonrpc": "'2.0', as above.",
+        "id": "1 - next request id; the answer below must carry id 1."
+      }
+    },
+    {
+      "n": 5,
+      "direction": "server->client",
+      "label": "tools_list.response",
+      "raw": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"tools\":[{\"name\":\"get_contract\",\"description\":\"Look up a contract by id and return its record: title, parties, status, execution date,\\n    confidentiality class, original effective date, and how many amendments are on file.\",\"inputSchema\":{\"properties\":{\"contract_id\":{\"title\":\"Contract Id\",\"type\":\"string\"}},\"required\":[\"contract_id\"],\"title\":\"get_contractArguments\",\"type\":\"object\"},\"outputSchema\":{\"properties\":{\"result\":{\"title\":\"Result\",\"type\":\"string\"}},\"required\":[\"result\"],\"title\":\"get_contractOutput\",\"type\":\"object\"}},{\"name\":\"get_effective_date\",\"description\":\"Return the effective date of a contract. With no `as_of`, returns the original effective\\n    date and the latest version's. With `as_of` (YYYY-MM-DD), returns the version in force on\\n    that date.\",\"inputSchema\":{\"properties\":{\"contract_id\":{\"title\":\"Contract Id\",\"type\":\"string\"},\"as_of\":{\"anyOf\":[{\"type\":\"string\"},{\"type\":\"null\"}],\"default\":null,\"title\":\"As Of\"}},\"required\":[\"contract_id\"],\"title\":\"get_effective_dateArguments\",\"type\":\"object\"},\"outputSchema\":{\"properties\":{\"result\":{\"title\":\"Result\",\"type\":\"string\"}},\"required\":[\"result\"],\"title\":\"get_effective_dateOutput\",\"type\":\"object\"}},{\"name\":\"get_amendment_chain\",\"description\":\"Return a contract's amendment chain in order: the original, then each amendment with its\\n    effective date, the clause range after it, and a one-line summary of what it changed.\",\"inputSchema\":{\"properties\":{\"contract_id\":{\"title\":\"Contract Id\",\"type\":\"string\"}},\"required\":[\"contract_id\"],\"title\":\"get_amendment_chainArguments\",\"type\":\"object\"},\"outputSchema\":{\"properties\":{\"result\":{\"title\":\"Result\",\"type\":\"string\"}},\"required\":[\"result\"],\"title\":\"get_amendment_chainOutput\",\"type\":\"object\"}}]}}",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "tools": [
+            {
+              "name": "get_contract",
+              "description": "Look up a contract by id and return its record: title, parties, status, execution date,\n    confidentiality class, original effective date, and how many amendments are on file.",
+              "inputSchema": {
+                "properties": {
+                  "contract_id": {
+                    "title": "Contract Id",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "contract_id"
+                ],
+                "title": "get_contractArguments",
+                "type": "object"
+              },
+              "outputSchema": {
+                "properties": {
+                  "result": {
+                    "title": "Result",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "result"
+                ],
+                "title": "get_contractOutput",
+                "type": "object"
+              }
+            },
+            {
+              "name": "get_effective_date",
+              "description": "Return the effective date of a contract. With no `as_of`, returns the original effective\n    date and the latest version's. With `as_of` (YYYY-MM-DD), returns the version in force on\n    that date.",
+              "inputSchema": {
+                "properties": {
+                  "contract_id": {
+                    "title": "Contract Id",
+                    "type": "string"
+                  },
+                  "as_of": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "As Of"
+                  }
+                },
+                "required": [
+                  "contract_id"
+                ],
+                "title": "get_effective_dateArguments",
+                "type": "object"
+              },
+              "outputSchema": {
+                "properties": {
+                  "result": {
+                    "title": "Result",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "result"
+                ],
+                "title": "get_effective_dateOutput",
+                "type": "object"
+              }
+            },
+            {
+              "name": "get_amendment_chain",
+              "description": "Return a contract's amendment chain in order: the original, then each amendment with its\n    effective date, the clause range after it, and a one-line summary of what it changed.",
+              "inputSchema": {
+                "properties": {
+                  "contract_id": {
+                    "title": "Contract Id",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "contract_id"
+                ],
+                "title": "get_amendment_chainArguments",
+                "type": "object"
+              },
+              "outputSchema": {
+                "properties": {
+                  "result": {
+                    "title": "Result",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "result"
+                ],
+                "title": "get_amendment_chainOutput",
+                "type": "object"
+              }
+            }
+          ]
+        }
+      },
+      "what_it_is": "Server -> client. The tool catalogue. The host turns each entry into a line of the model's prompt, so this one message is the entire 'wiring' of server two into the agent.",
+      "annotations": {
+        "jsonrpc": "'2.0', as above.",
+        "id": "1 - echoes the tools/list request.",
+        "result": "Success payload. Its only field here is `tools`; a `nextCursor` field, if present, would mean more pages follow - its absence means this is the last page.",
+        "result.tools": "Array of tool definitions: get_contract, get_effective_date, get_amendment_chain - three tools, which is the 'after' count minus server one's three.",
+        "result.tools[].name": "The identifier used in tools/call. Names are how the host routes a model's choice back to this server.",
+        "result.tools[].description": "The docstring, verbatim including its source indentation. This text is placed into the model's prompt, so for the model it IS the tool's documentation - which is why requirement 5 treats a docstring as a prompt.",
+        "result.tools[].inputSchema": "JSON Schema for the arguments, generated by the SDK from the Python type hints (contract_id: required string; as_of: optional string). The server validates calls against it; the host also prints it to the model as the argument list.",
+        "result.tools[].outputSchema": "SDK-generated schema saying the structured result is an object {result: string}, because the function returns a str. Our host does not use it."
+      }
+    },
+    {
+      "n": 6,
+      "direction": "client->server",
+      "label": "tools_call.request",
+      "raw": "{\"method\":\"tools/call\",\"params\":{\"name\":\"get_amendment_chain\",\"arguments\":{\"contract_id\":\"MSA-2021-0142\"}},\"jsonrpc\":\"2.0\",\"id\":2}",
+      "message": {
+        "method": "tools/call",
+        "params": {
+          "name": "get_amendment_chain",
+          "arguments": {
+            "contract_id": "MSA-2021-0142"
+          }
+        },
+        "jsonrpc": "2.0",
+        "id": 2
+      },
+      "what_it_is": "Client -> server. The only message in this exchange whose content came from a model's decision: the host parsed the model's JSON action into tool name + arguments and sent this. No prompt travels with it.",
+      "annotations": {
+        "method": "'tools/call' - run one tool.",
+        "params": "The call: the two fields below.",
+        "params.name": "'get_amendment_chain' - must be a name the server advertised in tools/list. The host looked up which server owns this name and sent the call to that one.",
+        "params.arguments": "{contract_id: 'MSA-2021-0142'} - the values the model chose, checked by the server against inputSchema. The server sees values only: not the question, not the prompt, not which model.",
+        "jsonrpc": "'2.0', as above.",
+        "id": "2 - next request id; the answer must carry id 2."
+      }
+    },
+    {
+      "n": 7,
+      "direction": "server->client",
+      "label": "tools_call.response",
+      "raw": "{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"{\\n  \\\"contract_id\\\": \\\"MSA-2021-0142\\\",\\n  \\\"chain\\\": [\\n    {\\n      \\\"label\\\": \\\"Original\\\",\\n      \\\"effective_date\\\": \\\"2021-04-01\\\",\\n      \\\"clauses\\\": \\\"1-9\\\",\\n      \\\"summary\\\": \\\"Base agreement.\\\"\\n    },\\n    {\\n      \\\"label\\\": \\\"Amendment 1\\\",\\n      \\\"effective_date\\\": \\\"2022-01-01\\\",\\n      \\\"clauses\\\": \\\"1-9\\\",\\n      \\\"summary\\\": \\\"Clause 4 (fees): annual uplift raised from 4% to 6%.\\\"\\n    },\\n    {\\n      \\\"label\\\": \\\"Amendment 2\\\",\\n      \\\"effective_date\\\": \\\"2023-06-01\\\",\\n      \\\"clauses\\\": \\\"1-11\\\",\\n      \\\"summary\\\": \\\"Adds clause 10 (data protection) and clause 11 (subcontracting).\\\"\\n    }\\n  ]\\n}\"}],\"structuredContent\":{\"result\":\"{\\n  \\\"contract_id\\\": \\\"MSA-2021-0142\\\",\\n  \\\"chain\\\": [\\n    {\\n      \\\"label\\\": \\\"Original\\\",\\n      \\\"effective_date\\\": \\\"2021-04-01\\\",\\n      \\\"clauses\\\": \\\"1-9\\\",\\n      \\\"summary\\\": \\\"Base agreement.\\\"\\n    },\\n    {\\n      \\\"label\\\": \\\"Amendment 1\\\",\\n      \\\"effective_date\\\": \\\"2022-01-01\\\",\\n      \\\"clauses\\\": \\\"1-9\\\",\\n      \\\"summary\\\": \\\"Clause 4 (fees): annual uplift raised from 4% to 6%.\\\"\\n    },\\n    {\\n      \\\"label\\\": \\\"Amendment 2\\\",\\n      \\\"effective_date\\\": \\\"2023-06-01\\\",\\n      \\\"clauses\\\": \\\"1-11\\\",\\n      \\\"summary\\\": \\\"Adds clause 10 (data protection) and clause 11 (subcontracting).\\\"\\n    }\\n  ]\\n}\"},\"isError\":false}}",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 2,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\n  \"contract_id\": \"MSA-2021-0142\",\n  \"chain\": [\n    {\n      \"label\": \"Original\",\n      \"effective_date\": \"2021-04-01\",\n      \"clauses\": \"1-9\",\n      \"summary\": \"Base agreement.\"\n    },\n    {\n      \"label\": \"Amendment 1\",\n      \"effective_date\": \"2022-01-01\",\n      \"clauses\": \"1-9\",\n      \"summary\": \"Clause 4 (fees): annual uplift raised from 4% to 6%.\"\n    },\n    {\n      \"label\": \"Amendment 2\",\n      \"effective_date\": \"2023-06-01\",\n      \"clauses\": \"1-11\",\n      \"summary\": \"Adds clause 10 (data protection) and clause 11 (subcontracting).\"\n    }\n  ]\n}"
+            }
+          ],
+          "structuredContent": {
+            "result": "{\n  \"contract_id\": \"MSA-2021-0142\",\n  \"chain\": [\n    {\n      \"label\": \"Original\",\n      \"effective_date\": \"2021-04-01\",\n      \"clauses\": \"1-9\",\n      \"summary\": \"Base agreement.\"\n    },\n    {\n      \"label\": \"Amendment 1\",\n      \"effective_date\": \"2022-01-01\",\n      \"clauses\": \"1-9\",\n      \"summary\": \"Clause 4 (fees): annual uplift raised from 4% to 6%.\"\n    },\n    {\n      \"label\": \"Amendment 2\",\n      \"effective_date\": \"2023-06-01\",\n      \"clauses\": \"1-11\",\n      \"summary\": \"Adds clause 10 (data protection) and clause 11 (subcontracting).\"\n    }\n  ]\n}"
+          },
+          "isError": false
+        }
+      },
+      "what_it_is": "Server -> client. The tool's output. The host wraps `content` as untrusted data and appends it to the model's history for the next model call.",
+      "annotations": {
+        "jsonrpc": "'2.0', as above.",
+        "id": "2 - echoes the tools/call request.",
+        "result": "Success at the protocol level (a tool that fails still returns `result`, with isError true; a JSON-RPC `error` member is reserved for protocol faults such as an unknown method).",
+        "result.content": "Array of content blocks - what the model reads. Here one text block holding the amendment chain as JSON text. Plain data: no model produced it.",
+        "result.content[].type": "'text' - the block kind (others: image, audio, resource). Our host keeps text and notes any other kind as omitted.",
+        "result.content[].text": "The payload itself: the amendment chain Original (2021-04-01) -> Amendment 1 (2022-01-01) -> Amendment 2 (2023-06-01).",
+        "result.structuredContent": "The same payload as a machine-readable object, wrapped as {result: ...} to match outputSchema. Duplicate of `content` for this tool; our host ignores it and uses `content`.",
+        "result.isError": "false - the tool ran. When true, `content` carries the failure text and that text is the ONLY thing the model gets to recover from - which is why error wording matters (requirement 5)."
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "clause-search": {
+      "command": "${PYTHON}",
+      "args": ["servers/clause_search_server.py"],
+      "attach_resources": ["contract://sample/defined-terms"]
+    },
+    "contract-repository": {
+      "command": "${PYTHON}",
+      "args": ["third_party/contract_repo_server.py"],
+      "env": {"CONTRACT_REPO_TOKEN": "${CONTRACT_REPO_TOKEN:-demo-token-not-a-secret}"}
+    }
+  }
+}

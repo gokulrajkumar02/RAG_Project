@@ -20,3 +20,8 @@ openai>=1.0.0
 tiktoken>=0.7.0
 
 fpdf2>=2.7.0
+
+# Week 9 (mcp_agent/). Pinned below 2: mcp 2.x renames FastMCP to MCPServer and defaults to a
+# handshake-less protocol, so the initialize -> tools/list -> tools/call exchange the brief asks
+# you to annotate would no longer appear on the wire. Needs Python 3.10+.
+mcp>=1.2,<2

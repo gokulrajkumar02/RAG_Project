@@ -1,0 +1,49 @@
+# agent_diff.txt — adding server two changed ZERO lines of the agent module
+
+BEFORE = deliverables/snapshots/server_one/agent_core/
+         copy of mcp_agent/agent_core/ made 2026-10-13T13:23:24Z (file mtime), while mcp_servers.json
+         still listed only `clause-search`; sha256s recorded then in deliverables/agent_core.sha256.before
+AFTER  = mcp_agent/agent_core/ as it is right now, with mcp_servers.json listing `clause-search` + `contract-repository`
+
+(both trees are copied to a temp dir first, without __pycache__, as before/ and after/)
+
+$ git diff --no-index --stat before/agent_core after/agent_core
+(no output: no file differs)
+
+$ git diff --no-index --numstat before/agent_core after/agent_core
+(no output)
+
+$ git diff --no-index before/agent_core after/agent_core
+(no output)
+
+CHANGED LINES IN THE AGENT MODULE: 0 added, 0 removed  ->  PASS
+
+sha256 (first 16 hex)  file         before            now               verdict
+__init__.py  e3b0c44298fc1c14  e3b0c44298fc1c14  identical
+host.py      45ea3e091ad586f3  45ea3e091ad586f3  identical
+loop.py      73ceff15006ac460  73ceff15006ac460  identical
+run.py       b7039b70e4492155  b7039b70e4492155  identical
+
+# For contrast — the ONLY thing that changed (config.diff)
+
+$ git diff --no-index --numstat mcp_servers.before.json mcp_servers.json
+5	0	mcp_servers.before.json => mcp_servers.json
+-> 5 lines added, 0 removed, in a JSON config file
+
+$ git diff --no-index mcp_servers.before.json mcp_servers.json
+diff --git a/mcp_servers.before.json b/mcp_servers.json
+index 85f39bc..e013a71 100644
+--- a/mcp_servers.before.json
++++ b/mcp_servers.json
+@@ -4,6 +4,11 @@
+       "command": "${PYTHON}",
+       "args": ["servers/clause_search_server.py"],
+       "attach_resources": ["contract://sample/defined-terms"]
++    },
++    "contract-repository": {
++      "command": "${PYTHON}",
++      "args": ["third_party/contract_repo_server.py"],
++      "env": {"CONTRACT_REPO_TOKEN": "${CONTRACT_REPO_TOKEN:-demo-token-not-a-secret}"}
+     }
+   }
+ }

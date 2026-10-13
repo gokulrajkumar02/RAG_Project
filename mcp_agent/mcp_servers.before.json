@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "clause-search": {
+      "command": "${PYTHON}",
+      "args": ["servers/clause_search_server.py"],
+      "attach_resources": ["contract://sample/defined-terms"]
+    }
+  }
+}

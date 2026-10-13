@@ -1,0 +1,3 @@
+{"ts": "2026-10-13T13:30:46.219+00:00", "caller": "legal-assistant:base-lookup", "tool": "contract-repository.get_amendment_chain", "contract_id": "MSA-2021-0142", "decision": "deny", "outcome": "denied"}
+{"ts": "2026-10-13T13:30:46.227+00:00", "caller": "legal-assistant:base-lookup", "tool": "contract-repository.get_contract", "contract_id": "MSA-2021-0142", "decision": "allow", "outcome": "ok"}
+{"ts": "2026-10-13T13:30:50.032+00:00", "caller": "legal-assistant:full", "tool": "contract-repository.get_amendment_chain", "contract_id": "MSA-2021-0142", "decision": "allow", "outcome": "ok"}

@@ -71,13 +71,18 @@ legal-contract-rag/
 │   ├── traces.md             ← 24 real question → context → answer traces, read by hand
 │   ├── open_coding_notes.md  ← Honest per-trace failure notes, written before grouping
 │   └── error_taxonomy.md     ← Named, ranked problem groups + chosen fix target
-└── agent/                ← Week 7 — hand-built agent vs. fixed workflow, raced
-    ├── tools.py              ← search_contract + list_section_headings, the agent's 2 tools
-    ├── contract_agent.py     ← the hand-rolled agent loop (no framework) + stop conditions
-    ├── fixed_workflow.py     ← the plain sequence (= what app.py already runs live)
-    ├── race.py               ← one command: races both, scores with Week 6's judge
-    ├── race_report.md        ← generated report (speed/cost/reliability, per problem type)
-    └── race_traces.json      ← generated: every agent step, every question
+├── agent/                ← Week 7 — hand-built agent vs. fixed workflow, raced
+│   ├── tools.py              ← search_contract + list_section_headings, the agent's 2 tools
+│   ├── contract_agent.py     ← the hand-rolled agent loop (no framework) + stop conditions
+│   ├── fixed_workflow.py     ← the plain sequence (= what app.py already runs live)
+│   ├── race.py               ← one command: races both, scores with Week 6's judge
+│   ├── race_report.md        ← generated report (speed/cost/reliability, per problem type)
+│   └── race_traces.json      ← generated: every agent step, every question
+└── mcp_agent/            ← Week 9 — MCP: the agent discovers tools; a 2nd server added by config only
+    ├── agent_core/           ← the agent module (MCP host + loop): zero lines change when a server is added
+    ├── mcp_servers.json      ← the ONLY file that changes: which servers the agent connects to
+    ├── servers/ third_party/ gateway/   ← our server, a stand-in for the knowledge team's, bonus gateway
+    └── deliverables/         ← agent_diff.txt, wire.json, tool_counts.md, error_before_after.md, risk_note.md
 ```
 
 ---
@@ -224,6 +229,14 @@ against that same fixed pipeline on the Week 6 eval set
 (`agent/race.py`), with real speed/cost/reliability numbers per problem
 type and a shipping verdict written from the result, not asserted ahead
 of it.
+
+See [`mcp_agent/`](mcp_agent/) for the Week 9 MCP exercise: an agent
+that discovers its tools over MCP instead of having them wired in, our
+own clause-search MCP server, and a second server (the contract
+repository) added by editing one config file — with a diff showing zero
+changed lines in the agent module. Needs Python 3.10+ and `mcp<2`
+(`pip install -r requirements.txt`); the README there lists what is
+real and what is a stand-in.
 
 ---
 

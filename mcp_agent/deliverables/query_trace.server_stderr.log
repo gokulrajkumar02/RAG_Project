@@ -1,0 +1,5 @@
+Processing request of type ListToolsRequest
+Processing request of type ReadResourceRequest
+Processing request of type ListToolsRequest
+Processing request of type CallToolRequest
+{"ts": 1791898239.093, "server": "contract-repository", "tool": "get_amendment_chain", "args": {"contract_id": "MSA-2021-0142"}}

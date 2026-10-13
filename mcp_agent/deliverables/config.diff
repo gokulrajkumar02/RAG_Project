@@ -1,0 +1,16 @@
+diff --git a/mcp_servers.before.json b/mcp_servers.json
+index 85f39bc..e013a71 100644
+--- a/mcp_servers.before.json
++++ b/mcp_servers.json
+@@ -4,6 +4,11 @@
+       "command": "${PYTHON}",
+       "args": ["servers/clause_search_server.py"],
+       "attach_resources": ["contract://sample/defined-terms"]
++    },
++    "contract-repository": {
++      "command": "${PYTHON}",
++      "args": ["third_party/contract_repo_server.py"],
++      "env": {"CONTRACT_REPO_TOKEN": "${CONTRACT_REPO_TOKEN:-demo-token-not-a-secret}"}
+     }
+   }
+ }

@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "gateway": {
+      "command": "${PYTHON}",
+      "args": ["gateway/gateway_server.py"],
+      "env": {"GATEWAY_TOKEN": "${GATEWAY_TOKEN:-tok-demo-legal-readonly}"},
+      "attach_resources": ["contract://sample/defined-terms"]
+    }
+  }
+}
