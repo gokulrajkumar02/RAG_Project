@@ -1,0 +1,160 @@
+# handoffs.log - every model call and every worker hand-off, with token counts
+# MODE: STUB - no GROQ_API_KEY, so a rule-based stand-in (multi_agent/stub_llm.py) played the model. Retrieval, both workers (real HTTP), the injected 500 and the meter are real; every pass/fail, token count, latency and cost here is NOT evidence about a language model. Re-run with a key: python multi_agent/multi_race.py --llm groq
+# columns: arm | case | hand-off | in | out | total | resent~ (prompt tokens identical to the previous call's prefix) | latency
+# HTTP lines are manager -> worker attempts: they carry no tokens themselves; the tokens a worker spends serving one are the 'manager -> <worker>' model-call lines for the same case.
+
+single     parties                      user -> single_agent, call 1 (brief + tool menu)                                     in=   389 out=   42 total=   431 resent~     0   0.00s [estimate]
+single     parties                      user -> single_agent, call 2 (re-send of brief + history so far)                     in=   535 out=  162 total=   697 resent~   377   0.00s [estimate]
+                                        = single total for parties: 1,128 tokens
+
+multi      parties                      user -> manager (plan)                                                               in=   189 out=   24 total=   213 resent~     0   0.00s [estimate]
+multi      parties                      manager -> clause_worker HTTP POST attempt 1 -> 200 (0.08s)
+multi      parties                      manager -> terms_worker HTTP POST attempt 1 -> 200 (0.01s)
+multi      parties                      manager -> terms_worker, call 1 (brief + tool menu)                                  in=   246 out=   35 total=   281 resent~     0   0.00s [estimate]
+multi      parties                      manager -> clause_worker, call 1 (brief + tool menu)                                 in=   332 out=   44 total=   376 resent~     0   0.00s [estimate]
+multi      parties                      manager -> terms_worker, call 2 (re-send of brief + results so far)                  in=   286 out=   58 total=   344 resent~   229   0.00s [estimate]
+multi      parties                      manager -> clause_worker, call 2 (re-send of brief + results so far)                 in=   480 out=  133 total=   613 resent~   318   0.00s [estimate]
+multi      parties                      workers -> manager (synthesis of both results)                                       in=   237 out=  111 total=   348 resent~     0   0.00s [estimate]
+                                        = multi total for parties: 2,175 tokens
+
+single     confidential_info_scope      user -> single_agent, call 1 (brief + tool menu)                                     in=   392 out=   45 total=   437 resent~     0   0.00s [estimate]
+single     confidential_info_scope      user -> single_agent, call 2 (re-send of brief + history so far)                     in=   515 out=  135 total=   650 resent~   373   0.00s [estimate]
+                                        = single total for confidential_info_scope: 1,087 tokens
+
+multi      confidential_info_scope      user -> manager (plan)                                                               in=   192 out=   26 total=   218 resent~     0   0.00s [estimate]
+multi      confidential_info_scope      manager -> clause_worker HTTP POST attempt 1 -> 200 (0.07s)
+multi      confidential_info_scope      manager -> terms_worker HTTP POST attempt 1 -> 200 (0.01s)
+multi      confidential_info_scope      manager -> clause_worker, call 1 (brief + tool menu)                                 in=   338 out=   47 total=   385 resent~     0   0.00s [estimate]
+multi      confidential_info_scope      manager -> terms_worker, call 1 (brief + tool menu)                                  in=   245 out=   34 total=   279 resent~     0   0.00s [estimate]
+multi      confidential_info_scope      manager -> terms_worker, call 2 (re-send of brief + results so far)                  in=   282 out=   55 total=   337 resent~   218   0.00s [estimate]
+multi      confidential_info_scope      manager -> clause_worker, call 2 (re-send of brief + results so far)                 in=   463 out=  104 total=   567 resent~   318   0.00s [estimate]
+multi      confidential_info_scope      workers -> manager (synthesis of both results)                                       in=   213 out=   84 total=   297 resent~     0   0.00s [estimate]
+                                        = multi total for confidential_info_scope: 2,083 tokens
+
+multi_fail confidential_info_scope      user -> manager (plan)                                                               in=   192 out=   26 total=   218 resent~     0   0.00s [estimate]
+multi_fail confidential_info_scope      manager -> clause_worker HTTP POST attempt 1 -> 200 (0.08s)
+multi_fail confidential_info_scope      manager -> terms_worker HTTP POST attempt 1 -> 500 (0.00s)  injected fault: worker crashed
+multi_fail confidential_info_scope      manager -> clause_worker, call 1 (brief + tool menu)                                 in=   338 out=   47 total=   385 resent~     0   0.00s [estimate]
+multi_fail confidential_info_scope      manager -> clause_worker, call 2 (re-send of brief + results so far)                 in=   463 out=  104 total=   567 resent~   318   0.00s [estimate]
+multi_fail confidential_info_scope      manager -> terms_worker HTTP POST attempt 2 -> 500 (0.02s)  injected fault: worker crashed
+multi_fail confidential_info_scope      workers -> manager (synthesis of both results)                                       in=   206 out=   78 total=   284 resent~     0   0.00s [estimate]
+                                        = multi_fail total for confidential_info_scope: 1,454 tokens
+
+single     effective_date               user -> single_agent, call 1 (brief + tool menu)                                     in=   388 out=   41 total=   429 resent~     0   0.00s [estimate]
+single     effective_date               user -> single_agent, call 2 (re-send of brief + history so far)                     in=   589 out=  212 total=   801 resent~   386   0.00s [estimate]
+                                        = single total for effective_date: 1,230 tokens
+
+multi      effective_date               user -> manager (plan)                                                               in=   188 out=   18 total=   206 resent~     0   0.00s [estimate]
+multi      effective_date               manager -> clause_worker HTTP POST attempt 1 -> 200 (0.09s)
+multi      effective_date               manager -> clause_worker, call 1 (brief + tool menu)                                 in=   330 out=   43 total=   373 resent~     0   0.00s [estimate]
+multi      effective_date               manager -> clause_worker, call 2 (re-send of brief + results so far)                 in=   533 out=  129 total=   662 resent~   324   0.00s [estimate]
+multi      effective_date               workers -> manager (synthesis of both results)                                       in=   220 out=   75 total=   295 resent~     0   0.00s [estimate]
+                                        = multi total for effective_date: 1,536 tokens
+
+single     reports_to                   user -> single_agent, call 1 (brief + tool menu)                                     in=   387 out=   40 total=   427 resent~     0   0.00s [estimate]
+single     reports_to                   user -> single_agent, call 2 (re-send of brief + history so far)                     in=   557 out=  174 total=   731 resent~   376   0.00s [estimate]
+                                        = single total for reports_to: 1,158 tokens
+
+multi      reports_to                   user -> manager (plan)                                                               in=   187 out=   19 total=   206 resent~     0   0.00s [estimate]
+multi      reports_to                   manager -> clause_worker HTTP POST attempt 1 -> 200 (0.09s)
+multi      reports_to                   manager -> terms_worker HTTP POST attempt 1 -> 200 (0.00s)
+multi      reports_to                   manager -> clause_worker, call 1 (brief + tool menu)                                 in=   328 out=   42 total=   370 resent~     0   0.00s [estimate]
+multi      reports_to                   manager -> terms_worker, call 1 (brief + tool menu)                                  in=   243 out=   32 total=   275 resent~     0   0.00s [estimate]
+multi      reports_to                   manager -> terms_worker, call 2 (re-send of brief + results so far)                  in=   257 out=   34 total=   291 resent~   222   0.00s [estimate]
+multi      reports_to                   manager -> clause_worker, call 2 (re-send of brief + results so far)                 in=   500 out=  115 total=   615 resent~   313   0.00s [estimate]
+multi      reports_to                   workers -> manager (synthesis of both results)                                       in=   199 out=   74 total=   273 resent~     0   0.00s [estimate]
+                                        = multi total for reports_to: 2,030 tokens
+
+single     salary                       user -> single_agent, call 1 (brief + tool menu)                                     in=   390 out=   43 total=   433 resent~     0   0.00s [estimate]
+single     salary                       user -> single_agent, call 2 (re-send of brief + history so far)                     in=   544 out=  168 total=   712 resent~   385   0.00s [estimate]
+                                        = single total for salary: 1,145 tokens
+
+multi      salary                       user -> manager (plan)                                                               in=   190 out=   22 total=   212 resent~     0   0.00s [estimate]
+multi      salary                       manager -> clause_worker HTTP POST attempt 1 -> 200 (0.07s)
+multi      salary                       manager -> terms_worker HTTP POST attempt 1 -> 200 (0.00s)
+multi      salary                       manager -> clause_worker, call 1 (brief + tool menu)                                 in=   334 out=   45 total=   379 resent~     0   0.00s [estimate]
+multi      salary                       manager -> terms_worker, call 1 (brief + tool menu)                                  in=   243 out=   32 total=   275 resent~     0   0.00s [estimate]
+multi      salary                       manager -> terms_worker, call 2 (re-send of brief + results so far)                  in=   257 out=   34 total=   291 resent~   222   0.00s [estimate]
+multi      salary                       manager -> clause_worker, call 2 (re-send of brief + results so far)                 in=   490 out=  109 total=   599 resent~   325   0.00s [estimate]
+multi      salary                       workers -> manager (synthesis of both results)                                       in=   196 out=   66 total=   262 resent~     0   0.00s [estimate]
+                                        = multi total for salary: 2,018 tokens
+
+single     overtime                     user -> single_agent, call 1 (brief + tool menu)                                     in=   390 out=   43 total=   433 resent~     0   0.00s [estimate]
+single     overtime                     user -> single_agent, call 2 (re-send of brief + history so far)                     in=   579 out=  197 total=   776 resent~   392   0.00s [estimate]
+                                        = single total for overtime: 1,209 tokens
+
+multi      overtime                     user -> manager (plan)                                                               in=   190 out=   22 total=   212 resent~     0   0.00s [estimate]
+multi      overtime                     manager -> clause_worker HTTP POST attempt 1 -> 200 (0.07s)
+multi      overtime                     manager -> terms_worker HTTP POST attempt 1 -> 200 (0.01s)
+multi      overtime                     manager -> clause_worker, call 1 (brief + tool menu)                                 in=   334 out=   45 total=   379 resent~     0   0.00s [estimate]
+multi      overtime                     manager -> terms_worker, call 1 (brief + tool menu)                                  in=   243 out=   32 total=   275 resent~     0   0.00s [estimate]
+multi      overtime                     manager -> terms_worker, call 2 (re-send of brief + results so far)                  in=   257 out=   34 total=   291 resent~   222   0.00s [estimate]
+multi      overtime                     manager -> clause_worker, call 2 (re-send of brief + results so far)                 in=   525 out=  109 total=   634 resent~   331   0.00s [estimate]
+multi      overtime                     workers -> manager (synthesis of both results)                                       in=   196 out=   67 total=   263 resent~     0   0.00s [estimate]
+                                        = multi total for overtime: 2,054 tokens
+
+single     notice_period                user -> single_agent, call 1 (brief + tool menu)                                     in=   397 out=   50 total=   447 resent~     0   0.00s [estimate]
+single     notice_period                user -> single_agent, call 2 (re-send of brief + history so far)                     in=   607 out=  207 total=   814 resent~   404   0.00s [estimate]
+                                        = single total for notice_period: 1,261 tokens
+
+multi      notice_period                user -> manager (plan)                                                               in=   197 out=   29 total=   226 resent~     0   0.00s [estimate]
+multi      notice_period                manager -> clause_worker HTTP POST attempt 1 -> 200 (0.07s)
+multi      notice_period                manager -> terms_worker HTTP POST attempt 1 -> 200 (0.00s)
+multi      notice_period                manager -> clause_worker, call 1 (brief + tool menu)                                 in=   348 out=   52 total=   400 resent~     0   0.00s [estimate]
+multi      notice_period                manager -> terms_worker, call 1 (brief + tool menu)                                  in=   243 out=   32 total=   275 resent~     0   0.00s [estimate]
+multi      notice_period                manager -> terms_worker, call 2 (re-send of brief + results so far)                  in=   257 out=   34 total=   291 resent~   222   0.00s [estimate]
+multi      notice_period                manager -> clause_worker, call 2 (re-send of brief + results so far)                 in=   560 out=  126 total=   686 resent~   348   0.00s [estimate]
+multi      notice_period                workers -> manager (synthesis of both results)                                       in=   220 out=   84 total=   304 resent~     0   0.00s [estimate]
+                                        = multi total for notice_period: 2,182 tokens
+
+single     immediate_termination_fraud  user -> single_agent, call 1 (brief + tool menu)                                     in=   392 out=   45 total=   437 resent~     0   0.00s [estimate]
+single     immediate_termination_fraud  user -> single_agent, call 2 (re-send of brief + history so far)                     in=   546 out=  156 total=   702 resent~   384   0.00s [estimate]
+                                        = single total for immediate_termination_fraud: 1,139 tokens
+
+multi      immediate_termination_fraud  user -> manager (plan)                                                               in=   192 out=   27 total=   219 resent~     0   0.00s [estimate]
+multi      immediate_termination_fraud  manager -> clause_worker HTTP POST attempt 1 -> 200 (0.07s)
+multi      immediate_termination_fraud  manager -> terms_worker HTTP POST attempt 1 -> 200 (0.00s)
+multi      immediate_termination_fraud  manager -> clause_worker, call 1 (brief + tool menu)                                 in=   338 out=   47 total=   385 resent~     0   0.00s [estimate]
+multi      immediate_termination_fraud  manager -> terms_worker, call 1 (brief + tool menu)                                  in=   246 out=   35 total=   281 resent~     0   0.00s [estimate]
+multi      immediate_termination_fraud  manager -> terms_worker, call 2 (re-send of brief + results so far)                  in=   273 out=   44 total=   317 resent~   228   0.00s [estimate]
+multi      immediate_termination_fraud  manager -> clause_worker, call 2 (re-send of brief + results so far)                 in=   494 out=  115 total=   609 resent~   327   0.00s [estimate]
+multi      immediate_termination_fraud  workers -> manager (synthesis of both results)                                       in=   214 out=   85 total=   299 resent~     0   0.00s [estimate]
+                                        = multi total for immediate_termination_fraud: 2,110 tokens
+
+single     leave_approval               user -> single_agent, call 1 (brief + tool menu)                                     in=   393 out=   46 total=   439 resent~     0   0.00s [estimate]
+single     leave_approval               user -> single_agent, call 2 (re-send of brief + history so far)                     in=   573 out=  185 total=   758 resent~   396   0.00s [estimate]
+                                        = single total for leave_approval: 1,197 tokens
+
+multi      leave_approval               user -> manager (plan)                                                               in=   193 out=   25 total=   218 resent~     0   0.00s [estimate]
+multi      leave_approval               manager -> clause_worker HTTP POST attempt 1 -> 200 (0.08s)
+multi      leave_approval               manager -> terms_worker HTTP POST attempt 1 -> 200 (0.00s)
+multi      leave_approval               manager -> clause_worker, call 1 (brief + tool menu)                                 in=   340 out=   48 total=   388 resent~     0   0.00s [estimate]
+multi      leave_approval               manager -> terms_worker, call 1 (brief + tool menu)                                  in=   243 out=   32 total=   275 resent~     0   0.00s [estimate]
+multi      leave_approval               manager -> terms_worker, call 2 (re-send of brief + results so far)                  in=   257 out=   34 total=   291 resent~   222   0.00s [estimate]
+multi      leave_approval               manager -> clause_worker, call 2 (re-send of brief + results so far)                 in=   522 out=  125 total=   647 resent~   338   0.00s [estimate]
+multi      leave_approval               workers -> manager (synthesis of both results)                                       in=   215 out=   85 total=   300 resent~     0   0.00s [estimate]
+                                        = multi total for leave_approval: 2,119 tokens
+
+single     maternity_leave              user -> single_agent, call 1 (brief + tool menu)                                     in=   391 out=   44 total=   435 resent~     0   0.00s [estimate]
+single     maternity_leave              user -> single_agent, call 2 (re-send of brief + history so far)                     in=   594 out=  206 total=   800 resent~   391   0.00s [estimate]
+                                        = single total for maternity_leave: 1,235 tokens
+
+multi      maternity_leave              user -> manager (plan)                                                               in=   191 out=   23 total=   214 resent~     0   0.00s [estimate]
+multi      maternity_leave              manager -> clause_worker HTTP POST attempt 1 -> 200 (0.09s)
+multi      maternity_leave              manager -> terms_worker HTTP POST attempt 1 -> 200 (0.00s)
+multi      maternity_leave              manager -> clause_worker, call 1 (brief + tool menu)                                 in=   336 out=   46 total=   382 resent~     0   0.00s [estimate]
+multi      maternity_leave              manager -> terms_worker, call 1 (brief + tool menu)                                  in=   243 out=   32 total=   275 resent~     0   0.00s [estimate]
+multi      maternity_leave              manager -> terms_worker, call 2 (re-send of brief + results so far)                  in=   270 out=   47 total=   317 resent~   223   0.00s [estimate]
+multi      maternity_leave              manager -> clause_worker, call 2 (re-send of brief + results so far)                 in=   541 out=  129 total=   670 resent~   332   0.00s [estimate]
+multi      maternity_leave              workers -> manager (synthesis of both results)                                       in=   230 out=  102 total=   332 resent~     0   0.00s [estimate]
+                                        = multi total for maternity_leave: 2,190 tokens
+
+# ---- multi arm, per hand-off, all 10 cases (the failure-injection run is excluded) ----
+ 30.7%    6,302  manager -> clause_worker, call 2 (re-send of brief + results so far)
+ 18.6%    3,817  manager -> clause_worker, call 1 (brief + tool menu)
+ 14.5%    2,973  workers -> manager (synthesis of both results)
+ 13.5%    2,770  manager -> terms_worker, call 2 (re-send of brief + results so far)
+ 12.2%    2,491  manager -> terms_worker, call 1 (brief + tool menu)
+ 10.5%    2,144  user -> manager (plan)
+
+Context re-send multiplier: 1.7x (multi 20,497 tokens / single 11,789 tokens). Largest hand-off: manager -> clause_worker, call 2 (re-send of brief + results so far), 31% of all multi tokens (6,302).

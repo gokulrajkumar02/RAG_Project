@@ -1,0 +1,3208 @@
+{
+  "mode": "stub",
+  "model": "openai/gpt-oss-120b",
+  "rows": {
+    "single": [
+      {
+        "case": "parties",
+        "problem_type": "baseline_pass",
+        "question": "Which company and individual signed this contract?",
+        "answer": "This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024, between TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\"). India. Any disputes arising under this Agreement shall be subject to the exclusive jurisdiction of the courts in Bengaluru, Karnataka. SIGNATURES SIGNATURES Company Representative: __________________ Date: ______________ TechCorp Pvt. Ltd. TechCorp Pvt. Ltd. - Confidential EMPLOYMENT AGREEMENT Employment Agreement - TechCorp Pvt. Ltd. What do you do next? Respond with exactly one JSON object.",
+        "passed": true,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule check decides"
+        },
+        "error": null,
+        "latency_s": 0.3392787999473512,
+        "ran_first": true,
+        "llm_calls": 2,
+        "tokens": 1128,
+        "trace": null,
+        "transcript": [
+          {
+            "step": 1,
+            "thought": "[STUB] rule-based, not a model",
+            "tool": "search_contract",
+            "args": {
+              "query": "Which company and individual signed this contract?",
+              "k": 3
+            },
+            "result": "[chunk 1] This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024,\nbetween TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\").\n\n[chunk 29] India. Any disputes arising under this Agreement shall be subject to the exclusive\njurisdiction of the courts in Bengaluru, Karnataka.\nSIGNATURES\n\n[chunk 30] SIGNATURES\nCompany Representative: __________________   Date: ______________\n                      TechCorp Pvt. Ltd.\n\n[chunk 0] TechCorp Pvt. Ltd. - Confidential\nEMPLOYMENT AGREEMENT\nEmployment Agreement - TechCorp Pvt. Ltd."
+          },
+          {
+            "step": 2,
+            "thought": "[STUB] rule-based, not a model",
+            "tool": "final_answer",
+            "args": {
+              "answer": "This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024, between TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\"). India. Any disputes arising under this Agreement shall be subject to the exclusive jurisdiction of the courts in Bengaluru, Karnataka. SIGNATURES SIGNATURES Company Representative: __________________ Date: ______________ TechCorp Pvt. Ltd. TechCorp Pvt. Ltd. - Confidential EMPLOYMENT AGREEMENT Employment Agreement - TechCorp Pvt. Ltd. What do you do next? Respond with exactly one JSON object.",
+              "chunk_ids": [
+                1,
+                29,
+                30,
+                0
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "case": "confidential_info_scope",
+        "problem_type": "baseline_pass",
+        "question": "What counts as secret information I'm not allowed to share?",
+        "answer": "- Serious or repeated breach of Company policies - Willful breach of confidentiality 8. CONFIDENTIALITY 8. CONFIDENTIALITY The Employee agrees to keep all Confidential Information strictly private, both during and after employment. Confidential Information includes but is not limited to: business plans, client lists, financial data, technical documentation, and trade secrets. Unauthorized disclosure may result in legal action. What do you do next? Respond with exactly one JSON object.",
+        "passed": true,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule check decides"
+        },
+        "error": null,
+        "latency_s": 0.06808849994558841,
+        "ran_first": false,
+        "llm_calls": 2,
+        "tokens": 1087,
+        "trace": null,
+        "transcript": [
+          {
+            "step": 1,
+            "thought": "[STUB] rule-based, not a model",
+            "tool": "search_contract",
+            "args": {
+              "query": "What counts as secret information I'm not allowed to share?",
+              "k": 3
+            },
+            "result": "[chunk 18] - Serious or repeated breach of Company policies\n  - Willful breach of confidentiality\n8. CONFIDENTIALITY\n\n[chunk 19] 8. CONFIDENTIALITY\nThe Employee agrees to keep all Confidential Information strictly private, both\n\n[chunk 20] during and after employment. Confidential Information includes but is not limited to:\n\n[chunk 21] business plans, client lists, financial data, technical documentation, and trade secrets.\nUnauthorized disclosure may result in legal action."
+          },
+          {
+            "step": 2,
+            "thought": "[STUB] rule-based, not a model",
+            "tool": "final_answer",
+            "args": {
+              "answer": "- Serious or repeated breach of Company policies - Willful breach of confidentiality 8. CONFIDENTIALITY 8. CONFIDENTIALITY The Employee agrees to keep all Confidential Information strictly private, both during and after employment. Confidential Information includes but is not limited to: business plans, client lists, financial data, technical documentation, and trade secrets. Unauthorized disclosure may result in legal action. What do you do next? Respond with exactly one JSON object.",
+              "chunk_ids": [
+                18,
+                19,
+                20,
+                21
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "case": "effective_date",
+        "problem_type": "baseline_pass",
+        "question": "When does this employment officially begin?",
+        "answer": "TechCorp Pvt. Ltd. - Confidential EMPLOYMENT AGREEMENT Employment Agreement - TechCorp Pvt. Ltd. This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024, between TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\"). Engineering Manager and perform duties as reasonably assigned by the Company. 2. EFFECTIVE DATE 2. EFFECTIVE DATE This Agreement commences on January 1, 2024, and continues until terminated by business plans, client lists, financial data, technical documentation, and trade secrets. Unauthorized disclosure may result in legal action. 9. NON-COMPETE CLAUSE During the term of employment and for a period of 6 (six) months following What do you do next? Res",
+        "passed": true,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule check decides"
+        },
+        "error": null,
+        "latency_s": 0.07629170001018792,
+        "ran_first": true,
+        "llm_calls": 2,
+        "tokens": 1230,
+        "trace": null,
+        "transcript": [
+          {
+            "step": 1,
+            "thought": "[STUB] rule-based, not a model",
+            "tool": "search_contract",
+            "args": {
+              "query": "When does this employment officially begin?",
+              "k": 3
+            },
+            "result": "[chunk 0] TechCorp Pvt. Ltd. - Confidential\nEMPLOYMENT AGREEMENT\nEmployment Agreement - TechCorp Pvt. Ltd.\n\n[chunk 1] This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024,\nbetween TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\").\n\n[chunk 3] Engineering Manager and perform duties as reasonably assigned by the Company.\n2. EFFECTIVE DATE\n\n[chunk 4] 2. EFFECTIVE DATE\nThis Agreement commences on January 1, 2024, and continues until terminated by\n\n[chunk 21] business plans, client lists, financial data, technical documentation, and trade secrets.\nUnauthorized disclosure may result in legal action.\n\n[chunk 22] 9. NON-COMPETE CLAUSE\nDuring the term of employment and for a period of 6 (six) months following"
+          },
+          {
+            "step": 2,
+            "thought": "[STUB] rule-based, not a model",
+            "tool": "final_answer",
+            "args": {
+              "answer": "TechCorp Pvt. Ltd. - Confidential EMPLOYMENT AGREEMENT Employment Agreement - TechCorp Pvt. Ltd. This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024, between TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\"). Engineering Manager and perform duties as reasonably assigned by the Company. 2. EFFECTIVE DATE 2. EFFECTIVE DATE This Agreement commences on January 1, 2024, and continues until terminated by business plans, client lists, financial data, technical documentation, and trade secrets. Unauthorized disclosure may result in legal action. 9. NON-COMPETE CLAUSE During the term of employment and for a period of 6 (six) months following What do you do next? Res",
+              "chunk_ids": [
+                0,
+                1,
+                3,
+                4,
+                21,
+                22
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "case": "reports_to",
+        "problem_type": "split_clause_refusal",
+        "question": "Who is my direct manager?",
+        "answer": "1. POSITION AND DUTIES The Employee is hired as a Software Engineer. The Employee shall report to the Engineering Manager and perform duties as reasonably assigned by the Company. 2. EFFECTIVE DATE 9. NON-COMPETE CLAUSE During the term of employment and for a period of 6 (six) months following termination, the Employee agrees not to directly or indirectly work for, consult with, SIGNATURES Company Representative: __________________ Date: ______________ TechCorp Pvt. Ltd. Employee: __________________ Date: ______________ John Smith Page 2 What do you do next? Respond with exactly one JSON object.",
+        "passed": true,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule check decides"
+        },
+        "error": null,
+        "latency_s": 0.07218660006765276,
+        "ran_first": false,
+        "llm_calls": 2,
+        "tokens": 1158,
+        "trace": null,
+        "transcript": [
+          {
+            "step": 1,
+            "thought": "[STUB] rule-based, not a model",
+            "tool": "search_contract",
+            "args": {
+              "query": "Who is my direct manager?",
+              "k": 3
+            },
+            "result": "[chunk 2] 1. POSITION AND DUTIES\nThe Employee is hired as a Software Engineer. The Employee shall report to the\n\n[chunk 3] Engineering Manager and perform duties as reasonably assigned by the Company.\n2. EFFECTIVE DATE\n\n[chunk 22] 9. NON-COMPETE CLAUSE\nDuring the term of employment and for a period of 6 (six) months following\n\n[chunk 23] termination, the Employee agrees not to directly or indirectly work for, consult with,\n\n[chunk 30] SIGNATURES\nCompany Representative: __________________   Date: ______________\n                      TechCorp Pvt. Ltd.\n\n[chunk 31] Employee:             __________________   Date: ______________\n                      John Smith\nPage 2"
+          },
+          {
+            "step": 2,
+            "thought": "[STUB] rule-based, not a model",
+            "tool": "final_answer",
+            "args": {
+              "answer": "1. POSITION AND DUTIES The Employee is hired as a Software Engineer. The Employee shall report to the Engineering Manager and perform duties as reasonably assigned by the Company. 2. EFFECTIVE DATE 9. NON-COMPETE CLAUSE During the term of employment and for a period of 6 (six) months following termination, the Employee agrees not to directly or indirectly work for, consult with, SIGNATURES Company Representative: __________________ Date: ______________ TechCorp Pvt. Ltd. Employee: __________________ Date: ______________ John Smith Page 2 What do you do next? Respond with exactly one JSON object.",
+              "chunk_ids": [
+                2,
+                3,
+                22,
+                23,
+                30,
+                31
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "case": "salary",
+        "problem_type": "split_clause_refusal",
+        "question": "What is my take-home pay every month?",
+        "answer": "either party in accordance with the terms of this Agreement. 3. SALARY AND COMPENSATION The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand Rupees), payable on the last working day of each month. The Employee is also eligible business plans, client lists, financial data, technical documentation, and trade secrets. Unauthorized disclosure may result in legal action. 9. NON-COMPETE CLAUSE During the term of employment and for a period of 6 (six) months following What do you do next? Respond with exactly one JSON object.",
+        "passed": true,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule check decides"
+        },
+        "error": null,
+        "latency_s": 0.06052299996372312,
+        "ran_first": true,
+        "llm_calls": 2,
+        "tokens": 1145,
+        "trace": null,
+        "transcript": [
+          {
+            "step": 1,
+            "thought": "[STUB] rule-based, not a model",
+            "tool": "search_contract",
+            "args": {
+              "query": "What is my take-home pay every month?",
+              "k": 3
+            },
+            "result": "[chunk 5] either party in accordance with the terms of this Agreement.\n3. SALARY AND COMPENSATION\n\n[chunk 6] The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand\n\n[chunk 7] Rupees), payable on the last working day of each month. The Employee is also eligible\n\n[chunk 21] business plans, client lists, financial data, technical documentation, and trade secrets.\nUnauthorized disclosure may result in legal action.\n\n[chunk 22] 9. NON-COMPETE CLAUSE\nDuring the term of employment and for a period of 6 (six) months following"
+          },
+          {
+            "step": 2,
+            "thought": "[STUB] rule-based, not a model",
+            "tool": "final_answer",
+            "args": {
+              "answer": "either party in accordance with the terms of this Agreement. 3. SALARY AND COMPENSATION The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand Rupees), payable on the last working day of each month. The Employee is also eligible business plans, client lists, financial data, technical documentation, and trade secrets. Unauthorized disclosure may result in legal action. 9. NON-COMPETE CLAUSE During the term of employment and for a period of 6 (six) months following What do you do next? Respond with exactly one JSON object.",
+              "chunk_ids": [
+                5,
+                6,
+                7,
+                21,
+                22
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "case": "overtime",
+        "problem_type": "never_retrieved_false_notfound",
+        "question": "Do I get paid extra for staying late?",
+        "answer": "The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand Rupees), payable on the last working day of each month. The Employee is also eligible 6. NOTICE PERIOD Either party may terminate this Agreement by providing 30 (thirty) days written notice to the other party. The Company reserves the right to pay salary in lieu of notice and ask the Employee to leave immediately. 7. TERMINATION 4. WORKING HOURS The standard working hours are Monday to Friday, 9:00 AM to 6:00 PM, with a one-hour lunch break. The Employee may be required to work reasonable additional hours What do you do next? Respond with exactly one JSON object.",
+        "passed": false,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule check decides"
+        },
+        "error": null,
+        "latency_s": 0.06081290007568896,
+        "ran_first": false,
+        "llm_calls": 2,
+        "tokens": 1209,
+        "trace": null,
+        "transcript": [
+          {
+            "step": 1,
+            "thought": "[STUB] rule-based, not a model",
+            "tool": "search_contract",
+            "args": {
+              "query": "Do I get paid extra for staying late?",
+              "k": 3
+            },
+            "result": "[chunk 6] The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand\n\n[chunk 7] Rupees), payable on the last working day of each month. The Employee is also eligible\n\n[chunk 14] 6. NOTICE PERIOD\nEither party may terminate this Agreement by providing 30 (thirty) days written\n\n[chunk 15] notice to the other party. The Company reserves the right to pay salary in lieu of\nnotice and ask the Employee to leave immediately.\n7. TERMINATION\n\n[chunk 9] 4. WORKING HOURS\nThe standard working hours are Monday to Friday, 9:00 AM to 6:00 PM, with a\n\n[chunk 10] one-hour lunch break. The Employee may be required to work reasonable additional hours"
+          },
+          {
+            "step": 2,
+            "thought": "[STUB] rule-based, not a model",
+            "tool": "final_answer",
+            "args": {
+              "answer": "The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand Rupees), payable on the last working day of each month. The Employee is also eligible 6. NOTICE PERIOD Either party may terminate this Agreement by providing 30 (thirty) days written notice to the other party. The Company reserves the right to pay salary in lieu of notice and ask the Employee to leave immediately. 7. TERMINATION 4. WORKING HOURS The standard working hours are Monday to Friday, 9:00 AM to 6:00 PM, with a one-hour lunch break. The Employee may be required to work reasonable additional hours What do you do next? Respond with exactly one JSON object.",
+              "chunk_ids": [
+                6,
+                7,
+                14,
+                15,
+                9,
+                10
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "case": "notice_period",
+        "problem_type": "never_retrieved_false_notfound",
+        "question": "If I want to quit, how much heads-up do I need to give?",
+        "answer": "4. WORKING HOURS The standard working hours are Monday to Friday, 9:00 AM to 6:00 PM, with a one-hour lunch break. The Employee may be required to work reasonable additional hours to meet business needs. Overtime is compensated as per Company policy. 5. LEAVE POLICY The Employee is entitled to the following paid leave per year: - 18 days of Annual Leave - 10 days of Sick Leave - 3 days of Personal Leave - Public holidays as declared by the Company either party in accordance with the terms of this Agreement. 3. SALARY AND COMPENSATION The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand What do you do next? Respond with exactly one JSON object.",
+        "passed": false,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule check decides"
+        },
+        "error": null,
+        "latency_s": 0.07118389999959618,
+        "ran_first": true,
+        "llm_calls": 2,
+        "tokens": 1261,
+        "trace": null,
+        "transcript": [
+          {
+            "step": 1,
+            "thought": "[STUB] rule-based, not a model",
+            "tool": "search_contract",
+            "args": {
+              "query": "If I want to quit, how much heads-up do I need to give?",
+              "k": 3
+            },
+            "result": "[chunk 9] 4. WORKING HOURS\nThe standard working hours are Monday to Friday, 9:00 AM to 6:00 PM, with a\n\n[chunk 10] one-hour lunch break. The Employee may be required to work reasonable additional hours\n\n[chunk 11] to meet business needs. Overtime is compensated as per Company policy.\n5. LEAVE POLICY\nThe Employee is entitled to the following paid leave per year:\n\n[chunk 12] - 18 days of Annual Leave\n  - 10 days of Sick Leave\n  - 3 days of Personal Leave\n  - Public holidays as declared by the Company\n\n[chunk 5] either party in accordance with the terms of this Agreement.\n3. SALARY AND COMPENSATION\n\n[chunk 6] The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand"
+          },
+          {
+            "step": 2,
+            "thought": "[STUB] rule-based, not a model",
+            "tool": "final_answer",
+            "args": {
+              "answer": "4. WORKING HOURS The standard working hours are Monday to Friday, 9:00 AM to 6:00 PM, with a one-hour lunch break. The Employee may be required to work reasonable additional hours to meet business needs. Overtime is compensated as per Company policy. 5. LEAVE POLICY The Employee is entitled to the following paid leave per year: - 18 days of Annual Leave - 10 days of Sick Leave - 3 days of Personal Leave - Public holidays as declared by the Company either party in accordance with the terms of this Agreement. 3. SALARY AND COMPENSATION The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand What do you do next? Respond with exactly one JSON object.",
+              "chunk_ids": [
+                9,
+                10,
+                11,
+                12,
+                5,
+                6
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "case": "immediate_termination_fraud",
+        "problem_type": "wrong_item_selected",
+        "question": "What happens if I get caught stealing from the company?",
+        "answer": "7. TERMINATION The Company may terminate this Agreement immediately and without notice for: Page 1 TechCorp Pvt. Ltd. - Confidential - Gross misconduct or negligence - Persistent underperformance - Theft, fraud, or dishonesty - Serious or repeated breach of Company policies - Willful breach of confidentiality 8. CONFIDENTIALITY All inventions, software, designs, and other work created by the Employee in the course of employment shall be the sole and exclusive property of the Company. What do you do next? Respond with exactly one JSON object.",
+        "passed": true,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule check decides"
+        },
+        "error": null,
+        "latency_s": 0.07042729994282126,
+        "ran_first": false,
+        "llm_calls": 2,
+        "tokens": 1139,
+        "trace": null,
+        "transcript": [
+          {
+            "step": 1,
+            "thought": "[STUB] rule-based, not a model",
+            "tool": "search_contract",
+            "args": {
+              "query": "What happens if I get caught stealing from the company?",
+              "k": 3
+            },
+            "result": "[chunk 16] 7. TERMINATION\nThe Company may terminate this Agreement immediately and without notice for:\nPage 1\n\n[chunk 17] TechCorp Pvt. Ltd. - Confidential\n  - Gross misconduct or negligence\n  - Persistent underperformance\n  - Theft, fraud, or dishonesty\n\n[chunk 18] - Serious or repeated breach of Company policies\n  - Willful breach of confidentiality\n8. CONFIDENTIALITY\n\n[chunk 25] All inventions, software, designs, and other work created by the Employee in the\n\n[chunk 26] course of employment shall be the sole and exclusive property of the Company."
+          },
+          {
+            "step": 2,
+            "thought": "[STUB] rule-based, not a model",
+            "tool": "final_answer",
+            "args": {
+              "answer": "7. TERMINATION The Company may terminate this Agreement immediately and without notice for: Page 1 TechCorp Pvt. Ltd. - Confidential - Gross misconduct or negligence - Persistent underperformance - Theft, fraud, or dishonesty - Serious or repeated breach of Company policies - Willful breach of confidentiality 8. CONFIDENTIALITY All inventions, software, designs, and other work created by the Employee in the course of employment shall be the sole and exclusive property of the Company. What do you do next? Respond with exactly one JSON object.",
+              "chunk_ids": [
+                16,
+                17,
+                18,
+                25,
+                26
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "case": "leave_approval",
+        "problem_type": "never_retrieved_lucky_pass",
+        "question": "Can I just take time off whenever I feel like it?",
+        "answer": "one-hour lunch break. The Employee may be required to work reasonable additional hours to meet business needs. Overtime is compensated as per Company policy. 5. LEAVE POLICY The Employee is entitled to the following paid leave per year: - 18 days of Annual Leave - 10 days of Sick Leave - 3 days of Personal Leave - Public holidays as declared by the Company for an annual performance bonus at the sole discretion of the Company. 4. WORKING HOURS 4. WORKING HOURS The standard working hours are Monday to Friday, 9:00 AM to 6:00 PM, with a What do you do next? Respond with exactly one JSON object.",
+        "passed": false,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule check decides"
+        },
+        "error": null,
+        "latency_s": 0.08268380002118647,
+        "ran_first": true,
+        "llm_calls": 2,
+        "tokens": 1197,
+        "trace": null,
+        "transcript": [
+          {
+            "step": 1,
+            "thought": "[STUB] rule-based, not a model",
+            "tool": "search_contract",
+            "args": {
+              "query": "Can I just take time off whenever I feel like it?",
+              "k": 3
+            },
+            "result": "[chunk 10] one-hour lunch break. The Employee may be required to work reasonable additional hours\n\n[chunk 11] to meet business needs. Overtime is compensated as per Company policy.\n5. LEAVE POLICY\nThe Employee is entitled to the following paid leave per year:\n\n[chunk 12] - 18 days of Annual Leave\n  - 10 days of Sick Leave\n  - 3 days of Personal Leave\n  - Public holidays as declared by the Company\n\n[chunk 8] for an annual performance bonus at the sole discretion of the Company.\n4. WORKING HOURS\n\n[chunk 9] 4. WORKING HOURS\nThe standard working hours are Monday to Friday, 9:00 AM to 6:00 PM, with a"
+          },
+          {
+            "step": 2,
+            "thought": "[STUB] rule-based, not a model",
+            "tool": "final_answer",
+            "args": {
+              "answer": "one-hour lunch break. The Employee may be required to work reasonable additional hours to meet business needs. Overtime is compensated as per Company policy. 5. LEAVE POLICY The Employee is entitled to the following paid leave per year: - 18 days of Annual Leave - 10 days of Sick Leave - 3 days of Personal Leave - Public holidays as declared by the Company for an annual performance bonus at the sole discretion of the Company. 4. WORKING HOURS 4. WORKING HOURS The standard working hours are Monday to Friday, 9:00 AM to 6:00 PM, with a What do you do next? Respond with exactly one JSON object.",
+              "chunk_ids": [
+                10,
+                11,
+                12,
+                8,
+                9
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "case": "maternity_leave",
+        "problem_type": "no_answer_control",
+        "question": "Does this contract mention maternity or paternity leave?",
+        "answer": "notice to the other party. The Company reserves the right to pay salary in lieu of notice and ask the Employee to leave immediately. 7. TERMINATION 7. TERMINATION The Company may terminate this Agreement immediately and without notice for: Page 1 - 18 days of Annual Leave - 10 days of Sick Leave - 3 days of Personal Leave - Public holidays as declared by the Company Leave must be applied for in advance and approved by the Employee's manager. 6. NOTICE PERIOD 9. NON-COMPETE CLAUSE During the term of employment and for a period of 6 (six) months following termination, the Employee agrees not to directly or indirectly work for, consult with, What do you do next? Respond with exactly one JSON ob",
+        "passed": false,
+        "judge": null,
+        "error": null,
+        "latency_s": 0.07821990002412349,
+        "ran_first": false,
+        "llm_calls": 2,
+        "tokens": 1235,
+        "trace": null,
+        "transcript": [
+          {
+            "step": 1,
+            "thought": "[STUB] rule-based, not a model",
+            "tool": "search_contract",
+            "args": {
+              "query": "Does this contract mention maternity or paternity leave?",
+              "k": 3
+            },
+            "result": "[chunk 15] notice to the other party. The Company reserves the right to pay salary in lieu of\nnotice and ask the Employee to leave immediately.\n7. TERMINATION\n\n[chunk 16] 7. TERMINATION\nThe Company may terminate this Agreement immediately and without notice for:\nPage 1\n\n[chunk 12] - 18 days of Annual Leave\n  - 10 days of Sick Leave\n  - 3 days of Personal Leave\n  - Public holidays as declared by the Company\n\n[chunk 13] Leave must be applied for in advance and approved by the Employee's manager.\n6. NOTICE PERIOD\n\n[chunk 22] 9. NON-COMPETE CLAUSE\nDuring the term of employment and for a period of 6 (six) months following\n\n[chunk 23] termination, the Employee agrees not to directly or indirectly work for, consult with,"
+          },
+          {
+            "step": 2,
+            "thought": "[STUB] rule-based, not a model",
+            "tool": "final_answer",
+            "args": {
+              "answer": "notice to the other party. The Company reserves the right to pay salary in lieu of notice and ask the Employee to leave immediately. 7. TERMINATION 7. TERMINATION The Company may terminate this Agreement immediately and without notice for: Page 1 - 18 days of Annual Leave - 10 days of Sick Leave - 3 days of Personal Leave - Public holidays as declared by the Company Leave must be applied for in advance and approved by the Employee's manager. 6. NOTICE PERIOD 9. NON-COMPETE CLAUSE During the term of employment and for a period of 6 (six) months following termination, the Employee agrees not to directly or indirectly work for, consult with, What do you do next? Respond with exactly one JSON ob",
+              "chunk_ids": [
+                15,
+                16,
+                12,
+                13,
+                22,
+                23
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "multi": [
+      {
+        "case": "parties",
+        "problem_type": "baseline_pass",
+        "question": "Which company and individual signed this contract?",
+        "answer": "This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024, between TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\"). India. Any disputes arising under this Agreement shall be subject to the exclusive jurisdiction of the courts in Bengaluru, Karnataka. SIGNATURES SIGNATURES Company Representative: __________________ Date: ______________ TechCorp Pvt. Ltd. Defined terms: \"Agreement\" - this Employment Agreement, entered into as of January 1, 2024 | \"Company\" - TechCorp Pvt. Ltd.",
+        "passed": true,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule check decides"
+        },
+        "error": null,
+        "latency_s": 0.08521070005372167,
+        "ran_first": false,
+        "llm_calls": 6,
+        "tokens": 2175,
+        "trace": {
+          "plan_raw": "{\"clause_task\": \"which company and individual signed this contract?\", \"terms\": [\"Agreement\", \"Company\"]}",
+          "plan": {
+            "clause_task": "which company and individual signed this contract?",
+            "terms": [
+              "Agreement",
+              "Company"
+            ],
+            "parse_error": null
+          },
+          "terms_requested": [
+            "Agreement",
+            "Company"
+          ],
+          "delegated_to": [
+            "clause_worker",
+            "terms_worker"
+          ],
+          "outcomes": {
+            "clause_worker": {
+              "ok": true,
+              "status": 200,
+              "attempts": 1
+            },
+            "terms_worker": {
+              "ok": true,
+              "status": 200,
+              "attempts": 1
+            }
+          },
+          "worker_transcripts": {
+            "clause_worker": [
+              {
+                "step": 1,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "search_clauses",
+                "args": {
+                  "query": "which company and individual signed this contract?",
+                  "k": 3
+                },
+                "result": "[chunk 1] This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024,\nbetween TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\").\n\n[chunk 29] India. Any disputes arising under this Agreement shall be subject to the exclusive\njurisdiction of the courts in Bengaluru, Karnataka.\nSIGNATURES\n\n[chunk 30] SIGNATURES\nCompany Representative: __________________   Date: ______________\n                      TechCorp Pvt. Ltd.\n\n[chunk 0] TechCorp Pvt. Ltd. - Confidential\nEMPLOYMENT AGREEMENT\nEmployment Agreement - TechCorp Pvt. Ltd."
+              },
+              {
+                "step": 2,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "report",
+                "args": {
+                  "found": true,
+                  "quotes": [
+                    "This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024, between TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\").",
+                    "India. Any disputes arising under this Agreement shall be subject to the exclusive jurisdiction of the courts in Bengaluru, Karnataka. SIGNATURES",
+                    "SIGNATURES Company Representative: __________________ Date: ______________ TechCorp Pvt. Ltd."
+                  ],
+                  "chunk_ids": [
+                    1,
+                    29,
+                    30
+                  ]
+                }
+              }
+            ],
+            "terms_worker": [
+              {
+                "step": 1,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "lookup_defined_terms",
+                "args": {
+                  "terms": [
+                    "Agreement",
+                    "Company"
+                  ]
+                },
+                "result": "\"Agreement\" - this Employment Agreement, entered into as of January 1, 2024\n\"Company\" - TechCorp Pvt. Ltd."
+              },
+              {
+                "step": 2,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "report",
+                "args": {
+                  "definitions": {
+                    "Agreement": "this Employment Agreement, entered into as of January 1, 2024",
+                    "Company": "TechCorp Pvt. Ltd."
+                  }
+                }
+              }
+            ]
+          },
+          "clause_result_text": "found: yes\nchunks: 1, 29, 30\nquotes:\n- \"This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024, between TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\").\"\n- \"India. Any disputes arising under this Agreement shall be subject to the exclusive jurisdiction of the courts in Bengaluru, Karnataka. SIGNATURES\"\n- \"SIGNATURES Company Representative: __________________ Date: ______________ TechCorp Pvt. Ltd.\"",
+          "terms_result_text": "\"Agreement\" - this Employment Agreement, entered into as of January 1, 2024\n\"Company\" - TechCorp Pvt. Ltd.",
+          "clause_quotes": [
+            "This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024, between TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\").",
+            "India. Any disputes arising under this Agreement shall be subject to the exclusive jurisdiction of the courts in Bengaluru, Karnataka. SIGNATURES",
+            "SIGNATURES Company Representative: __________________ Date: ______________ TechCorp Pvt. Ltd."
+          ]
+        },
+        "transcript": null
+      },
+      {
+        "case": "confidential_info_scope",
+        "problem_type": "baseline_pass",
+        "question": "What counts as secret information I'm not allowed to share?",
+        "answer": "- Serious or repeated breach of Company policies - Willful breach of confidentiality 8. CONFIDENTIALITY 8. CONFIDENTIALITY The Employee agrees to keep all Confidential Information strictly private, both during and after employment. Confidential Information includes but is not limited to: Defined terms: \"Confidential Information\" - includes but is not limited to: business plans, client lists, financial data, technical documentation, trade secrets",
+        "passed": true,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule check decides"
+        },
+        "error": null,
+        "latency_s": 0.07420739997178316,
+        "ran_first": true,
+        "llm_calls": 6,
+        "tokens": 2083,
+        "trace": {
+          "plan_raw": "{\"clause_task\": \"what counts as secret information i'm not allowed to share?\", \"terms\": [\"Confidential Information\"]}",
+          "plan": {
+            "clause_task": "what counts as secret information i'm not allowed to share?",
+            "terms": [
+              "Confidential Information"
+            ],
+            "parse_error": null
+          },
+          "terms_requested": [
+            "Confidential Information"
+          ],
+          "delegated_to": [
+            "clause_worker",
+            "terms_worker"
+          ],
+          "outcomes": {
+            "clause_worker": {
+              "ok": true,
+              "status": 200,
+              "attempts": 1
+            },
+            "terms_worker": {
+              "ok": true,
+              "status": 200,
+              "attempts": 1
+            }
+          },
+          "worker_transcripts": {
+            "clause_worker": [
+              {
+                "step": 1,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "search_clauses",
+                "args": {
+                  "query": "what counts as secret information i'm not allowed to share?",
+                  "k": 3
+                },
+                "result": "[chunk 18] - Serious or repeated breach of Company policies\n  - Willful breach of confidentiality\n8. CONFIDENTIALITY\n\n[chunk 19] 8. CONFIDENTIALITY\nThe Employee agrees to keep all Confidential Information strictly private, both\n\n[chunk 20] during and after employment. Confidential Information includes but is not limited to:\n\n[chunk 21] business plans, client lists, financial data, technical documentation, and trade secrets.\nUnauthorized disclosure may result in legal action."
+              },
+              {
+                "step": 2,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "report",
+                "args": {
+                  "found": true,
+                  "quotes": [
+                    "- Serious or repeated breach of Company policies - Willful breach of confidentiality 8. CONFIDENTIALITY",
+                    "8. CONFIDENTIALITY The Employee agrees to keep all Confidential Information strictly private, both",
+                    "during and after employment. Confidential Information includes but is not limited to:"
+                  ],
+                  "chunk_ids": [
+                    18,
+                    19,
+                    20
+                  ]
+                }
+              }
+            ],
+            "terms_worker": [
+              {
+                "step": 1,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "lookup_defined_terms",
+                "args": {
+                  "terms": [
+                    "Confidential Information"
+                  ]
+                },
+                "result": "\"Confidential Information\" - includes but is not limited to: business plans, client lists, financial data, technical documentation, trade secrets"
+              },
+              {
+                "step": 2,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "report",
+                "args": {
+                  "definitions": {
+                    "Confidential Information": "includes but is not limited to: business plans, client lists, financial data, technical documentation, trade secrets"
+                  }
+                }
+              }
+            ]
+          },
+          "clause_result_text": "found: yes\nchunks: 18, 19, 20\nquotes:\n- \"- Serious or repeated breach of Company policies - Willful breach of confidentiality 8. CONFIDENTIALITY\"\n- \"8. CONFIDENTIALITY The Employee agrees to keep all Confidential Information strictly private, both\"\n- \"during and after employment. Confidential Information includes but is not limited to:\"",
+          "terms_result_text": "\"Confidential Information\" - includes but is not limited to: business plans, client lists, financial data, technical documentation, trade secrets",
+          "clause_quotes": [
+            "- Serious or repeated breach of Company policies - Willful breach of confidentiality 8. CONFIDENTIALITY",
+            "8. CONFIDENTIALITY The Employee agrees to keep all Confidential Information strictly private, both",
+            "during and after employment. Confidential Information includes but is not limited to:"
+          ]
+        },
+        "transcript": null
+      },
+      {
+        "case": "effective_date",
+        "problem_type": "baseline_pass",
+        "question": "When does this employment officially begin?",
+        "answer": "TechCorp Pvt. Ltd. - Confidential EMPLOYMENT AGREEMENT Employment Agreement - TechCorp Pvt. Ltd. This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024, between TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\"). Engineering Manager and perform duties as reasonably assigned by the Company. 2. EFFECTIVE DATE",
+        "passed": true,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule check decides"
+        },
+        "error": null,
+        "latency_s": 0.09096270008012652,
+        "ran_first": false,
+        "llm_calls": 4,
+        "tokens": 1536,
+        "trace": {
+          "plan_raw": "{\"clause_task\": \"when does this employment officially begin?\", \"terms\": []}",
+          "plan": {
+            "clause_task": "when does this employment officially begin?",
+            "terms": [],
+            "parse_error": null
+          },
+          "terms_requested": [],
+          "delegated_to": [
+            "clause_worker"
+          ],
+          "outcomes": {
+            "clause_worker": {
+              "ok": true,
+              "status": 200,
+              "attempts": 1
+            }
+          },
+          "worker_transcripts": {
+            "clause_worker": [
+              {
+                "step": 1,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "search_clauses",
+                "args": {
+                  "query": "when does this employment officially begin?",
+                  "k": 3
+                },
+                "result": "[chunk 0] TechCorp Pvt. Ltd. - Confidential\nEMPLOYMENT AGREEMENT\nEmployment Agreement - TechCorp Pvt. Ltd.\n\n[chunk 1] This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024,\nbetween TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\").\n\n[chunk 3] Engineering Manager and perform duties as reasonably assigned by the Company.\n2. EFFECTIVE DATE\n\n[chunk 4] 2. EFFECTIVE DATE\nThis Agreement commences on January 1, 2024, and continues until terminated by\n\n[chunk 21] business plans, client lists, financial data, technical documentation, and trade secrets.\nUnauthorized disclosure may result in legal action.\n\n[chunk 22] 9. NON-COMPETE CLAUSE\nDuring the term of employment and for a period of 6 (six) months following"
+              },
+              {
+                "step": 2,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "report",
+                "args": {
+                  "found": true,
+                  "quotes": [
+                    "TechCorp Pvt. Ltd. - Confidential EMPLOYMENT AGREEMENT Employment Agreement - TechCorp Pvt. Ltd.",
+                    "This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024, between TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\").",
+                    "Engineering Manager and perform duties as reasonably assigned by the Company. 2. EFFECTIVE DATE"
+                  ],
+                  "chunk_ids": [
+                    0,
+                    1,
+                    3
+                  ]
+                }
+              }
+            ]
+          },
+          "clause_result_text": "found: yes\nchunks: 0, 1, 3\nquotes:\n- \"TechCorp Pvt. Ltd. - Confidential EMPLOYMENT AGREEMENT Employment Agreement - TechCorp Pvt. Ltd.\"\n- \"This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024, between TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\").\"\n- \"Engineering Manager and perform duties as reasonably assigned by the Company. 2. EFFECTIVE DATE\"",
+          "terms_result_text": "NOT REQUESTED - the manager judged the answer does not depend on a defined term.",
+          "clause_quotes": [
+            "TechCorp Pvt. Ltd. - Confidential EMPLOYMENT AGREEMENT Employment Agreement - TechCorp Pvt. Ltd.",
+            "This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024, between TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\").",
+            "Engineering Manager and perform duties as reasonably assigned by the Company. 2. EFFECTIVE DATE"
+          ]
+        },
+        "transcript": null
+      },
+      {
+        "case": "reports_to",
+        "problem_type": "split_clause_refusal",
+        "question": "Who is my direct manager?",
+        "answer": "1. POSITION AND DUTIES The Employee is hired as a Software Engineer. The Employee shall report to the Engineering Manager and perform duties as reasonably assigned by the Company. 2. EFFECTIVE DATE 9. NON-COMPETE CLAUSE During the term of employment and for a period of 6 (six) months following Defined terms: \"Employee\" - John Smith",
+        "passed": true,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule check decides"
+        },
+        "error": null,
+        "latency_s": 0.09224700008053333,
+        "ran_first": true,
+        "llm_calls": 6,
+        "tokens": 2030,
+        "trace": {
+          "plan_raw": "{\"clause_task\": \"who is my direct manager?\", \"terms\": [\"Employee\"]}",
+          "plan": {
+            "clause_task": "who is my direct manager?",
+            "terms": [
+              "Employee"
+            ],
+            "parse_error": null
+          },
+          "terms_requested": [
+            "Employee"
+          ],
+          "delegated_to": [
+            "clause_worker",
+            "terms_worker"
+          ],
+          "outcomes": {
+            "clause_worker": {
+              "ok": true,
+              "status": 200,
+              "attempts": 1
+            },
+            "terms_worker": {
+              "ok": true,
+              "status": 200,
+              "attempts": 1
+            }
+          },
+          "worker_transcripts": {
+            "clause_worker": [
+              {
+                "step": 1,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "search_clauses",
+                "args": {
+                  "query": "who is my direct manager?",
+                  "k": 3
+                },
+                "result": "[chunk 2] 1. POSITION AND DUTIES\nThe Employee is hired as a Software Engineer. The Employee shall report to the\n\n[chunk 3] Engineering Manager and perform duties as reasonably assigned by the Company.\n2. EFFECTIVE DATE\n\n[chunk 22] 9. NON-COMPETE CLAUSE\nDuring the term of employment and for a period of 6 (six) months following\n\n[chunk 23] termination, the Employee agrees not to directly or indirectly work for, consult with,\n\n[chunk 30] SIGNATURES\nCompany Representative: __________________   Date: ______________\n                      TechCorp Pvt. Ltd.\n\n[chunk 31] Employee:             __________________   Date: ______________\n                      John Smith\nPage 2"
+              },
+              {
+                "step": 2,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "report",
+                "args": {
+                  "found": true,
+                  "quotes": [
+                    "1. POSITION AND DUTIES The Employee is hired as a Software Engineer. The Employee shall report to the",
+                    "Engineering Manager and perform duties as reasonably assigned by the Company. 2. EFFECTIVE DATE",
+                    "9. NON-COMPETE CLAUSE During the term of employment and for a period of 6 (six) months following"
+                  ],
+                  "chunk_ids": [
+                    2,
+                    3,
+                    22
+                  ]
+                }
+              }
+            ],
+            "terms_worker": [
+              {
+                "step": 1,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "lookup_defined_terms",
+                "args": {
+                  "terms": [
+                    "Employee"
+                  ]
+                },
+                "result": "\"Employee\" - John Smith"
+              },
+              {
+                "step": 2,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "report",
+                "args": {
+                  "definitions": {
+                    "Employee": "John Smith"
+                  }
+                }
+              }
+            ]
+          },
+          "clause_result_text": "found: yes\nchunks: 2, 3, 22\nquotes:\n- \"1. POSITION AND DUTIES The Employee is hired as a Software Engineer. The Employee shall report to the\"\n- \"Engineering Manager and perform duties as reasonably assigned by the Company. 2. EFFECTIVE DATE\"\n- \"9. NON-COMPETE CLAUSE During the term of employment and for a period of 6 (six) months following\"",
+          "terms_result_text": "\"Employee\" - John Smith",
+          "clause_quotes": [
+            "1. POSITION AND DUTIES The Employee is hired as a Software Engineer. The Employee shall report to the",
+            "Engineering Manager and perform duties as reasonably assigned by the Company. 2. EFFECTIVE DATE",
+            "9. NON-COMPETE CLAUSE During the term of employment and for a period of 6 (six) months following"
+          ]
+        },
+        "transcript": null
+      },
+      {
+        "case": "salary",
+        "problem_type": "split_clause_refusal",
+        "question": "What is my take-home pay every month?",
+        "answer": "either party in accordance with the terms of this Agreement. 3. SALARY AND COMPENSATION The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand Rupees), payable on the last working day of each month. The Employee is also eligible Defined terms: \"Employee\" - John Smith",
+        "passed": true,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule check decides"
+        },
+        "error": null,
+        "latency_s": 0.07169970008544624,
+        "ran_first": false,
+        "llm_calls": 6,
+        "tokens": 2018,
+        "trace": {
+          "plan_raw": "{\"clause_task\": \"what is my take-home pay every month?\", \"terms\": [\"Employee\"]}",
+          "plan": {
+            "clause_task": "what is my take-home pay every month?",
+            "terms": [
+              "Employee"
+            ],
+            "parse_error": null
+          },
+          "terms_requested": [
+            "Employee"
+          ],
+          "delegated_to": [
+            "clause_worker",
+            "terms_worker"
+          ],
+          "outcomes": {
+            "clause_worker": {
+              "ok": true,
+              "status": 200,
+              "attempts": 1
+            },
+            "terms_worker": {
+              "ok": true,
+              "status": 200,
+              "attempts": 1
+            }
+          },
+          "worker_transcripts": {
+            "clause_worker": [
+              {
+                "step": 1,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "search_clauses",
+                "args": {
+                  "query": "what is my take-home pay every month?",
+                  "k": 3
+                },
+                "result": "[chunk 5] either party in accordance with the terms of this Agreement.\n3. SALARY AND COMPENSATION\n\n[chunk 6] The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand\n\n[chunk 7] Rupees), payable on the last working day of each month. The Employee is also eligible\n\n[chunk 21] business plans, client lists, financial data, technical documentation, and trade secrets.\nUnauthorized disclosure may result in legal action.\n\n[chunk 22] 9. NON-COMPETE CLAUSE\nDuring the term of employment and for a period of 6 (six) months following"
+              },
+              {
+                "step": 2,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "report",
+                "args": {
+                  "found": true,
+                  "quotes": [
+                    "either party in accordance with the terms of this Agreement. 3. SALARY AND COMPENSATION",
+                    "The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand",
+                    "Rupees), payable on the last working day of each month. The Employee is also eligible"
+                  ],
+                  "chunk_ids": [
+                    5,
+                    6,
+                    7
+                  ]
+                }
+              }
+            ],
+            "terms_worker": [
+              {
+                "step": 1,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "lookup_defined_terms",
+                "args": {
+                  "terms": [
+                    "Employee"
+                  ]
+                },
+                "result": "\"Employee\" - John Smith"
+              },
+              {
+                "step": 2,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "report",
+                "args": {
+                  "definitions": {
+                    "Employee": "John Smith"
+                  }
+                }
+              }
+            ]
+          },
+          "clause_result_text": "found: yes\nchunks: 5, 6, 7\nquotes:\n- \"either party in accordance with the terms of this Agreement. 3. SALARY AND COMPENSATION\"\n- \"The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand\"\n- \"Rupees), payable on the last working day of each month. The Employee is also eligible\"",
+          "terms_result_text": "\"Employee\" - John Smith",
+          "clause_quotes": [
+            "either party in accordance with the terms of this Agreement. 3. SALARY AND COMPENSATION",
+            "The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand",
+            "Rupees), payable on the last working day of each month. The Employee is also eligible"
+          ]
+        },
+        "transcript": null
+      },
+      {
+        "case": "overtime",
+        "problem_type": "never_retrieved_false_notfound",
+        "question": "Do I get paid extra for staying late?",
+        "answer": "The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand Rupees), payable on the last working day of each month. The Employee is also eligible 6. NOTICE PERIOD Either party may terminate this Agreement by providing 30 (thirty) days written Defined terms: \"Employee\" - John Smith",
+        "passed": false,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule check decides"
+        },
+        "error": null,
+        "latency_s": 0.07127549999859184,
+        "ran_first": true,
+        "llm_calls": 6,
+        "tokens": 2054,
+        "trace": {
+          "plan_raw": "{\"clause_task\": \"do i get paid extra for staying late?\", \"terms\": [\"Employee\"]}",
+          "plan": {
+            "clause_task": "do i get paid extra for staying late?",
+            "terms": [
+              "Employee"
+            ],
+            "parse_error": null
+          },
+          "terms_requested": [
+            "Employee"
+          ],
+          "delegated_to": [
+            "clause_worker",
+            "terms_worker"
+          ],
+          "outcomes": {
+            "clause_worker": {
+              "ok": true,
+              "status": 200,
+              "attempts": 1
+            },
+            "terms_worker": {
+              "ok": true,
+              "status": 200,
+              "attempts": 1
+            }
+          },
+          "worker_transcripts": {
+            "clause_worker": [
+              {
+                "step": 1,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "search_clauses",
+                "args": {
+                  "query": "do i get paid extra for staying late?",
+                  "k": 3
+                },
+                "result": "[chunk 6] The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand\n\n[chunk 7] Rupees), payable on the last working day of each month. The Employee is also eligible\n\n[chunk 14] 6. NOTICE PERIOD\nEither party may terminate this Agreement by providing 30 (thirty) days written\n\n[chunk 15] notice to the other party. The Company reserves the right to pay salary in lieu of\nnotice and ask the Employee to leave immediately.\n7. TERMINATION\n\n[chunk 9] 4. WORKING HOURS\nThe standard working hours are Monday to Friday, 9:00 AM to 6:00 PM, with a\n\n[chunk 10] one-hour lunch break. The Employee may be required to work reasonable additional hours"
+              },
+              {
+                "step": 2,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "report",
+                "args": {
+                  "found": true,
+                  "quotes": [
+                    "The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand",
+                    "Rupees), payable on the last working day of each month. The Employee is also eligible",
+                    "6. NOTICE PERIOD Either party may terminate this Agreement by providing 30 (thirty) days written"
+                  ],
+                  "chunk_ids": [
+                    6,
+                    7,
+                    14
+                  ]
+                }
+              }
+            ],
+            "terms_worker": [
+              {
+                "step": 1,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "lookup_defined_terms",
+                "args": {
+                  "terms": [
+                    "Employee"
+                  ]
+                },
+                "result": "\"Employee\" - John Smith"
+              },
+              {
+                "step": 2,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "report",
+                "args": {
+                  "definitions": {
+                    "Employee": "John Smith"
+                  }
+                }
+              }
+            ]
+          },
+          "clause_result_text": "found: yes\nchunks: 6, 7, 14\nquotes:\n- \"The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand\"\n- \"Rupees), payable on the last working day of each month. The Employee is also eligible\"\n- \"6. NOTICE PERIOD Either party may terminate this Agreement by providing 30 (thirty) days written\"",
+          "terms_result_text": "\"Employee\" - John Smith",
+          "clause_quotes": [
+            "The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand",
+            "Rupees), payable on the last working day of each month. The Employee is also eligible",
+            "6. NOTICE PERIOD Either party may terminate this Agreement by providing 30 (thirty) days written"
+          ]
+        },
+        "transcript": null
+      },
+      {
+        "case": "notice_period",
+        "problem_type": "never_retrieved_false_notfound",
+        "question": "If I want to quit, how much heads-up do I need to give?",
+        "answer": "4. WORKING HOURS The standard working hours are Monday to Friday, 9:00 AM to 6:00 PM, with a one-hour lunch break. The Employee may be required to work reasonable additional hours to meet business needs. Overtime is compensated as per Company policy. 5. LEAVE POLICY The Employee is entitled to the following paid leave per year: Defined terms: \"Employee\" - John Smith",
+        "passed": false,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule check decides"
+        },
+        "error": null,
+        "latency_s": 0.07279809995088726,
+        "ran_first": false,
+        "llm_calls": 6,
+        "tokens": 2182,
+        "trace": {
+          "plan_raw": "{\"clause_task\": \"if i want to quit, how much heads-up do i need to give?\", \"terms\": [\"Employee\"]}",
+          "plan": {
+            "clause_task": "if i want to quit, how much heads-up do i need to give?",
+            "terms": [
+              "Employee"
+            ],
+            "parse_error": null
+          },
+          "terms_requested": [
+            "Employee"
+          ],
+          "delegated_to": [
+            "clause_worker",
+            "terms_worker"
+          ],
+          "outcomes": {
+            "clause_worker": {
+              "ok": true,
+              "status": 200,
+              "attempts": 1
+            },
+            "terms_worker": {
+              "ok": true,
+              "status": 200,
+              "attempts": 1
+            }
+          },
+          "worker_transcripts": {
+            "clause_worker": [
+              {
+                "step": 1,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "search_clauses",
+                "args": {
+                  "query": "if i want to quit, how much heads-up do i need to give?",
+                  "k": 3
+                },
+                "result": "[chunk 9] 4. WORKING HOURS\nThe standard working hours are Monday to Friday, 9:00 AM to 6:00 PM, with a\n\n[chunk 10] one-hour lunch break. The Employee may be required to work reasonable additional hours\n\n[chunk 11] to meet business needs. Overtime is compensated as per Company policy.\n5. LEAVE POLICY\nThe Employee is entitled to the following paid leave per year:\n\n[chunk 12] - 18 days of Annual Leave\n  - 10 days of Sick Leave\n  - 3 days of Personal Leave\n  - Public holidays as declared by the Company\n\n[chunk 5] either party in accordance with the terms of this Agreement.\n3. SALARY AND COMPENSATION\n\n[chunk 6] The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand"
+              },
+              {
+                "step": 2,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "report",
+                "args": {
+                  "found": true,
+                  "quotes": [
+                    "4. WORKING HOURS The standard working hours are Monday to Friday, 9:00 AM to 6:00 PM, with a",
+                    "one-hour lunch break. The Employee may be required to work reasonable additional hours",
+                    "to meet business needs. Overtime is compensated as per Company policy. 5. LEAVE POLICY The Employee is entitled to the following paid leave per year:"
+                  ],
+                  "chunk_ids": [
+                    9,
+                    10,
+                    11
+                  ]
+                }
+              }
+            ],
+            "terms_worker": [
+              {
+                "step": 1,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "lookup_defined_terms",
+                "args": {
+                  "terms": [
+                    "Employee"
+                  ]
+                },
+                "result": "\"Employee\" - John Smith"
+              },
+              {
+                "step": 2,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "report",
+                "args": {
+                  "definitions": {
+                    "Employee": "John Smith"
+                  }
+                }
+              }
+            ]
+          },
+          "clause_result_text": "found: yes\nchunks: 9, 10, 11\nquotes:\n- \"4. WORKING HOURS The standard working hours are Monday to Friday, 9:00 AM to 6:00 PM, with a\"\n- \"one-hour lunch break. The Employee may be required to work reasonable additional hours\"\n- \"to meet business needs. Overtime is compensated as per Company policy. 5. LEAVE POLICY The Employee is entitled to the following paid leave per year:\"",
+          "terms_result_text": "\"Employee\" - John Smith",
+          "clause_quotes": [
+            "4. WORKING HOURS The standard working hours are Monday to Friday, 9:00 AM to 6:00 PM, with a",
+            "one-hour lunch break. The Employee may be required to work reasonable additional hours",
+            "to meet business needs. Overtime is compensated as per Company policy. 5. LEAVE POLICY The Employee is entitled to the following paid leave per year:"
+          ]
+        },
+        "transcript": null
+      },
+      {
+        "case": "immediate_termination_fraud",
+        "problem_type": "wrong_item_selected",
+        "question": "What happens if I get caught stealing from the company?",
+        "answer": "7. TERMINATION The Company may terminate this Agreement immediately and without notice for: Page 1 TechCorp Pvt. Ltd. - Confidential - Gross misconduct or negligence - Persistent underperformance - Theft, fraud, or dishonesty - Serious or repeated breach of Company policies - Willful breach of confidentiality 8. CONFIDENTIALITY Defined terms: \"Company\" - TechCorp Pvt. Ltd. | \"Employee\" - John Smith",
+        "passed": true,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule check decides"
+        },
+        "error": null,
+        "latency_s": 0.07136259996332228,
+        "ran_first": true,
+        "llm_calls": 6,
+        "tokens": 2110,
+        "trace": {
+          "plan_raw": "{\"clause_task\": \"what happens if i get caught stealing from the company?\", \"terms\": [\"Company\", \"Employee\"]}",
+          "plan": {
+            "clause_task": "what happens if i get caught stealing from the company?",
+            "terms": [
+              "Company",
+              "Employee"
+            ],
+            "parse_error": null
+          },
+          "terms_requested": [
+            "Company",
+            "Employee"
+          ],
+          "delegated_to": [
+            "clause_worker",
+            "terms_worker"
+          ],
+          "outcomes": {
+            "clause_worker": {
+              "ok": true,
+              "status": 200,
+              "attempts": 1
+            },
+            "terms_worker": {
+              "ok": true,
+              "status": 200,
+              "attempts": 1
+            }
+          },
+          "worker_transcripts": {
+            "clause_worker": [
+              {
+                "step": 1,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "search_clauses",
+                "args": {
+                  "query": "what happens if i get caught stealing from the company?",
+                  "k": 3
+                },
+                "result": "[chunk 16] 7. TERMINATION\nThe Company may terminate this Agreement immediately and without notice for:\nPage 1\n\n[chunk 17] TechCorp Pvt. Ltd. - Confidential\n  - Gross misconduct or negligence\n  - Persistent underperformance\n  - Theft, fraud, or dishonesty\n\n[chunk 18] - Serious or repeated breach of Company policies\n  - Willful breach of confidentiality\n8. CONFIDENTIALITY\n\n[chunk 25] All inventions, software, designs, and other work created by the Employee in the\n\n[chunk 26] course of employment shall be the sole and exclusive property of the Company."
+              },
+              {
+                "step": 2,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "report",
+                "args": {
+                  "found": true,
+                  "quotes": [
+                    "7. TERMINATION The Company may terminate this Agreement immediately and without notice for: Page 1",
+                    "TechCorp Pvt. Ltd. - Confidential - Gross misconduct or negligence - Persistent underperformance - Theft, fraud, or dishonesty",
+                    "- Serious or repeated breach of Company policies - Willful breach of confidentiality 8. CONFIDENTIALITY"
+                  ],
+                  "chunk_ids": [
+                    16,
+                    17,
+                    18
+                  ]
+                }
+              }
+            ],
+            "terms_worker": [
+              {
+                "step": 1,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "lookup_defined_terms",
+                "args": {
+                  "terms": [
+                    "Company",
+                    "Employee"
+                  ]
+                },
+                "result": "\"Company\" - TechCorp Pvt. Ltd.\n\"Employee\" - John Smith"
+              },
+              {
+                "step": 2,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "report",
+                "args": {
+                  "definitions": {
+                    "Company": "TechCorp Pvt. Ltd.",
+                    "Employee": "John Smith"
+                  }
+                }
+              }
+            ]
+          },
+          "clause_result_text": "found: yes\nchunks: 16, 17, 18\nquotes:\n- \"7. TERMINATION The Company may terminate this Agreement immediately and without notice for: Page 1\"\n- \"TechCorp Pvt. Ltd. - Confidential - Gross misconduct or negligence - Persistent underperformance - Theft, fraud, or dishonesty\"\n- \"- Serious or repeated breach of Company policies - Willful breach of confidentiality 8. CONFIDENTIALITY\"",
+          "terms_result_text": "\"Company\" - TechCorp Pvt. Ltd.\n\"Employee\" - John Smith",
+          "clause_quotes": [
+            "7. TERMINATION The Company may terminate this Agreement immediately and without notice for: Page 1",
+            "TechCorp Pvt. Ltd. - Confidential - Gross misconduct or negligence - Persistent underperformance - Theft, fraud, or dishonesty",
+            "- Serious or repeated breach of Company policies - Willful breach of confidentiality 8. CONFIDENTIALITY"
+          ]
+        },
+        "transcript": null
+      },
+      {
+        "case": "leave_approval",
+        "problem_type": "never_retrieved_lucky_pass",
+        "question": "Can I just take time off whenever I feel like it?",
+        "answer": "one-hour lunch break. The Employee may be required to work reasonable additional hours to meet business needs. Overtime is compensated as per Company policy. 5. LEAVE POLICY The Employee is entitled to the following paid leave per year: - 18 days of Annual Leave - 10 days of Sick Leave - 3 days of Personal Leave - Public holidays as declared by the Company Defined terms: \"Employee\" - John Smith",
+        "passed": false,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule check decides"
+        },
+        "error": null,
+        "latency_s": 0.08264169993344694,
+        "ran_first": false,
+        "llm_calls": 6,
+        "tokens": 2119,
+        "trace": {
+          "plan_raw": "{\"clause_task\": \"can i just take time off whenever i feel like it?\", \"terms\": [\"Employee\"]}",
+          "plan": {
+            "clause_task": "can i just take time off whenever i feel like it?",
+            "terms": [
+              "Employee"
+            ],
+            "parse_error": null
+          },
+          "terms_requested": [
+            "Employee"
+          ],
+          "delegated_to": [
+            "clause_worker",
+            "terms_worker"
+          ],
+          "outcomes": {
+            "clause_worker": {
+              "ok": true,
+              "status": 200,
+              "attempts": 1
+            },
+            "terms_worker": {
+              "ok": true,
+              "status": 200,
+              "attempts": 1
+            }
+          },
+          "worker_transcripts": {
+            "clause_worker": [
+              {
+                "step": 1,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "search_clauses",
+                "args": {
+                  "query": "can i just take time off whenever i feel like it?",
+                  "k": 3
+                },
+                "result": "[chunk 10] one-hour lunch break. The Employee may be required to work reasonable additional hours\n\n[chunk 11] to meet business needs. Overtime is compensated as per Company policy.\n5. LEAVE POLICY\nThe Employee is entitled to the following paid leave per year:\n\n[chunk 12] - 18 days of Annual Leave\n  - 10 days of Sick Leave\n  - 3 days of Personal Leave\n  - Public holidays as declared by the Company\n\n[chunk 8] for an annual performance bonus at the sole discretion of the Company.\n4. WORKING HOURS\n\n[chunk 9] 4. WORKING HOURS\nThe standard working hours are Monday to Friday, 9:00 AM to 6:00 PM, with a"
+              },
+              {
+                "step": 2,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "report",
+                "args": {
+                  "found": true,
+                  "quotes": [
+                    "one-hour lunch break. The Employee may be required to work reasonable additional hours",
+                    "to meet business needs. Overtime is compensated as per Company policy. 5. LEAVE POLICY The Employee is entitled to the following paid leave per year:",
+                    "- 18 days of Annual Leave - 10 days of Sick Leave - 3 days of Personal Leave - Public holidays as declared by the Company"
+                  ],
+                  "chunk_ids": [
+                    10,
+                    11,
+                    12
+                  ]
+                }
+              }
+            ],
+            "terms_worker": [
+              {
+                "step": 1,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "lookup_defined_terms",
+                "args": {
+                  "terms": [
+                    "Employee"
+                  ]
+                },
+                "result": "\"Employee\" - John Smith"
+              },
+              {
+                "step": 2,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "report",
+                "args": {
+                  "definitions": {
+                    "Employee": "John Smith"
+                  }
+                }
+              }
+            ]
+          },
+          "clause_result_text": "found: yes\nchunks: 10, 11, 12\nquotes:\n- \"one-hour lunch break. The Employee may be required to work reasonable additional hours\"\n- \"to meet business needs. Overtime is compensated as per Company policy. 5. LEAVE POLICY The Employee is entitled to the following paid leave per year:\"\n- \"- 18 days of Annual Leave - 10 days of Sick Leave - 3 days of Personal Leave - Public holidays as declared by the Company\"",
+          "terms_result_text": "\"Employee\" - John Smith",
+          "clause_quotes": [
+            "one-hour lunch break. The Employee may be required to work reasonable additional hours",
+            "to meet business needs. Overtime is compensated as per Company policy. 5. LEAVE POLICY The Employee is entitled to the following paid leave per year:",
+            "- 18 days of Annual Leave - 10 days of Sick Leave - 3 days of Personal Leave - Public holidays as declared by the Company"
+          ]
+        },
+        "transcript": null
+      },
+      {
+        "case": "maternity_leave",
+        "problem_type": "no_answer_control",
+        "question": "Does this contract mention maternity or paternity leave?",
+        "answer": "notice to the other party. The Company reserves the right to pay salary in lieu of notice and ask the Employee to leave immediately. 7. TERMINATION 7. TERMINATION The Company may terminate this Agreement immediately and without notice for: Page 1 - 18 days of Annual Leave - 10 days of Sick Leave - 3 days of Personal Leave - Public holidays as declared by the Company Defined terms: \"Agreement\" - this Employment Agreement, entered into as of January 1, 2024",
+        "passed": false,
+        "judge": null,
+        "error": null,
+        "latency_s": 0.08886860008351505,
+        "ran_first": true,
+        "llm_calls": 6,
+        "tokens": 2190,
+        "trace": {
+          "plan_raw": "{\"clause_task\": \"does this contract mention maternity or paternity leave?\", \"terms\": [\"Agreement\"]}",
+          "plan": {
+            "clause_task": "does this contract mention maternity or paternity leave?",
+            "terms": [
+              "Agreement"
+            ],
+            "parse_error": null
+          },
+          "terms_requested": [
+            "Agreement"
+          ],
+          "delegated_to": [
+            "clause_worker",
+            "terms_worker"
+          ],
+          "outcomes": {
+            "clause_worker": {
+              "ok": true,
+              "status": 200,
+              "attempts": 1
+            },
+            "terms_worker": {
+              "ok": true,
+              "status": 200,
+              "attempts": 1
+            }
+          },
+          "worker_transcripts": {
+            "clause_worker": [
+              {
+                "step": 1,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "search_clauses",
+                "args": {
+                  "query": "does this contract mention maternity or paternity leave?",
+                  "k": 3
+                },
+                "result": "[chunk 15] notice to the other party. The Company reserves the right to pay salary in lieu of\nnotice and ask the Employee to leave immediately.\n7. TERMINATION\n\n[chunk 16] 7. TERMINATION\nThe Company may terminate this Agreement immediately and without notice for:\nPage 1\n\n[chunk 12] - 18 days of Annual Leave\n  - 10 days of Sick Leave\n  - 3 days of Personal Leave\n  - Public holidays as declared by the Company\n\n[chunk 13] Leave must be applied for in advance and approved by the Employee's manager.\n6. NOTICE PERIOD\n\n[chunk 22] 9. NON-COMPETE CLAUSE\nDuring the term of employment and for a period of 6 (six) months following\n\n[chunk 23] termination, the Employee agrees not to directly or indirectly work for, consult with,"
+              },
+              {
+                "step": 2,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "report",
+                "args": {
+                  "found": true,
+                  "quotes": [
+                    "notice to the other party. The Company reserves the right to pay salary in lieu of notice and ask the Employee to leave immediately. 7. TERMINATION",
+                    "7. TERMINATION The Company may terminate this Agreement immediately and without notice for: Page 1",
+                    "- 18 days of Annual Leave - 10 days of Sick Leave - 3 days of Personal Leave - Public holidays as declared by the Company"
+                  ],
+                  "chunk_ids": [
+                    15,
+                    16,
+                    12
+                  ]
+                }
+              }
+            ],
+            "terms_worker": [
+              {
+                "step": 1,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "lookup_defined_terms",
+                "args": {
+                  "terms": [
+                    "Agreement"
+                  ]
+                },
+                "result": "\"Agreement\" - this Employment Agreement, entered into as of January 1, 2024"
+              },
+              {
+                "step": 2,
+                "thought": "[STUB] rule-based, not a model",
+                "tool": "report",
+                "args": {
+                  "definitions": {
+                    "Agreement": "this Employment Agreement, entered into as of January 1, 2024"
+                  }
+                }
+              }
+            ]
+          },
+          "clause_result_text": "found: yes\nchunks: 15, 16, 12\nquotes:\n- \"notice to the other party. The Company reserves the right to pay salary in lieu of notice and ask the Employee to leave immediately. 7. TERMINATION\"\n- \"7. TERMINATION The Company may terminate this Agreement immediately and without notice for: Page 1\"\n- \"- 18 days of Annual Leave - 10 days of Sick Leave - 3 days of Personal Leave - Public holidays as declared by the Company\"",
+          "terms_result_text": "\"Agreement\" - this Employment Agreement, entered into as of January 1, 2024",
+          "clause_quotes": [
+            "notice to the other party. The Company reserves the right to pay salary in lieu of notice and ask the Employee to leave immediately. 7. TERMINATION",
+            "7. TERMINATION The Company may terminate this Agreement immediately and without notice for: Page 1",
+            "- 18 days of Annual Leave - 10 days of Sick Leave - 3 days of Personal Leave - Public holidays as declared by the Company"
+          ]
+        },
+        "transcript": null
+      }
+    ]
+  },
+  "calls": [
+    {
+      "case": "parties",
+      "arm": "single",
+      "hand_off": "user -> single_agent",
+      "call_no": 1,
+      "role": "single",
+      "prompt_tokens": 389,
+      "completion_tokens": 42,
+      "latency_s": 0.00012949993833899498,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1825,
+      "t0": 545378.0316511
+    },
+    {
+      "case": "parties",
+      "arm": "single",
+      "hand_off": "user -> single_agent",
+      "call_no": 2,
+      "role": "single",
+      "prompt_tokens": 535,
+      "completion_tokens": 162,
+      "latency_s": 8.599995635449886e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 377,
+      "prompt_chars": 2453,
+      "t0": 545378.3703581
+    },
+    {
+      "case": "parties",
+      "arm": "multi",
+      "hand_off": "user -> manager",
+      "call_no": 1,
+      "role": "plan",
+      "prompt_tokens": 189,
+      "completion_tokens": 24,
+      "latency_s": 0.0001669999910518527,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 900,
+      "t0": 545378.3709641
+    },
+    {
+      "case": "parties",
+      "arm": "multi",
+      "hand_off": "manager -> terms_worker",
+      "call_no": 1,
+      "role": "terms",
+      "prompt_tokens": 246,
+      "completion_tokens": 35,
+      "latency_s": 0.00011449994053691626,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1086,
+      "t0": 545378.3745005
+    },
+    {
+      "case": "parties",
+      "arm": "multi",
+      "hand_off": "manager -> terms_worker",
+      "call_no": 2,
+      "role": "terms",
+      "prompt_tokens": 286,
+      "completion_tokens": 58,
+      "latency_s": 0.00011550006456673145,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 229,
+      "prompt_chars": 1237,
+      "t0": 545378.3751355
+    },
+    {
+      "case": "parties",
+      "arm": "multi",
+      "hand_off": "manager -> clause_worker",
+      "call_no": 1,
+      "role": "clause",
+      "prompt_tokens": 332,
+      "completion_tokens": 44,
+      "latency_s": 0.00012820004485547543,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1517,
+      "t0": 545378.3748868
+    },
+    {
+      "case": "parties",
+      "arm": "multi",
+      "hand_off": "manager -> clause_worker",
+      "call_no": 2,
+      "role": "clause",
+      "prompt_tokens": 480,
+      "completion_tokens": 133,
+      "latency_s": 8.649996016174555e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 318,
+      "prompt_chars": 2144,
+      "t0": 545378.4543768
+    },
+    {
+      "case": "parties",
+      "arm": "multi",
+      "hand_off": "workers -> manager",
+      "call_no": 1,
+      "role": "synth",
+      "prompt_tokens": 237,
+      "completion_tokens": 111,
+      "latency_s": 0.00011010002344846725,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1030,
+      "t0": 545378.4558198
+    },
+    {
+      "case": "confidential_info_scope",
+      "arm": "multi",
+      "hand_off": "user -> manager",
+      "call_no": 1,
+      "role": "plan",
+      "prompt_tokens": 192,
+      "completion_tokens": 26,
+      "latency_s": 4.789989907294512e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 909,
+      "t0": 545378.4562511
+    },
+    {
+      "case": "confidential_info_scope",
+      "arm": "multi",
+      "hand_off": "manager -> clause_worker",
+      "call_no": 1,
+      "role": "clause",
+      "prompt_tokens": 338,
+      "completion_tokens": 47,
+      "latency_s": 2.559996210038662e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1535,
+      "t0": 545378.4591311
+    },
+    {
+      "case": "confidential_info_scope",
+      "arm": "multi",
+      "hand_off": "manager -> terms_worker",
+      "call_no": 1,
+      "role": "terms",
+      "prompt_tokens": 245,
+      "completion_tokens": 34,
+      "latency_s": 2.089992631226778e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1090,
+      "t0": 545378.4597211
+    },
+    {
+      "case": "confidential_info_scope",
+      "arm": "multi",
+      "hand_off": "manager -> terms_worker",
+      "call_no": 2,
+      "role": "terms",
+      "prompt_tokens": 282,
+      "completion_tokens": 55,
+      "latency_s": 4.2199972085654736e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 218,
+      "prompt_chars": 1284,
+      "t0": 545378.4628506
+    },
+    {
+      "case": "confidential_info_scope",
+      "arm": "multi",
+      "hand_off": "manager -> clause_worker",
+      "call_no": 2,
+      "role": "clause",
+      "prompt_tokens": 463,
+      "completion_tokens": 104,
+      "latency_s": 9.129999671131372e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 318,
+      "prompt_chars": 2098,
+      "t0": 545378.528629
+    },
+    {
+      "case": "confidential_info_scope",
+      "arm": "multi",
+      "hand_off": "workers -> manager",
+      "call_no": 1,
+      "role": "synth",
+      "prompt_tokens": 213,
+      "completion_tokens": 84,
+      "latency_s": 2.6499968953430653e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 981,
+      "t0": 545378.5302085
+    },
+    {
+      "case": "confidential_info_scope",
+      "arm": "single",
+      "hand_off": "user -> single_agent",
+      "call_no": 1,
+      "role": "single",
+      "prompt_tokens": 392,
+      "completion_tokens": 45,
+      "latency_s": 4.950002767145634e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1834,
+      "t0": 545378.530529
+    },
+    {
+      "case": "confidential_info_scope",
+      "arm": "single",
+      "hand_off": "user -> single_agent",
+      "call_no": 2,
+      "role": "single",
+      "prompt_tokens": 515,
+      "completion_tokens": 135,
+      "latency_s": 0.00010710000060498714,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 373,
+      "prompt_chars": 2398,
+      "t0": 545378.5979178
+    },
+    {
+      "case": "effective_date",
+      "arm": "single",
+      "hand_off": "user -> single_agent",
+      "call_no": 1,
+      "role": "single",
+      "prompt_tokens": 388,
+      "completion_tokens": 41,
+      "latency_s": 4.2599975131452084e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1818,
+      "t0": 545378.5986805
+    },
+    {
+      "case": "effective_date",
+      "arm": "single",
+      "hand_off": "user -> single_agent",
+      "call_no": 2,
+      "role": "single",
+      "prompt_tokens": 589,
+      "completion_tokens": 212,
+      "latency_s": 0.00011460005771368742,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 386,
+      "prompt_chars": 2629,
+      "t0": 545378.6742071
+    },
+    {
+      "case": "effective_date",
+      "arm": "multi",
+      "hand_off": "user -> manager",
+      "call_no": 1,
+      "role": "plan",
+      "prompt_tokens": 188,
+      "completion_tokens": 18,
+      "latency_s": 4.900002386420965e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 893,
+      "t0": 545378.6750513
+    },
+    {
+      "case": "effective_date",
+      "arm": "multi",
+      "hand_off": "manager -> clause_worker",
+      "call_no": 1,
+      "role": "clause",
+      "prompt_tokens": 330,
+      "completion_tokens": 43,
+      "latency_s": 2.6899971999228e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1503,
+      "t0": 545378.6769651
+    },
+    {
+      "case": "effective_date",
+      "arm": "multi",
+      "hand_off": "manager -> clause_worker",
+      "call_no": 2,
+      "role": "clause",
+      "prompt_tokens": 533,
+      "completion_tokens": 129,
+      "latency_s": 0.00012199999764561653,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 324,
+      "prompt_chars": 2313,
+      "t0": 545378.7639646
+    },
+    {
+      "case": "effective_date",
+      "arm": "multi",
+      "hand_off": "workers -> manager",
+      "call_no": 1,
+      "role": "synth",
+      "prompt_tokens": 220,
+      "completion_tokens": 75,
+      "latency_s": 1.479999627918005e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 948,
+      "t0": 545378.7657626
+    },
+    {
+      "case": "reports_to",
+      "arm": "multi",
+      "hand_off": "user -> manager",
+      "call_no": 1,
+      "role": "plan",
+      "prompt_tokens": 187,
+      "completion_tokens": 19,
+      "latency_s": 4.7200010158121586e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 875,
+      "t0": 545378.7660645
+    },
+    {
+      "case": "reports_to",
+      "arm": "multi",
+      "hand_off": "manager -> clause_worker",
+      "call_no": 1,
+      "role": "clause",
+      "prompt_tokens": 328,
+      "completion_tokens": 42,
+      "latency_s": 2.6899971999228e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1467,
+      "t0": 545378.7687666
+    },
+    {
+      "case": "reports_to",
+      "arm": "multi",
+      "hand_off": "manager -> terms_worker",
+      "call_no": 1,
+      "role": "terms",
+      "prompt_tokens": 243,
+      "completion_tokens": 32,
+      "latency_s": 3.15000070258975e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1074,
+      "t0": 545378.7691681
+    },
+    {
+      "case": "reports_to",
+      "arm": "multi",
+      "hand_off": "manager -> terms_worker",
+      "call_no": 2,
+      "role": "terms",
+      "prompt_tokens": 257,
+      "completion_tokens": 34,
+      "latency_s": 3.370002377778292e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 222,
+      "prompt_chars": 1130,
+      "t0": 545378.7699632
+    },
+    {
+      "case": "reports_to",
+      "arm": "multi",
+      "hand_off": "manager -> clause_worker",
+      "call_no": 2,
+      "role": "clause",
+      "prompt_tokens": 500,
+      "completion_tokens": 115,
+      "latency_s": 0.00013689999468624592,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 313,
+      "prompt_chars": 2189,
+      "t0": 545378.8564432
+    },
+    {
+      "case": "reports_to",
+      "arm": "multi",
+      "hand_off": "workers -> manager",
+      "call_no": 1,
+      "role": "synth",
+      "prompt_tokens": 199,
+      "completion_tokens": 74,
+      "latency_s": 1.7399899661540985e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 829,
+      "t0": 545378.8580673
+    },
+    {
+      "case": "reports_to",
+      "arm": "single",
+      "hand_off": "user -> single_agent",
+      "call_no": 1,
+      "role": "single",
+      "prompt_tokens": 387,
+      "completion_tokens": 40,
+      "latency_s": 5.719996988773346e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1800,
+      "t0": 545378.8583855
+    },
+    {
+      "case": "reports_to",
+      "arm": "single",
+      "hand_off": "user -> single_agent",
+      "call_no": 2,
+      "role": "single",
+      "prompt_tokens": 557,
+      "completion_tokens": 174,
+      "latency_s": 0.00012909993529319763,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 376,
+      "prompt_chars": 2523,
+      "t0": 545378.9297669
+    },
+    {
+      "case": "salary",
+      "arm": "single",
+      "hand_off": "user -> single_agent",
+      "call_no": 1,
+      "role": "single",
+      "prompt_tokens": 390,
+      "completion_tokens": 43,
+      "latency_s": 5.94001030549407e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1812,
+      "t0": 545378.9306437
+    },
+    {
+      "case": "salary",
+      "arm": "single",
+      "hand_off": "user -> single_agent",
+      "call_no": 2,
+      "role": "single",
+      "prompt_tokens": 544,
+      "completion_tokens": 168,
+      "latency_s": 8.150003850460052e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 385,
+      "prompt_chars": 2424,
+      "t0": 545378.99046
+    },
+    {
+      "case": "salary",
+      "arm": "multi",
+      "hand_off": "user -> manager",
+      "call_no": 1,
+      "role": "plan",
+      "prompt_tokens": 190,
+      "completion_tokens": 22,
+      "latency_s": 5.18999295309186e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 887,
+      "t0": 545378.9912264
+    },
+    {
+      "case": "salary",
+      "arm": "multi",
+      "hand_off": "manager -> clause_worker",
+      "call_no": 1,
+      "role": "clause",
+      "prompt_tokens": 334,
+      "completion_tokens": 45,
+      "latency_s": 2.7699978090822697e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1491,
+      "t0": 545378.9933659
+    },
+    {
+      "case": "salary",
+      "arm": "multi",
+      "hand_off": "manager -> terms_worker",
+      "call_no": 1,
+      "role": "terms",
+      "prompt_tokens": 243,
+      "completion_tokens": 32,
+      "latency_s": 2.859998494386673e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1074,
+      "t0": 545378.9936918
+    },
+    {
+      "case": "salary",
+      "arm": "multi",
+      "hand_off": "manager -> terms_worker",
+      "call_no": 2,
+      "role": "terms",
+      "prompt_tokens": 257,
+      "completion_tokens": 34,
+      "latency_s": 2.580008003860712e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 222,
+      "prompt_chars": 1130,
+      "t0": 545378.9943992
+    },
+    {
+      "case": "salary",
+      "arm": "multi",
+      "hand_off": "manager -> clause_worker",
+      "call_no": 2,
+      "role": "clause",
+      "prompt_tokens": 490,
+      "completion_tokens": 109,
+      "latency_s": 8.239992894232273e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 325,
+      "prompt_chars": 2102,
+      "t0": 545379.0610957
+    },
+    {
+      "case": "salary",
+      "arm": "multi",
+      "hand_off": "workers -> manager",
+      "call_no": 1,
+      "role": "synth",
+      "prompt_tokens": 196,
+      "completion_tokens": 66,
+      "latency_s": 3.879994619637728e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 800,
+      "t0": 545379.0625366
+    },
+    {
+      "case": "overtime",
+      "arm": "multi",
+      "hand_off": "user -> manager",
+      "call_no": 1,
+      "role": "plan",
+      "prompt_tokens": 190,
+      "completion_tokens": 22,
+      "latency_s": 7.259997073560953e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 887,
+      "t0": 545379.0630372
+    },
+    {
+      "case": "overtime",
+      "arm": "multi",
+      "hand_off": "manager -> clause_worker",
+      "call_no": 1,
+      "role": "clause",
+      "prompt_tokens": 334,
+      "completion_tokens": 45,
+      "latency_s": 2.8399983420968056e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1491,
+      "t0": 545379.066511
+    },
+    {
+      "case": "overtime",
+      "arm": "multi",
+      "hand_off": "manager -> terms_worker",
+      "call_no": 1,
+      "role": "terms",
+      "prompt_tokens": 243,
+      "completion_tokens": 32,
+      "latency_s": 2.4900073185563087e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1074,
+      "t0": 545379.0668662
+    },
+    {
+      "case": "overtime",
+      "arm": "multi",
+      "hand_off": "manager -> terms_worker",
+      "call_no": 2,
+      "role": "terms",
+      "prompt_tokens": 257,
+      "completion_tokens": 34,
+      "latency_s": 2.9499991796910763e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 222,
+      "prompt_chars": 1130,
+      "t0": 545379.0698262
+    },
+    {
+      "case": "overtime",
+      "arm": "multi",
+      "hand_off": "manager -> clause_worker",
+      "call_no": 2,
+      "role": "clause",
+      "prompt_tokens": 525,
+      "completion_tokens": 109,
+      "latency_s": 0.00011580006685107946,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 331,
+      "prompt_chars": 2212,
+      "t0": 545379.1326421
+    },
+    {
+      "case": "overtime",
+      "arm": "multi",
+      "hand_off": "workers -> manager",
+      "call_no": 1,
+      "role": "synth",
+      "prompt_tokens": 196,
+      "completion_tokens": 67,
+      "latency_s": 1.680001150816679e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 810,
+      "t0": 545379.1340646
+    },
+    {
+      "case": "overtime",
+      "arm": "single",
+      "hand_off": "user -> single_agent",
+      "call_no": 1,
+      "role": "single",
+      "prompt_tokens": 390,
+      "completion_tokens": 43,
+      "latency_s": 5.170004442334175e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1812,
+      "t0": 545379.1343566
+    },
+    {
+      "case": "overtime",
+      "arm": "single",
+      "hand_off": "user -> single_agent",
+      "call_no": 2,
+      "role": "single",
+      "prompt_tokens": 579,
+      "completion_tokens": 197,
+      "latency_s": 0.00011520006228238344,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 392,
+      "prompt_chars": 2534,
+      "t0": 545379.1944236
+    },
+    {
+      "case": "notice_period",
+      "arm": "single",
+      "hand_off": "user -> single_agent",
+      "call_no": 1,
+      "role": "single",
+      "prompt_tokens": 397,
+      "completion_tokens": 50,
+      "latency_s": 4.449998959898949e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1830,
+      "t0": 545379.1952661
+    },
+    {
+      "case": "notice_period",
+      "arm": "single",
+      "hand_off": "user -> single_agent",
+      "call_no": 2,
+      "role": "single",
+      "prompt_tokens": 607,
+      "completion_tokens": 207,
+      "latency_s": 0.0001102999085560441,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 404,
+      "prompt_chars": 2605,
+      "t0": 545379.2656628
+    },
+    {
+      "case": "notice_period",
+      "arm": "multi",
+      "hand_off": "user -> manager",
+      "call_no": 1,
+      "role": "plan",
+      "prompt_tokens": 197,
+      "completion_tokens": 29,
+      "latency_s": 4.6600005589425564e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 905,
+      "t0": 545379.2664761
+    },
+    {
+      "case": "notice_period",
+      "arm": "multi",
+      "hand_off": "manager -> terms_worker",
+      "call_no": 1,
+      "role": "terms",
+      "prompt_tokens": 243,
+      "completion_tokens": 32,
+      "latency_s": 2.829998265951872e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1074,
+      "t0": 545379.2690299
+    },
+    {
+      "case": "notice_period",
+      "arm": "multi",
+      "hand_off": "manager -> clause_worker",
+      "call_no": 1,
+      "role": "clause",
+      "prompt_tokens": 348,
+      "completion_tokens": 52,
+      "latency_s": 3.130000550299883e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1527,
+      "t0": 545379.2686907
+    },
+    {
+      "case": "notice_period",
+      "arm": "multi",
+      "hand_off": "manager -> terms_worker",
+      "call_no": 2,
+      "role": "terms",
+      "prompt_tokens": 257,
+      "completion_tokens": 34,
+      "latency_s": 3.170000854879618e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 222,
+      "prompt_chars": 1130,
+      "t0": 545379.269342
+    },
+    {
+      "case": "notice_period",
+      "arm": "multi",
+      "hand_off": "manager -> clause_worker",
+      "call_no": 2,
+      "role": "clause",
+      "prompt_tokens": 560,
+      "completion_tokens": 126,
+      "latency_s": 0.00010219996329396963,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 348,
+      "prompt_chars": 2301,
+      "t0": 545379.3376189
+    },
+    {
+      "case": "notice_period",
+      "arm": "multi",
+      "hand_off": "workers -> manager",
+      "call_no": 1,
+      "role": "synth",
+      "prompt_tokens": 220,
+      "completion_tokens": 84,
+      "latency_s": 1.580000389367342e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 895,
+      "t0": 545379.339044
+    },
+    {
+      "case": "immediate_termination_fraud",
+      "arm": "multi",
+      "hand_off": "user -> manager",
+      "call_no": 1,
+      "role": "plan",
+      "prompt_tokens": 192,
+      "completion_tokens": 27,
+      "latency_s": 5.1200040616095066e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 905,
+      "t0": 545379.3393443
+    },
+    {
+      "case": "immediate_termination_fraud",
+      "arm": "multi",
+      "hand_off": "manager -> clause_worker",
+      "call_no": 1,
+      "role": "clause",
+      "prompt_tokens": 338,
+      "completion_tokens": 47,
+      "latency_s": 2.480007242411375e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1527,
+      "t0": 545379.3419728
+    },
+    {
+      "case": "immediate_termination_fraud",
+      "arm": "multi",
+      "hand_off": "manager -> terms_worker",
+      "call_no": 1,
+      "role": "terms",
+      "prompt_tokens": 246,
+      "completion_tokens": 35,
+      "latency_s": 2.459995448589325e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1085,
+      "t0": 545379.3426868
+    },
+    {
+      "case": "immediate_termination_fraud",
+      "arm": "multi",
+      "hand_off": "manager -> terms_worker",
+      "call_no": 2,
+      "role": "terms",
+      "prompt_tokens": 273,
+      "completion_tokens": 44,
+      "latency_s": 3.799994010478258e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 228,
+      "prompt_chars": 1183,
+      "t0": 545379.3432035
+    },
+    {
+      "case": "immediate_termination_fraud",
+      "arm": "multi",
+      "hand_off": "manager -> clause_worker",
+      "call_no": 2,
+      "role": "clause",
+      "prompt_tokens": 494,
+      "completion_tokens": 115,
+      "latency_s": 8.859997615218163e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 327,
+      "prompt_chars": 2162,
+      "t0": 545379.4089881
+    },
+    {
+      "case": "immediate_termination_fraud",
+      "arm": "multi",
+      "hand_off": "workers -> manager",
+      "call_no": 1,
+      "role": "synth",
+      "prompt_tokens": 214,
+      "completion_tokens": 85,
+      "latency_s": 2.019992098212242e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 927,
+      "t0": 545379.4104462
+    },
+    {
+      "case": "immediate_termination_fraud",
+      "arm": "single",
+      "hand_off": "user -> single_agent",
+      "call_no": 1,
+      "role": "single",
+      "prompt_tokens": 392,
+      "completion_tokens": 45,
+      "latency_s": 4.7900015488266945e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1830,
+      "t0": 545379.4107803
+    },
+    {
+      "case": "immediate_termination_fraud",
+      "arm": "single",
+      "hand_off": "user -> single_agent",
+      "call_no": 2,
+      "role": "single",
+      "prompt_tokens": 546,
+      "completion_tokens": 156,
+      "latency_s": 0.00010889989789575338,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 384,
+      "prompt_chars": 2466,
+      "t0": 545379.4804675
+    },
+    {
+      "case": "leave_approval",
+      "arm": "single",
+      "hand_off": "user -> single_agent",
+      "call_no": 1,
+      "role": "single",
+      "prompt_tokens": 393,
+      "completion_tokens": 46,
+      "latency_s": 4.47999918833375e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1824,
+      "t0": 545379.4812781
+    },
+    {
+      "case": "leave_approval",
+      "arm": "single",
+      "hand_off": "user -> single_agent",
+      "call_no": 2,
+      "role": "single",
+      "prompt_tokens": 573,
+      "completion_tokens": 185,
+      "latency_s": 0.00012409989722073078,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 396,
+      "prompt_chars": 2501,
+      "t0": 545379.5632261
+    },
+    {
+      "case": "leave_approval",
+      "arm": "multi",
+      "hand_off": "user -> manager",
+      "call_no": 1,
+      "role": "plan",
+      "prompt_tokens": 193,
+      "completion_tokens": 25,
+      "latency_s": 6.910006050020456e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 899,
+      "t0": 545379.5640246
+    },
+    {
+      "case": "leave_approval",
+      "arm": "multi",
+      "hand_off": "manager -> clause_worker",
+      "call_no": 1,
+      "role": "clause",
+      "prompt_tokens": 340,
+      "completion_tokens": 48,
+      "latency_s": 2.6099965907633305e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1515,
+      "t0": 545379.5664518
+    },
+    {
+      "case": "leave_approval",
+      "arm": "multi",
+      "hand_off": "manager -> terms_worker",
+      "call_no": 1,
+      "role": "terms",
+      "prompt_tokens": 243,
+      "completion_tokens": 32,
+      "latency_s": 1.9900035113096237e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1074,
+      "t0": 545379.5672729
+    },
+    {
+      "case": "leave_approval",
+      "arm": "multi",
+      "hand_off": "manager -> terms_worker",
+      "call_no": 2,
+      "role": "terms",
+      "prompt_tokens": 257,
+      "completion_tokens": 34,
+      "latency_s": 3.50000336766243e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 222,
+      "prompt_chars": 1130,
+      "t0": 545379.5683947
+    },
+    {
+      "case": "leave_approval",
+      "arm": "multi",
+      "hand_off": "manager -> clause_worker",
+      "call_no": 2,
+      "role": "clause",
+      "prompt_tokens": 522,
+      "completion_tokens": 125,
+      "latency_s": 8.739996701478958e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 338,
+      "prompt_chars": 2191,
+      "t0": 545379.6448271
+    },
+    {
+      "case": "leave_approval",
+      "arm": "multi",
+      "hand_off": "workers -> manager",
+      "call_no": 1,
+      "role": "synth",
+      "prompt_tokens": 215,
+      "completion_tokens": 85,
+      "latency_s": 2.6999972760677338e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 919,
+      "t0": 545379.6463623
+    },
+    {
+      "case": "maternity_leave",
+      "arm": "multi",
+      "hand_off": "user -> manager",
+      "call_no": 1,
+      "role": "plan",
+      "prompt_tokens": 191,
+      "completion_tokens": 23,
+      "latency_s": 5.9399986639618874e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 906,
+      "t0": 545379.646754
+    },
+    {
+      "case": "maternity_leave",
+      "arm": "multi",
+      "hand_off": "manager -> clause_worker",
+      "call_no": 1,
+      "role": "clause",
+      "prompt_tokens": 336,
+      "completion_tokens": 46,
+      "latency_s": 2.7300091460347176e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1529,
+      "t0": 545379.6500678
+    },
+    {
+      "case": "maternity_leave",
+      "arm": "multi",
+      "hand_off": "manager -> terms_worker",
+      "call_no": 1,
+      "role": "terms",
+      "prompt_tokens": 243,
+      "completion_tokens": 32,
+      "latency_s": 2.4900073185563087e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1075,
+      "t0": 545379.650803
+    },
+    {
+      "case": "maternity_leave",
+      "arm": "multi",
+      "hand_off": "manager -> terms_worker",
+      "call_no": 2,
+      "role": "terms",
+      "prompt_tokens": 270,
+      "completion_tokens": 47,
+      "latency_s": 3.809994086623192e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 223,
+      "prompt_chars": 1184,
+      "t0": 545379.6520162
+    },
+    {
+      "case": "maternity_leave",
+      "arm": "multi",
+      "hand_off": "manager -> clause_worker",
+      "call_no": 2,
+      "role": "clause",
+      "prompt_tokens": 541,
+      "completion_tokens": 129,
+      "latency_s": 0.0001047999830916524,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 332,
+      "prompt_chars": 2333,
+      "t0": 545379.7338715
+    },
+    {
+      "case": "maternity_leave",
+      "arm": "multi",
+      "hand_off": "workers -> manager",
+      "call_no": 1,
+      "role": "synth",
+      "prompt_tokens": 230,
+      "completion_tokens": 102,
+      "latency_s": 1.7300015315413475e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 988,
+      "t0": 545379.7353492
+    },
+    {
+      "case": "maternity_leave",
+      "arm": "single",
+      "hand_off": "user -> single_agent",
+      "call_no": 1,
+      "role": "single",
+      "prompt_tokens": 391,
+      "completion_tokens": 44,
+      "latency_s": 4.740001168102026e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1831,
+      "t0": 545379.7356896
+    },
+    {
+      "case": "maternity_leave",
+      "arm": "single",
+      "hand_off": "user -> single_agent",
+      "call_no": 2,
+      "role": "single",
+      "prompt_tokens": 594,
+      "completion_tokens": 206,
+      "latency_s": 0.0001412000274285674,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 391,
+      "prompt_chars": 2636,
+      "t0": 545379.8130608
+    },
+    {
+      "case": "confidential_info_scope",
+      "arm": "multi_fail",
+      "hand_off": "user -> manager",
+      "call_no": 1,
+      "role": "plan",
+      "prompt_tokens": 192,
+      "completion_tokens": 26,
+      "latency_s": 5.8200093917548656e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 909,
+      "t0": 545379.8155048
+    },
+    {
+      "case": "confidential_info_scope",
+      "arm": "multi_fail",
+      "hand_off": "manager -> clause_worker",
+      "call_no": 1,
+      "role": "clause",
+      "prompt_tokens": 338,
+      "completion_tokens": 47,
+      "latency_s": 2.9099988751113415e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 1535,
+      "t0": 545379.8174662
+    },
+    {
+      "case": "confidential_info_scope",
+      "arm": "multi_fail",
+      "hand_off": "manager -> clause_worker",
+      "call_no": 2,
+      "role": "clause",
+      "prompt_tokens": 463,
+      "completion_tokens": 104,
+      "latency_s": 9.06999921426177e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 318,
+      "prompt_chars": 2098,
+      "t0": 545379.8909091
+    },
+    {
+      "case": "confidential_info_scope",
+      "arm": "multi_fail",
+      "hand_off": "workers -> manager",
+      "call_no": 1,
+      "role": "synth",
+      "prompt_tokens": 206,
+      "completion_tokens": 78,
+      "latency_s": 8.589995559304953e-05,
+      "throttle_wait_s": 0.0,
+      "usage_source": "estimate",
+      "resent_est": 0,
+      "prompt_chars": 932,
+      "t0": 545380.3353112
+    }
+  ],
+  "events": [
+    {
+      "arm": "multi",
+      "case": "parties",
+      "worker": "terms_worker",
+      "attempt": 1,
+      "status": 200,
+      "ok": true,
+      "t0": 545378.3731747,
+      "latency_s": 0.005594099988229573,
+      "bytes_out": 252,
+      "error": null
+    },
+    {
+      "arm": "multi",
+      "case": "parties",
+      "worker": "clause_worker",
+      "attempt": 1,
+      "status": 200,
+      "ok": true,
+      "t0": 545378.3718688,
+      "latency_s": 0.0837463999632746,
+      "bytes_out": 279,
+      "error": null
+    },
+    {
+      "arm": "multi",
+      "case": "confidential_info_scope",
+      "worker": "terms_worker",
+      "attempt": 1,
+      "status": 200,
+      "ok": true,
+      "t0": 545378.4583459,
+      "latency_s": 0.005568099906668067,
+      "bytes_out": 281,
+      "error": null
+    },
+    {
+      "arm": "multi",
+      "case": "confidential_info_scope",
+      "worker": "clause_worker",
+      "attempt": 1,
+      "status": 200,
+      "ok": true,
+      "t0": 545378.4578795,
+      "latency_s": 0.07204660004936159,
+      "bytes_out": 313,
+      "error": null
+    },
+    {
+      "arm": "multi",
+      "case": "effective_date",
+      "worker": "clause_worker",
+      "attempt": 1,
+      "status": 200,
+      "ok": true,
+      "t0": 545378.675815,
+      "latency_s": 0.089791200007312,
+      "bytes_out": 272,
+      "error": null
+    },
+    {
+      "arm": "multi",
+      "case": "reports_to",
+      "worker": "terms_worker",
+      "attempt": 1,
+      "status": 200,
+      "ok": true,
+      "t0": 545378.7678782,
+      "latency_s": 0.003299199976027012,
+      "bytes_out": 218,
+      "error": null
+    },
+    {
+      "arm": "multi",
+      "case": "reports_to",
+      "worker": "clause_worker",
+      "attempt": 1,
+      "status": 200,
+      "ok": true,
+      "t0": 545378.7674263,
+      "latency_s": 0.09043129999190569,
+      "bytes_out": 232,
+      "error": null
+    },
+    {
+      "arm": "multi",
+      "case": "salary",
+      "worker": "terms_worker",
+      "attempt": 1,
+      "status": 200,
+      "ok": true,
+      "t0": 545378.9925068,
+      "latency_s": 0.004296200000680983,
+      "bytes_out": 226,
+      "error": null
+    },
+    {
+      "arm": "multi",
+      "case": "salary",
+      "worker": "clause_worker",
+      "attempt": 1,
+      "status": 200,
+      "ok": true,
+      "t0": 545378.9919971,
+      "latency_s": 0.07024350005667657,
+      "bytes_out": 252,
+      "error": null
+    },
+    {
+      "arm": "multi",
+      "case": "overtime",
+      "worker": "terms_worker",
+      "attempt": 1,
+      "status": 200,
+      "ok": true,
+      "t0": 545379.0656272,
+      "latency_s": 0.005071000079624355,
+      "bytes_out": 228,
+      "error": null
+    },
+    {
+      "arm": "multi",
+      "case": "overtime",
+      "worker": "clause_worker",
+      "attempt": 1,
+      "status": 200,
+      "ok": true,
+      "t0": 545379.0651671,
+      "latency_s": 0.0687163999537006,
+      "bytes_out": 254,
+      "error": null
+    },
+    {
+      "arm": "multi",
+      "case": "notice_period",
+      "worker": "terms_worker",
+      "attempt": 1,
+      "status": 200,
+      "ok": true,
+      "t0": 545379.267772,
+      "latency_s": 0.002448399900458753,
+      "bytes_out": 251,
+      "error": null
+    },
+    {
+      "arm": "multi",
+      "case": "notice_period",
+      "worker": "clause_worker",
+      "attempt": 1,
+      "status": 200,
+      "ok": true,
+      "t0": 545379.2672251,
+      "latency_s": 0.0716364000691101,
+      "bytes_out": 295,
+      "error": null
+    },
+    {
+      "arm": "multi",
+      "case": "immediate_termination_fraud",
+      "worker": "terms_worker",
+      "attempt": 1,
+      "status": 200,
+      "ok": true,
+      "t0": 545379.3412393,
+      "latency_s": 0.0028244999703019857,
+      "bytes_out": 276,
+      "error": null
+    },
+    {
+      "arm": "multi",
+      "case": "immediate_termination_fraud",
+      "worker": "clause_worker",
+      "attempt": 1,
+      "status": 200,
+      "ok": true,
+      "t0": 545379.3408054,
+      "latency_s": 0.06937549996655434,
+      "bytes_out": 309,
+      "error": null
+    },
+    {
+      "arm": "multi",
+      "case": "leave_approval",
+      "worker": "terms_worker",
+      "attempt": 1,
+      "status": 200,
+      "ok": true,
+      "t0": 545379.5657197,
+      "latency_s": 0.003737300052307546,
+      "bytes_out": 246,
+      "error": null
+    },
+    {
+      "arm": "multi",
+      "case": "leave_approval",
+      "worker": "clause_worker",
+      "attempt": 1,
+      "status": 200,
+      "ok": true,
+      "t0": 545379.5652557,
+      "latency_s": 0.08080360002350062,
+      "bytes_out": 284,
+      "error": null
+    },
+    {
+      "arm": "multi",
+      "case": "maternity_leave",
+      "worker": "terms_worker",
+      "attempt": 1,
+      "status": 200,
+      "ok": true,
+      "t0": 545379.6492923,
+      "latency_s": 0.003894499968737364,
+      "bytes_out": 255,
+      "error": null
+    },
+    {
+      "arm": "multi",
+      "case": "maternity_leave",
+      "worker": "clause_worker",
+      "attempt": 1,
+      "status": 200,
+      "ok": true,
+      "t0": 545379.6487422,
+      "latency_s": 0.08642940002027899,
+      "bytes_out": 299,
+      "error": null
+    },
+    {
+      "arm": "multi_fail",
+      "case": "confidential_info_scope",
+      "worker": "terms_worker",
+      "attempt": 1,
+      "status": 500,
+      "ok": false,
+      "t0": 545379.8165719,
+      "latency_s": 0.0018685999093577266,
+      "bytes_out": 286,
+      "error": "injected fault: worker crashed"
+    },
+    {
+      "arm": "multi_fail",
+      "case": "confidential_info_scope",
+      "worker": "clause_worker",
+      "attempt": 1,
+      "status": 200,
+      "ok": true,
+      "t0": 545379.8161192,
+      "latency_s": 0.07600130001083016,
+      "bytes_out": 318,
+      "error": null
+    },
+    {
+      "arm": "multi_fail",
+      "case": "confidential_info_scope",
+      "worker": "terms_worker",
+      "attempt": 2,
+      "status": 500,
+      "ok": false,
+      "t0": 545380.3186539,
+      "latency_s": 0.015981000033207238,
+      "bytes_out": 286,
+      "error": "injected fault: worker crashed"
+    }
+  ],
+  "failure": {
+    "case": "confidential_info_scope",
+    "question": "What counts as secret information I'm not allowed to share?",
+    "answer": "- Serious or repeated breach of Company policies - Willful breach of confidentiality 8. CONFIDENTIALITY 8. CONFIDENTIALITY The Employee agrees to keep all Confidential Information strictly private, both during and after employment. Confidential Information includes but is not limited to: Defined terms: UNAVAILABLE - the defined-terms worker returned HTTP 500 after 2 attempts (no result retrieved).",
+    "passed": false,
+    "judge": {
+      "verdict": "PASS",
+      "reason": "STUB judge: no model available, rule check decides"
+    },
+    "latency_s": 0.5206730000209063,
+    "trace": {
+      "plan_raw": "{\"clause_task\": \"what counts as secret information i'm not allowed to share?\", \"terms\": [\"Confidential Information\"]}",
+      "plan": {
+        "clause_task": "what counts as secret information i'm not allowed to share?",
+        "terms": [
+          "Confidential Information"
+        ],
+        "parse_error": null
+      },
+      "terms_requested": [
+        "Confidential Information"
+      ],
+      "delegated_to": [
+        "clause_worker",
+        "terms_worker"
+      ],
+      "outcomes": {
+        "clause_worker": {
+          "ok": true,
+          "status": 200,
+          "attempts": 1
+        },
+        "terms_worker": {
+          "ok": false,
+          "status": 500,
+          "attempts": 2,
+          "error": "injected fault: worker crashed"
+        }
+      },
+      "worker_transcripts": {
+        "clause_worker": [
+          {
+            "step": 1,
+            "thought": "[STUB] rule-based, not a model",
+            "tool": "search_clauses",
+            "args": {
+              "query": "what counts as secret information i'm not allowed to share?",
+              "k": 3
+            },
+            "result": "[chunk 18] - Serious or repeated breach of Company policies\n  - Willful breach of confidentiality\n8. CONFIDENTIALITY\n\n[chunk 19] 8. CONFIDENTIALITY\nThe Employee agrees to keep all Confidential Information strictly private, both\n\n[chunk 20] during and after employment. Confidential Information includes but is not limited to:\n\n[chunk 21] business plans, client lists, financial data, technical documentation, and trade secrets.\nUnauthorized disclosure may result in legal action."
+          },
+          {
+            "step": 2,
+            "thought": "[STUB] rule-based, not a model",
+            "tool": "report",
+            "args": {
+              "found": true,
+              "quotes": [
+                "- Serious or repeated breach of Company policies - Willful breach of confidentiality 8. CONFIDENTIALITY",
+                "8. CONFIDENTIALITY The Employee agrees to keep all Confidential Information strictly private, both",
+                "during and after employment. Confidential Information includes but is not limited to:"
+              ],
+              "chunk_ids": [
+                18,
+                19,
+                20
+              ]
+            }
+          }
+        ]
+      },
+      "clause_result_text": "found: yes\nchunks: 18, 19, 20\nquotes:\n- \"- Serious or repeated breach of Company policies - Willful breach of confidentiality 8. CONFIDENTIALITY\"\n- \"8. CONFIDENTIALITY The Employee agrees to keep all Confidential Information strictly private, both\"\n- \"during and after employment. Confidential Information includes but is not limited to:\"",
+      "terms_result_text": "UNAVAILABLE - the defined-terms worker returned HTTP 500 after 2 attempts (no result retrieved).",
+      "clause_quotes": [
+        "- Serious or repeated breach of Company policies - Willful breach of confidentiality 8. CONFIDENTIALITY",
+        "8. CONFIDENTIALITY The Employee agrees to keep all Confidential Information strictly private, both",
+        "during and after employment. Confidential Information includes but is not limited to:"
+      ]
+    },
+    "classification": {
+      "label": "degraded",
+      "asserted": [],
+      "unsupported": [],
+      "line": "DEGRADED to a partial answer after 2 attempts (HTTP 500): the final answer discloses that the defined-terms check did not complete."
+    },
+    "server_hits": [
+      {
+        "case": "confidential_info_scope",
+        "status": 500,
+        "injected": true
+      },
+      {
+        "case": "confidential_info_scope",
+        "status": 500,
+        "injected": true
+      }
+    ],
+    "tries": 1,
+    "tokens": 1454,
+    "clean": {
+      "case": "confidential_info_scope",
+      "problem_type": "baseline_pass",
+      "question": "What counts as secret information I'm not allowed to share?",
+      "answer": "- Serious or repeated breach of Company policies - Willful breach of confidentiality 8. CONFIDENTIALITY 8. CONFIDENTIALITY The Employee agrees to keep all Confidential Information strictly private, both during and after employment. Confidential Information includes but is not limited to: Defined terms: \"Confidential Information\" - includes but is not limited to: business plans, client lists, financial data, technical documentation, trade secrets",
+      "passed": true,
+      "judge": {
+        "verdict": "PASS",
+        "reason": "STUB judge: no model available, rule check decides"
+      },
+      "error": null,
+      "latency_s": 0.07420739997178316,
+      "ran_first": true,
+      "llm_calls": 6,
+      "tokens": 2083,
+      "trace": {
+        "plan_raw": "{\"clause_task\": \"what counts as secret information i'm not allowed to share?\", \"terms\": [\"Confidential Information\"]}",
+        "plan": {
+          "clause_task": "what counts as secret information i'm not allowed to share?",
+          "terms": [
+            "Confidential Information"
+          ],
+          "parse_error": null
+        },
+        "terms_requested": [
+          "Confidential Information"
+        ],
+        "delegated_to": [
+          "clause_worker",
+          "terms_worker"
+        ],
+        "outcomes": {
+          "clause_worker": {
+            "ok": true,
+            "status": 200,
+            "attempts": 1
+          },
+          "terms_worker": {
+            "ok": true,
+            "status": 200,
+            "attempts": 1
+          }
+        },
+        "worker_transcripts": {
+          "clause_worker": [
+            {
+              "step": 1,
+              "thought": "[STUB] rule-based, not a model",
+              "tool": "search_clauses",
+              "args": {
+                "query": "what counts as secret information i'm not allowed to share?",
+                "k": 3
+              },
+              "result": "[chunk 18] - Serious or repeated breach of Company policies\n  - Willful breach of confidentiality\n8. CONFIDENTIALITY\n\n[chunk 19] 8. CONFIDENTIALITY\nThe Employee agrees to keep all Confidential Information strictly private, both\n\n[chunk 20] during and after employment. Confidential Information includes but is not limited to:\n\n[chunk 21] business plans, client lists, financial data, technical documentation, and trade secrets.\nUnauthorized disclosure may result in legal action."
+            },
+            {
+              "step": 2,
+              "thought": "[STUB] rule-based, not a model",
+              "tool": "report",
+              "args": {
+                "found": true,
+                "quotes": [
+                  "- Serious or repeated breach of Company policies - Willful breach of confidentiality 8. CONFIDENTIALITY",
+                  "8. CONFIDENTIALITY The Employee agrees to keep all Confidential Information strictly private, both",
+                  "during and after employment. Confidential Information includes but is not limited to:"
+                ],
+                "chunk_ids": [
+                  18,
+                  19,
+                  20
+                ]
+              }
+            }
+          ],
+          "terms_worker": [
+            {
+              "step": 1,
+              "thought": "[STUB] rule-based, not a model",
+              "tool": "lookup_defined_terms",
+              "args": {
+                "terms": [
+                  "Confidential Information"
+                ]
+              },
+              "result": "\"Confidential Information\" - includes but is not limited to: business plans, client lists, financial data, technical documentation, trade secrets"
+            },
+            {
+              "step": 2,
+              "thought": "[STUB] rule-based, not a model",
+              "tool": "report",
+              "args": {
+                "definitions": {
+                  "Confidential Information": "includes but is not limited to: business plans, client lists, financial data, technical documentation, trade secrets"
+                }
+              }
+            }
+          ]
+        },
+        "clause_result_text": "found: yes\nchunks: 18, 19, 20\nquotes:\n- \"- Serious or repeated breach of Company policies - Willful breach of confidentiality 8. CONFIDENTIALITY\"\n- \"8. CONFIDENTIALITY The Employee agrees to keep all Confidential Information strictly private, both\"\n- \"during and after employment. Confidential Information includes but is not limited to:\"",
+        "terms_result_text": "\"Confidential Information\" - includes but is not limited to: business plans, client lists, financial data, technical documentation, trade secrets",
+        "clause_quotes": [
+          "- Serious or repeated breach of Company policies - Willful breach of confidentiality 8. CONFIDENTIALITY",
+          "8. CONFIDENTIALITY The Employee agrees to keep all Confidential Information strictly private, both",
+          "during and after employment. Confidential Information includes but is not limited to:"
+        ]
+      },
+      "transcript": null
+    }
+  }
+}

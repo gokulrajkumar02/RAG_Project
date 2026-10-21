@@ -1,0 +1,51 @@
+{
+  "name": "Contract Squad Orchestrator",
+  "description": "Manager of a two-specialist contract team. Takes a question about one executed employment agreement, delegates clause retrieval and defined-term lookup to two workers, and returns an answer grounded only in what they report, or 'This information was not found in the contract.'",
+  "supportedInterfaces": [
+    {
+      "url": "https://contract-squad.example.com/a2a",
+      "protocolBinding": "JSONRPC",
+      "protocolVersion": "1.0"
+    }
+  ],
+  "provider": {
+    "organization": "RAG_Project (local training build)",
+    "url": "https://example.com/"
+  },
+  "version": "0.1.0",
+  "documentationUrl": "https://example.com/contract-squad/README",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "extendedAgentCard": false
+  },
+  "securitySchemes": {
+    "contractSquadBearer": {
+      "httpAuthSecurityScheme": {
+        "scheme": "Bearer",
+        "bearerFormat": "JWT",
+        "description": "Short-lived bearer token issued per calling team. The squad reads contract text, so every call is authenticated and attributable."
+      }
+    }
+  },
+  "securityRequirements": [
+    { "schemes": { "contractSquadBearer": { "list": [] } } }
+  ],
+  "defaultInputModes": ["text/plain"],
+  "defaultOutputModes": ["text/plain"],
+  "skills": [
+    {
+      "id": "answer-contract-question",
+      "name": "Answer a question about the employment agreement",
+      "description": "Finds the governing clause text and any defined terms it depends on, then answers from that evidence only. Says so explicitly when the agreement does not contain the answer. Works on one executed agreement (effective 2024-01-01, no amendments on file); it does not compare versions.",
+      "tags": ["legal", "contracts", "employment", "clause-retrieval", "defined-terms"],
+      "examples": [
+        "How much notice do I have to give if I want to resign?",
+        "What counts as secret information I'm not allowed to share?",
+        "Which company and individual signed this contract?"
+      ],
+      "inputModes": ["text/plain"],
+      "outputModes": ["text/plain"]
+    }
+  ]
+}
