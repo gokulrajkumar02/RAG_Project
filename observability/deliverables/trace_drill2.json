@@ -1,0 +1,158 @@
+{
+  "schema": "w11.2",
+  "trace_id": "b32136a9672bd89e297d77d87edcdf1a",
+  "ts": "2026-10-22T06:11:18.300Z",
+  "ts_local": "2026-10-22T11:41:18.300+05:30",
+  "user_id": "u-lw-06",
+  "user_role": "lawyer",
+  "session_id": "s-122faf0862b7",
+  "contract_id": "sample_contract@c4c5ee5f",
+  "app_version": "w11",
+  "model": "openai/gpt-oss-20b",
+  "llm_mode": "synthetic",
+  "prompt_version": "answer-v2",
+  "prompt_sha": "11be289e8176",
+  "context_format": "plain",
+  "input_type": "termination",
+  "question": "If John Smith deliberately shares client data with outsiders, can TechCorp terminate him straight away without giving notice?",
+  "answer": "Yes. Deliberately sharing client data with outsiders would be a willful breach of confidentiality, which is one of the grounds on which the Company may terminate immediately and without notice. (Clause 8 (Confidentiality))",
+  "status": "ok",
+  "error": null,
+  "retrieval": {
+    "k": 3,
+    "pool": 10,
+    "reranker": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "source_chunk_ids": [
+      1,
+      16,
+      17
+    ],
+    "rerank_scores": [
+      -3.657,
+      -4.4147,
+      -5.0161
+    ],
+    "context_chunk_ids": [
+      0,
+      1,
+      15,
+      16,
+      17
+    ],
+    "context_chunk_sha": {
+      "0": "76452ee492",
+      "1": "20b08be606",
+      "15": "c7bee90b95",
+      "16": "55e23c360b",
+      "17": "db2c80b6f5"
+    }
+  },
+  "spans": [
+    {
+      "span_id": "5d10e98504c1fa94",
+      "parent_id": null,
+      "name": "request",
+      "stage": "request",
+      "start_ms": 0.0,
+      "latency_ms": 111.001,
+      "attributes": {}
+    },
+    {
+      "span_id": "34489f0881078f93",
+      "parent_id": "5d10e98504c1fa94",
+      "name": "retrieval",
+      "stage": "retrieval",
+      "start_ms": 0.006,
+      "latency_ms": 65.995,
+      "attributes": {}
+    },
+    {
+      "span_id": "611fb0766400fa80",
+      "parent_id": "34489f0881078f93",
+      "name": "retrieval.embed_query",
+      "stage": "retrieval",
+      "start_ms": 0.014,
+      "latency_ms": 9.783,
+      "attributes": {
+        "model": "all-MiniLM-L6-v2",
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "span_id": "2bf2fa2e196f7559",
+      "parent_id": "34489f0881078f93",
+      "name": "retrieval.vector_search",
+      "stage": "retrieval",
+      "start_ms": 9.818,
+      "latency_ms": 0.078,
+      "attributes": {
+        "k": 10,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "span_id": "e90a82b09c6108d6",
+      "parent_id": "34489f0881078f93",
+      "name": "retrieval.rerank",
+      "stage": "retrieval",
+      "start_ms": 9.909,
+      "latency_ms": 56.057,
+      "attributes": {
+        "model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+        "pairs": 10,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "span_id": "ecd4c7165e6257cf",
+      "parent_id": "34489f0881078f93",
+      "name": "retrieval.expand_neighbors",
+      "stage": "retrieval",
+      "start_ms": 65.989,
+      "latency_ms": 0.01,
+      "attributes": {
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "span_id": "756c4edade61381e",
+      "parent_id": "5d10e98504c1fa94",
+      "name": "generation.llm",
+      "stage": "generation",
+      "start_ms": 66.001,
+      "latency_ms": 45.0,
+      "attributes": {
+        "gen_ai.request.model": "openai/gpt-oss-20b",
+        "gen_ai.usage.input_tokens": 240,
+        "gen_ai.usage.output_tokens": 45,
+        "cost_usd": 3.15e-05,
+        "usage_source": "estimate",
+        "latency_source": "modelled: output_tokens / 1000 tok/s (no model call)"
+      }
+    }
+  ],
+  "totals": {
+    "latency_ms": 111.001,
+    "input_tokens": 240,
+    "output_tokens": 45,
+    "cost_usd": 3.15e-05
+  },
+  "cost_by_stage_usd": {
+    "retrieval": 0.0,
+    "generation": 3.15e-05,
+    "tools": 0.0
+  },
+  "synthetic": true,
+  "answer_cited_clauses": [
+    "8"
+  ],
+  "context_clause_ids": [
+    "6",
+    "7"
+  ],
+  "citation_support": {
+    "6": 2,
+    "7": 4
+  },
+  "citation_mismatch": true
+}

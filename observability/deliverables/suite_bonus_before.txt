@@ -1,0 +1,67 @@
+================================================================================================================
+REGRESSION SUITE  label=bonus_before  prompt=answer-v2 (sha 11be289e8176, context plain)
+MODE: STUB - no GROQ_API_KEY. Answers come from observability/stub_llm.py, a rule-based stand-in, NOT a model;
+      the judge defers to the rule + citation checks. Shows the plumbing and the test working, not model behaviour.
+run at 2026-10-28 12:07:34
+================================================================================================================
+
+id                                    problem_type                    result  why
+----------------------------------------------------------------------------------------------------------------
+parties                               baseline_pass                   PASS    
+job_role                              baseline_pass                   PASS    
+reports_to                            split_clause_refusal            PASS    
+effective_date                        baseline_pass                   PASS    
+salary                                split_clause_refusal            PASS    
+bonus                                 baseline_pass                   PASS    
+working_hours                         baseline_pass                   PASS    
+overtime                              never_retrieved_false_notfound  FAIL    keyword missing
+annual_leave                          baseline_pass                   PASS    
+sick_leave                            baseline_pass                   PASS    
+leave_approval                        never_retrieved_lucky_pass      FAIL    keyword missing
+notice_period                         never_retrieved_false_notfound  FAIL    keyword missing
+pay_in_lieu                           baseline_pass                   PASS    
+immediate_termination_fraud           wrong_item_selected             PASS    
+confidentiality_dismissal             split_clause_refusal            PASS    
+confidentiality_after                 baseline_pass                   FAIL    keyword missing
+confidential_info_scope               baseline_pass                   FAIL    keyword missing
+noncompete_duration                   baseline_pass                   PASS    
+noncompete_consulting                 baseline_pass                   FAIL    keyword missing
+ip_ownership                          baseline_pass                   PASS    
+ip_assignment                         baseline_pass                   PASS    
+jurisdiction                          baseline_pass                   PASS    
+maternity_leave                       no_answer_control               FAIL    did not refuse
+probation                             no_answer_control               FAIL    did not refuse
+reg_termination_cites_confidentiality_clausewrong_clause_citation           FAIL    keyword missing
+reg_termination_cites_notice_clause   wrong_clause_citation           FAIL    keyword missing
+----------------------------------------------------------------------------------------------------------------
+SUITE: 16/26 passed   (Week-6 questions 16/24, regression cases 0/2)
+
+[reg_termination_cites_confidentiality_clause] live answer under answer-v2: FAIL (RED)
+    answer: This Employment Agreement ("Agreement") is entered into as of January 1, 2024, between TechCorp Pvt. Ltd. ("Company") and John Smith ("Employee"). (Clause 7)
+    cited ['7']  required ['7']  allowed ['7', '8']
+    context chunk ids: [0, 1, 15, 16, 17]  trace da5bfb911d228410d46d22100a874cfd
+
+[reg_termination_cites_notice_clause] live answer under answer-v2: FAIL (RED)
+    answer: This Employment Agreement ("Agreement") is entered into as of January 1, 2024, between TechCorp Pvt. Ltd. ("Company") and John Smith ("Employee"). (Clause 7)
+    cited ['7']  required ['7']  allowed ['6', '7']
+    context chunk ids: [0, 1, 15, 16, 17]  trace c9d522b9fa90f05b66a706b58c7107ef
+
+REPLAY [reg_termination_cites_confidentiality_clause] logged answer (answer-v2, trace b32136a9): FAIL - the test catches the logged failure
+    citation: missing ['7']
+
+REPLAY [reg_termination_cites_notice_clause] logged answer (answer-v2, trace ebe76214): FAIL - the test catches the logged failure
+    citation: missing ['7']
+
+Citation accuracy over Week-6 questions answered (not refused) with a gold clause: 10 right / 10 wrong / 1 uncited  (of 21)
+    wrong: reports_to (cited ['2'], clause ['1'])
+    wrong: bonus (cited ['4'], clause ['3'])
+    wrong: overtime (cited ['6'], clause ['4', '5'])
+    wrong: annual_leave (cited ['3'], clause ['5'])
+    wrong: notice_period (cited ['5'], clause ['6'])
+    wrong: pay_in_lieu (cited ['7'], clause ['6'])
+    wrong: immediate_termination_fraud (cited ['8'], clause ['7'])
+    wrong: confidentiality_dismissal (cited ['8'], clause ['7'])
+    wrong: noncompete_consulting (cited ['7'], clause ['9'])
+    wrong: ip_assignment (cited ['11'], clause ['10'])
+
+written: observability\deliverables\suite_bonus_before.txt (+ .json); traces: observability\logs\eval\bonus_before

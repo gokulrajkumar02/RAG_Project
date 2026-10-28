@@ -1,4 +1,5 @@
 
+import hashlib
 import os
 import tempfile
 import streamlit as st
@@ -15,9 +16,11 @@ st.set_page_config(
 st.title("⚖️ Legal Contract Assistant")
 st.caption("Upload a legal contract PDF — ask questions — get answers with source citations.")
 
-for key in ["index", "contract_name"]:
+for key in ["index", "contract_name", "contract_id", "pipeline"]:
     if key not in st.session_state:
         st.session_state[key] = None
+if "session_id" not in st.session_state:
+    st.session_state["session_id"] = f"s-{os.urandom(6).hex()}"
 
 with st.sidebar:
     st.subheader("🔑 Groq API Key (FREE)")
@@ -28,6 +31,12 @@ with st.sidebar:
         help="Get a FREE key at https://console.groq.com"
     )
     st.markdown("👆 Free — no credit card needed!")
+
+    st.markdown("---")
+    st.subheader("👤 Who is asking")
+    user_id = st.text_input("User id", value=os.getenv("APP_USER_ID", "anonymous"),
+                            help="Logged with every request, so a complaint can be traced back to its answers.")
+    user_role = st.selectbox("Role", ["lawyer", "paralegal", "hr", "employee", "other"])
 
     st.markdown("---")
     st.subheader("📖 How RAG Works")
@@ -67,8 +76,9 @@ def process_contract(uploaded_file):
     os.unlink(tmp_path)
 
     index = ContractIndex(chunks)
+    contract_id = f"{os.path.splitext(uploaded_file.name)[0]}@{hashlib.sha256(uploaded_file.getvalue()).hexdigest()[:8]}"
 
-    return index, len(chunks)
+    return index, len(chunks), contract_id
 
 
 st.header("📄 Step 1 — Upload Contract")
@@ -82,9 +92,11 @@ if uploaded:
     if process_btn:
         with st.spinner("⏳ Processing contract... (first run may take a minute to download the embedding model)"):
             try:
-                index, num_chunks = process_contract(uploaded)
+                index, num_chunks, contract_id = process_contract(uploaded)
                 st.session_state.index = index
                 st.session_state.contract_name = uploaded.name
+                st.session_state.contract_id = contract_id
+                st.session_state.pipeline = None
                 st.success(
                     f"✅ Done! Contract split into **{num_chunks} chunks** and indexed in FAISS."
                 )
@@ -100,14 +112,22 @@ def get_answer(question, index, api_key):
     The neighbor stitch (Week 6 fix, see rag_core.ContractIndex.expand_with_neighbors)
     only changes what context the LLM reads — the cited "Source" chunks
     shown below are still exactly the top-3 reranked chunks.
+
+    Week 11: the same steps run through observability/pipeline.py, which writes
+    one trace line per request (spans, tokens, cost, prompt version, context ids)
+    to observability/logs/prod/ — so any past answer can be found again.
     """
-    from rag_core import generate_answer
+    from observability.pipeline import Pipeline
 
-    source_docs = index.search_reranked(question, k=3, pool=10)
-    context_docs = index.expand_with_neighbors(source_docs)
-    answer = generate_answer(question, context_docs, api_key)
+    pipe = st.session_state.pipeline
+    if pipe is None or getattr(pipe, "_api_key", None) != api_key:
+        pipe = Pipeline(llm="groq", index=index, contract_id=st.session_state.contract_id, api_key=api_key)
+        pipe._api_key = api_key
+        st.session_state.pipeline = pipe
 
-    return answer, source_docs
+    result = pipe.ask(question, user_id=user_id or "anonymous", user_role=user_role,
+                      session_id=st.session_state.session_id)
+    return result["answer"], result["sources"], result["trace"]
 
 
 if st.session_state.index:
@@ -142,7 +162,7 @@ if st.session_state.index:
 
         with st.spinner("🔍 Searching contract and generating answer..."):
             try:
-                answer, sources = get_answer(
+                answer, sources, trace = get_answer(
                     question,
                     st.session_state.index,
                     api_key
@@ -151,6 +171,10 @@ if st.session_state.index:
                 st.markdown("---")
                 st.subheader("💬 Answer")
                 st.success(answer)
+                st.caption(
+                    f"trace `{trace['trace_id']}` · {trace['prompt_version']} · "
+                    f"{trace['totals']['latency_ms']:.0f} ms · ${trace['totals']['cost_usd']:.6f}"
+                )
 
                 st.subheader("📌 Source Clauses (from the contract)")
                 st.caption("These are the contract sections the AI used to generate the answer.")

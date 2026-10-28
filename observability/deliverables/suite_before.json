@@ -1,0 +1,753 @@
+{
+  "label": "before",
+  "prompt_version": "answer-v2",
+  "prompt_sha": "11be289e8176",
+  "llm_mode": "stub",
+  "passed": 16,
+  "n": 25,
+  "rows": [
+    {
+      "id": "parties",
+      "kind": "week6",
+      "problem_type": "baseline_pass",
+      "passed": true,
+      "why": "",
+      "answer": "This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024, between TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\").",
+      "detail": {
+        "rule": true,
+        "citation": null,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule and citation checks decide"
+        }
+      },
+      "no_answer": false,
+      "expected_chunks": [
+        1
+      ],
+      "trace_id": "129d32f597a8fe4392072e16807cffde",
+      "context_chunk_ids": [
+        1,
+        29,
+        30,
+        0
+      ]
+    },
+    {
+      "id": "job_role",
+      "kind": "week6",
+      "problem_type": "baseline_pass",
+      "passed": true,
+      "why": "",
+      "answer": "The Employee is hired as a Software Engineer. The Employee shall report to the (Clause 1)",
+      "detail": {
+        "rule": true,
+        "citation": null,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule and citation checks decide"
+        }
+      },
+      "no_answer": false,
+      "expected_chunks": [
+        2
+      ],
+      "trace_id": "62eb7915e0f446200744e43f66711619",
+      "context_chunk_ids": [
+        2,
+        0,
+        1,
+        25,
+        26
+      ]
+    },
+    {
+      "id": "reports_to",
+      "kind": "week6",
+      "problem_type": "split_clause_refusal",
+      "passed": true,
+      "why": "",
+      "answer": "Engineering Manager and perform duties as reasonably assigned by the Company. (Clause 2)",
+      "detail": {
+        "rule": true,
+        "citation": null,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule and citation checks decide"
+        }
+      },
+      "no_answer": false,
+      "expected_chunks": [
+        2,
+        3
+      ],
+      "trace_id": "70835f7670ee0b6090dcc7a2cfc70abd",
+      "context_chunk_ids": [
+        2,
+        3,
+        22,
+        23,
+        30,
+        31
+      ]
+    },
+    {
+      "id": "effective_date",
+      "kind": "week6",
+      "problem_type": "baseline_pass",
+      "passed": true,
+      "why": "",
+      "answer": "This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024, between TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\"). (Clause 2)",
+      "detail": {
+        "rule": true,
+        "citation": null,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule and citation checks decide"
+        }
+      },
+      "no_answer": false,
+      "expected_chunks": [
+        4
+      ],
+      "trace_id": "5272a35f12875d0c2bf8e83471bcee0e",
+      "context_chunk_ids": [
+        0,
+        1,
+        3,
+        4,
+        21,
+        22
+      ]
+    },
+    {
+      "id": "salary",
+      "kind": "week6",
+      "problem_type": "split_clause_refusal",
+      "passed": true,
+      "why": "",
+      "answer": "The Employee shall receive a monthly gross salary of Rs. 80,000 (Eighty Thousand (Clause 3)",
+      "detail": {
+        "rule": true,
+        "citation": null,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule and citation checks decide"
+        }
+      },
+      "no_answer": false,
+      "expected_chunks": [
+        6,
+        7
+      ],
+      "trace_id": "ddcccdd0a8b993bb2438f50f1ee30535",
+      "context_chunk_ids": [
+        5,
+        6,
+        7,
+        21,
+        22
+      ]
+    },
+    {
+      "id": "bonus",
+      "kind": "week6",
+      "problem_type": "baseline_pass",
+      "passed": true,
+      "why": "",
+      "answer": "for an annual performance bonus at the sole discretion of the Company. (Clause 4)",
+      "detail": {
+        "rule": true,
+        "citation": null,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule and citation checks decide"
+        }
+      },
+      "no_answer": false,
+      "expected_chunks": [
+        7,
+        8
+      ],
+      "trace_id": "f042142b551bdfff299b9d41a3550057",
+      "context_chunk_ids": [
+        8,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id": "working_hours",
+      "kind": "week6",
+      "problem_type": "baseline_pass",
+      "passed": true,
+      "why": "",
+      "answer": "The standard working hours are Monday to Friday, 9:00 AM to 6:00 PM, with a (Clause 4)",
+      "detail": {
+        "rule": true,
+        "citation": null,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule and citation checks decide"
+        }
+      },
+      "no_answer": false,
+      "expected_chunks": [
+        9
+      ],
+      "trace_id": "c172a1d724e0de554c300e02b540e4e7",
+      "context_chunk_ids": [
+        8,
+        9,
+        12,
+        13,
+        10
+      ]
+    },
+    {
+      "id": "overtime",
+      "kind": "week6",
+      "problem_type": "never_retrieved_false_notfound",
+      "passed": false,
+      "why": "keyword missing",
+      "answer": "Rupees), payable on the last working day of each month. The Employee is also eligible (Clause 6)",
+      "detail": {
+        "rule": false,
+        "citation": null,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule and citation checks decide"
+        }
+      },
+      "no_answer": false,
+      "expected_chunks": [
+        10,
+        11
+      ],
+      "trace_id": "c109ac8b08e7cd685c7e3be362cd7f15",
+      "context_chunk_ids": [
+        6,
+        7,
+        14,
+        15,
+        9,
+        10
+      ]
+    },
+    {
+      "id": "annual_leave",
+      "kind": "week6",
+      "problem_type": "baseline_pass",
+      "passed": true,
+      "why": "",
+      "answer": "18 days of Annual Leave 10 days of Sick Leave 3 days of Personal Leave Public holidays as declared by the Company (Clause 3)",
+      "detail": {
+        "rule": true,
+        "citation": null,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule and citation checks decide"
+        }
+      },
+      "no_answer": false,
+      "expected_chunks": [
+        12
+      ],
+      "trace_id": "8b18ad4c6b70b565587506aae10d5534",
+      "context_chunk_ids": [
+        12,
+        5,
+        6,
+        10,
+        11
+      ]
+    },
+    {
+      "id": "sick_leave",
+      "kind": "week6",
+      "problem_type": "baseline_pass",
+      "passed": true,
+      "why": "",
+      "answer": "18 days of Annual Leave 10 days of Sick Leave 3 days of Personal Leave Public holidays as declared by the Company (Clause 5)",
+      "detail": {
+        "rule": true,
+        "citation": null,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule and citation checks decide"
+        }
+      },
+      "no_answer": false,
+      "expected_chunks": [
+        12
+      ],
+      "trace_id": "451a10e3940447a19b58116bc28129c2",
+      "context_chunk_ids": [
+        11,
+        12,
+        13,
+        14,
+        6,
+        7
+      ]
+    },
+    {
+      "id": "leave_approval",
+      "kind": "week6",
+      "problem_type": "never_retrieved_lucky_pass",
+      "passed": false,
+      "why": "keyword missing",
+      "answer": "one-hour lunch break. The Employee may be required to work reasonable additional hours (Clause 5)",
+      "detail": {
+        "rule": false,
+        "citation": null,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule and citation checks decide"
+        }
+      },
+      "no_answer": false,
+      "expected_chunks": [
+        13
+      ],
+      "trace_id": "ca9a17cc28a872ff62dc89e05e0356d8",
+      "context_chunk_ids": [
+        10,
+        11,
+        12,
+        8,
+        9
+      ]
+    },
+    {
+      "id": "notice_period",
+      "kind": "week6",
+      "problem_type": "never_retrieved_false_notfound",
+      "passed": false,
+      "why": "keyword missing",
+      "answer": "one-hour lunch break. The Employee may be required to work reasonable additional hours (Clause 5)",
+      "detail": {
+        "rule": false,
+        "citation": null,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule and citation checks decide"
+        }
+      },
+      "no_answer": false,
+      "expected_chunks": [
+        14
+      ],
+      "trace_id": "794de8daeb23981bf61967d6a5d3c562",
+      "context_chunk_ids": [
+        9,
+        10,
+        11,
+        12,
+        5,
+        6
+      ]
+    },
+    {
+      "id": "pay_in_lieu",
+      "kind": "week6",
+      "problem_type": "baseline_pass",
+      "passed": true,
+      "why": "",
+      "answer": "notice to the other party. The Company reserves the right to pay salary in lieu of notice and ask the Employee to leave immediately. (Clause 7)",
+      "detail": {
+        "rule": true,
+        "citation": null,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule and citation checks decide"
+        }
+      },
+      "no_answer": false,
+      "expected_chunks": [
+        15
+      ],
+      "trace_id": "52470abd42e807648c819d00e9dfed73",
+      "context_chunk_ids": [
+        15,
+        16,
+        13,
+        14
+      ]
+    },
+    {
+      "id": "immediate_termination_fraud",
+      "kind": "week6",
+      "problem_type": "wrong_item_selected",
+      "passed": true,
+      "why": "",
+      "answer": "Gross misconduct or negligence Persistent underperformance Theft, fraud, or dishonesty (Clause 8)",
+      "detail": {
+        "rule": true,
+        "citation": null,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule and citation checks decide"
+        }
+      },
+      "no_answer": false,
+      "expected_chunks": [
+        16,
+        17
+      ],
+      "trace_id": "63ae2497560fd238d09c7433a45021ce",
+      "context_chunk_ids": [
+        16,
+        17,
+        18,
+        25,
+        26
+      ]
+    },
+    {
+      "id": "confidentiality_dismissal",
+      "kind": "week6",
+      "problem_type": "split_clause_refusal",
+      "passed": true,
+      "why": "",
+      "answer": "Serious or repeated breach of Company policies Willful breach of confidentiality (Clause 8)",
+      "detail": {
+        "rule": true,
+        "citation": null,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule and citation checks decide"
+        }
+      },
+      "no_answer": false,
+      "expected_chunks": [
+        18
+      ],
+      "trace_id": "8354fada4d1bf6c8ca807a2663b34a0a",
+      "context_chunk_ids": [
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "id": "confidentiality_after",
+      "kind": "week6",
+      "problem_type": "baseline_pass",
+      "passed": false,
+      "why": "keyword missing",
+      "answer": "business plans, client lists, financial data, technical documentation, and trade secrets. Unauthorized disclosure may result in legal action. (Clause 8)",
+      "detail": {
+        "rule": false,
+        "citation": null,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule and citation checks decide"
+        }
+      },
+      "no_answer": false,
+      "expected_chunks": [
+        19,
+        20,
+        21
+      ],
+      "trace_id": "6a040ab5b7e5675af12697ce3841a7d8",
+      "context_chunk_ids": [
+        21,
+        20,
+        18,
+        19
+      ]
+    },
+    {
+      "id": "confidential_info_scope",
+      "kind": "week6",
+      "problem_type": "baseline_pass",
+      "passed": false,
+      "why": "keyword missing",
+      "answer": "The Employee agrees to keep all Confidential Information strictly private, both (Clause 8)",
+      "detail": {
+        "rule": false,
+        "citation": null,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule and citation checks decide"
+        }
+      },
+      "no_answer": false,
+      "expected_chunks": [
+        20,
+        21
+      ],
+      "trace_id": "0caafef9f598c9ba3bbf6b805d63b41a",
+      "context_chunk_ids": [
+        18,
+        19,
+        20,
+        21
+      ]
+    },
+    {
+      "id": "noncompete_duration",
+      "kind": "week6",
+      "problem_type": "baseline_pass",
+      "passed": true,
+      "why": "",
+      "answer": "During the term of employment and for a period of 6 (six) months following (Clause 9)",
+      "detail": {
+        "rule": true,
+        "citation": null,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule and citation checks decide"
+        }
+      },
+      "no_answer": false,
+      "expected_chunks": [
+        22
+      ],
+      "trace_id": "eab25218bbf526999da95bcfdc518dfa",
+      "context_chunk_ids": [
+        21,
+        22,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": "noncompete_consulting",
+      "kind": "week6",
+      "problem_type": "baseline_pass",
+      "passed": false,
+      "why": "keyword missing",
+      "answer": "notice to the other party. The Company reserves the right to pay salary in lieu of notice and ask the Employee to leave immediately. (Clause 7)",
+      "detail": {
+        "rule": false,
+        "citation": null,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule and citation checks decide"
+        }
+      },
+      "no_answer": false,
+      "expected_chunks": [
+        22,
+        23
+      ],
+      "trace_id": "125137f1d543f2d8d8e936e10dc4df48",
+      "context_chunk_ids": [
+        14,
+        15,
+        23,
+        21,
+        22
+      ]
+    },
+    {
+      "id": "ip_ownership",
+      "kind": "week6",
+      "problem_type": "baseline_pass",
+      "passed": true,
+      "why": "",
+      "answer": "course of employment shall be the sole and exclusive property of the Company. (Clause 10)",
+      "detail": {
+        "rule": true,
+        "citation": null,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule and citation checks decide"
+        }
+      },
+      "no_answer": false,
+      "expected_chunks": [
+        25,
+        26
+      ],
+      "trace_id": "5106e4b9d04fa6cf5fd292f2a33d6e02",
+      "context_chunk_ids": [
+        26,
+        24,
+        25,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "ip_assignment",
+      "kind": "week6",
+      "problem_type": "baseline_pass",
+      "passed": true,
+      "why": "",
+      "answer": "The Employee agrees to assign all such rights to the Company upon request. (Clause 11)",
+      "detail": {
+        "rule": true,
+        "citation": null,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule and citation checks decide"
+        }
+      },
+      "no_answer": false,
+      "expected_chunks": [
+        27
+      ],
+      "trace_id": "049c7215b77a770ffb129edb89995cef",
+      "context_chunk_ids": [
+        26,
+        27,
+        15,
+        16,
+        23,
+        24
+      ]
+    },
+    {
+      "id": "jurisdiction",
+      "kind": "week6",
+      "problem_type": "baseline_pass",
+      "passed": true,
+      "why": "",
+      "answer": "India. Any disputes arising under this Agreement shall be subject to the exclusive jurisdiction of the courts in Bengaluru, Karnataka.",
+      "detail": {
+        "rule": true,
+        "citation": null,
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule and citation checks decide"
+        }
+      },
+      "no_answer": false,
+      "expected_chunks": [
+        29
+      ],
+      "trace_id": "82744961d5c69a2c1adac0cbe258b344",
+      "context_chunk_ids": [
+        29,
+        27,
+        28,
+        22,
+        23
+      ]
+    },
+    {
+      "id": "maternity_leave",
+      "kind": "week6",
+      "problem_type": "no_answer_control",
+      "passed": false,
+      "why": "did not refuse",
+      "answer": "The Company may terminate this Agreement immediately and without notice for: (Clause 7)",
+      "detail": {
+        "rule": false,
+        "citation": null,
+        "judge": null
+      },
+      "no_answer": true,
+      "expected_chunks": [],
+      "trace_id": "cecaba170f1457879d1eb29e420992cd",
+      "context_chunk_ids": [
+        15,
+        16,
+        12,
+        13,
+        22,
+        23
+      ]
+    },
+    {
+      "id": "probation",
+      "kind": "week6",
+      "problem_type": "no_answer_control",
+      "passed": false,
+      "why": "did not refuse",
+      "answer": "During the term of employment and for a period of 6 (six) months following (Clause 9)",
+      "detail": {
+        "rule": false,
+        "citation": null,
+        "judge": null
+      },
+      "no_answer": true,
+      "expected_chunks": [],
+      "trace_id": "aa0e5889dfcb58ddb60b60f2c8b00a2f",
+      "context_chunk_ids": [
+        21,
+        22,
+        13,
+        14,
+        19,
+        20
+      ]
+    },
+    {
+      "id": "reg_termination_cites_notice_clause",
+      "kind": "regression",
+      "problem_type": "wrong_clause_citation",
+      "passed": false,
+      "why": "keyword missing",
+      "answer": "This Employment Agreement (\"Agreement\") is entered into as of January 1, 2024, between TechCorp Pvt. Ltd. (\"Company\") and John Smith (\"Employee\"). (Clause 7)",
+      "detail": {
+        "rule": false,
+        "citation": {
+          "cited": [
+            "7"
+          ],
+          "required": [
+            "7"
+          ],
+          "allowed": [
+            "6",
+            "7"
+          ],
+          "missing": [],
+          "outside": [],
+          "pass": true
+        },
+        "judge": {
+          "verdict": "PASS",
+          "reason": "STUB judge: no model available, rule and citation checks decide"
+        }
+      },
+      "no_answer": false,
+      "expected_chunks": [
+        16,
+        17,
+        18
+      ],
+      "trace_id": "f49cc0dae484f2afdfa916d981e55450",
+      "context_chunk_ids": [
+        0,
+        1,
+        15,
+        16,
+        17
+      ]
+    }
+  ],
+  "replays": [
+    {
+      "id": "reg_termination_cites_notice_clause",
+      "passed": false,
+      "why": "citation: missing ['7']"
+    }
+  ],
+  "citation_accuracy": {
+    "correct": 10,
+    "wrong": 10,
+    "uncited": 1,
+    "scored": 21,
+    "wrong_ids": [
+      "reports_to (cited ['2'], clause ['1'])",
+      "bonus (cited ['4'], clause ['3'])",
+      "overtime (cited ['6'], clause ['4', '5'])",
+      "annual_leave (cited ['3'], clause ['5'])",
+      "notice_period (cited ['5'], clause ['6'])",
+      "pay_in_lieu (cited ['7'], clause ['6'])",
+      "immediate_termination_fraud (cited ['8'], clause ['7'])",
+      "confidentiality_dismissal (cited ['8'], clause ['7'])",
+      "noncompete_consulting (cited ['7'], clause ['9'])",
+      "ip_assignment (cited ['11'], clause ['10'])"
+    ]
+  }
+}
