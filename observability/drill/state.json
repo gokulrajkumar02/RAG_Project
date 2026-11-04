@@ -1,0 +1,8 @@
+{
+  "active": false,
+  "drill": 2,
+  "started_at": 1793169396.596284,
+  "started_at_local": "2026-10-28T12:06:36+05:30",
+  "finder": "Claude (finder agent)",
+  "timer": "drill.py wall-clock timer"
+}

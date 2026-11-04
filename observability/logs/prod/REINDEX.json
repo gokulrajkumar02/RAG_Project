@@ -1,0 +1,15 @@
+[
+  {
+    "at": "2026-10-28T12:03:59+05:30",
+    "schema": "w11.2",
+    "traces": 1721,
+    "updated": 1721,
+    "citation_mismatch": 1,
+    "fields": [
+      "answer_cited_clauses",
+      "context_clause_ids",
+      "citation_support",
+      "citation_mismatch"
+    ]
+  }
+]

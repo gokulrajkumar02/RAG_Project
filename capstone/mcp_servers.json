@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "contract-desk": {
+      "command": "${PYTHON}",
+      "args": ["server.py"],
+      "env": {
+        "CONTRACT_DESK_VARIANT": "${CONTRACT_DESK_VARIANT:-v1-guarded}",
+        "CONTRACT_DESK_TODAY": "${CONTRACT_DESK_TODAY:-}"
+      }
+    }
+  }
+}

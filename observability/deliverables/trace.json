@@ -1,0 +1,146 @@
+{
+  "schema": "w11.1",
+  "trace_id": "ebe76214f270298aa42e5354eb81f8a7",
+  "ts": "2026-10-22T05:16:10.162Z",
+  "ts_local": "2026-10-22T10:46:10.162+05:30",
+  "user_id": "u-lw-05",
+  "user_role": "lawyer",
+  "session_id": "s-289bdf881ec2",
+  "contract_id": "sample_contract@c4c5ee5f",
+  "app_version": "w11",
+  "model": "openai/gpt-oss-20b",
+  "llm_mode": "synthetic",
+  "prompt_version": "answer-v2",
+  "prompt_sha": "11be289e8176",
+  "context_format": "plain",
+  "input_type": "termination",
+  "question": "Can TechCorp terminate John Smith with immediate effect over repeated breaches of company policy, or does it have to serve notice first?",
+  "answer": "It can terminate with immediate effect. A serious or repeated breach of Company policies is one of the grounds on which the Company may terminate immediately and without notice, so no notice period has to be served. See Clause 6 (Notice Period).",
+  "status": "ok",
+  "error": null,
+  "retrieval": {
+    "k": 3,
+    "pool": 10,
+    "reranker": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "source_chunk_ids": [
+      1,
+      16,
+      17
+    ],
+    "rerank_scores": [
+      -0.2362,
+      -2.0267,
+      -4.9251
+    ],
+    "context_chunk_ids": [
+      0,
+      1,
+      15,
+      16,
+      17
+    ],
+    "context_chunk_sha": {
+      "0": "76452ee492",
+      "1": "20b08be606",
+      "15": "c7bee90b95",
+      "16": "55e23c360b",
+      "17": "db2c80b6f5"
+    }
+  },
+  "spans": [
+    {
+      "span_id": "fef349c59041d268",
+      "parent_id": null,
+      "name": "request",
+      "stage": "request",
+      "start_ms": 0.0,
+      "latency_ms": 387.866,
+      "attributes": {}
+    },
+    {
+      "span_id": "9372985249ea8ccc",
+      "parent_id": "fef349c59041d268",
+      "name": "retrieval",
+      "stage": "retrieval",
+      "start_ms": 0.006,
+      "latency_ms": 80.446,
+      "attributes": {}
+    },
+    {
+      "span_id": "5d2563cb63881924",
+      "parent_id": "9372985249ea8ccc",
+      "name": "retrieval.embed_query",
+      "stage": "retrieval",
+      "start_ms": 0.014,
+      "latency_ms": 9.508,
+      "attributes": {
+        "model": "all-MiniLM-L6-v2",
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "span_id": "d103c2e16b7050af",
+      "parent_id": "9372985249ea8ccc",
+      "name": "retrieval.vector_search",
+      "stage": "retrieval",
+      "start_ms": 9.543,
+      "latency_ms": 0.082,
+      "attributes": {
+        "k": 10,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "span_id": "9bd4f33969118509",
+      "parent_id": "9372985249ea8ccc",
+      "name": "retrieval.rerank",
+      "stage": "retrieval",
+      "start_ms": 9.647,
+      "latency_ms": 70.76,
+      "attributes": {
+        "model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+        "pairs": 10,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "span_id": "c8a9a65692a29969",
+      "parent_id": "9372985249ea8ccc",
+      "name": "retrieval.expand_neighbors",
+      "stage": "retrieval",
+      "start_ms": 80.437,
+      "latency_ms": 0.013,
+      "attributes": {
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "span_id": "0507f150ee70d48c",
+      "parent_id": "fef349c59041d268",
+      "name": "generation.llm",
+      "stage": "generation",
+      "start_ms": 80.452,
+      "latency_ms": 48.0,
+      "attributes": {
+        "gen_ai.request.model": "openai/gpt-oss-20b",
+        "gen_ai.usage.input_tokens": 244,
+        "gen_ai.usage.output_tokens": 48,
+        "cost_usd": 3.27e-05,
+        "usage_source": "estimate",
+        "latency_source": "modelled: output_tokens / 1000 tok/s (no model call)"
+      }
+    }
+  ],
+  "totals": {
+    "latency_ms": 387.866,
+    "input_tokens": 244,
+    "output_tokens": 48,
+    "cost_usd": 3.27e-05
+  },
+  "cost_by_stage_usd": {
+    "retrieval": 0.0,
+    "generation": 3.27e-05,
+    "tools": 0.0
+  },
+  "synthetic": true
+}

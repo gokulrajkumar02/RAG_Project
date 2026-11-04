@@ -4,3 +4,6 @@ __pycache__/
 *.pyc
 .ipynb_checkpoints/
 eval/results/
+
+# Week 12 capstone: generated corpus + index (rebuilt by `python capstone/run.py build`)
+capstone/corpus/

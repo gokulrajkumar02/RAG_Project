@@ -1,0 +1,13 @@
+{
+  "model": "openai/gpt-oss-20b",
+  "stable": "answer-v2",
+  "canary": null,
+  "history": [
+    {"from_local": "2026-10-19T00:00", "stable": "answer-v1", "canary": null,
+     "note": "Week 4-10 prompt (rag_core.ANSWER_PROMPT); no citations"},
+    {"from_local": "2026-10-21T11:00", "stable": "answer-v1", "canary": {"version": "answer-v2", "percent": 20},
+     "note": "answer-v2 (cite the clause number) on a 20% canary, bucketed by user_id"},
+    {"from_local": "2026-10-22T10:00", "stable": "answer-v2", "canary": null,
+     "note": "answer-v2 promoted to 100%"}
+  ]
+}

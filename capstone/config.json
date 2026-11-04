@@ -1,0 +1,21 @@
+{
+  "default_variant": "v1-guarded",
+  "model": "openai/gpt-oss-120b",
+  "variants": {
+    "v0-naive": {
+      "note": "RAG + agent + lookup, nothing domain-specific: no chain tool, no defined-term tool, no status on search hits, no guards.",
+      "tools": ["lookup_contract", "search_clauses", "get_clause"],
+      "annotate_status": false,
+      "guards": false
+    },
+    "v1-guarded": {
+      "note": "Adds the amendment-chain and defined-term tools, marks every hit IN_FORCE/SUPERSEDED, and enforces the rules in code.",
+      "tools": ["lookup_contract", "resolve_amendment_chain", "resolve_defined_term", "get_governing_law", "search_clauses", "get_clause"],
+      "annotate_status": true,
+      "guards": true
+    }
+  },
+  "max_steps": 9,
+  "max_guard_repairs": 3,
+  "gate_terms": ["Affiliate", "Excluded Claims", "Confidential Information", "Losses"]
+}

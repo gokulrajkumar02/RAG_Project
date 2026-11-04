@@ -1,0 +1,46 @@
+{
+  "id": "reg_termination_cites_notice_clause",
+  "problem_type": "wrong_clause_citation",
+  "question": "Can TechCorp terminate John Smith with immediate effect over repeated breaches of company policy, or does it have to serve notice first?",
+  "expected_chunks": [
+    16,
+    17,
+    18
+  ],
+  "answer_keywords": [
+    "without notice",
+    "immediate"
+  ],
+  "citation": {
+    "required": [
+      "7"
+    ],
+    "allowed": [
+      "6",
+      "7"
+    ]
+  },
+  "why": "Cited Clause 6 (Notice Period) for the right to terminate with immediate effect for serious or repeated breach of Company policies; that right is Clause 7 (Termination). Naming clause 6 as the notice that does NOT apply is fine; resting the answer on it is the bug.",
+  "complaint": "a lawyer said it cited the wrong clause on termination, maybe Thursday.",
+  "logged_answer": "It can terminate with immediate effect. A serious or repeated breach of Company policies is one of the grounds on which the Company may terminate immediately and without notice, so no notice period has to be served. See Clause 6 (Notice Period).",
+  "source": {
+    "trace_id": "ebe76214f270298aa42e5354eb81f8a7",
+    "ts_local": "2026-10-22T10:46:10.162+05:30",
+    "user_role": "lawyer",
+    "prompt_version": "answer-v2",
+    "prompt_sha": "11be289e8176",
+    "source_chunk_ids": [
+      1,
+      16,
+      17
+    ],
+    "context_chunk_ids": [
+      0,
+      1,
+      15,
+      16,
+      17
+    ]
+  },
+  "added": "2026-10-28"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "reg_termination_cites_confidentiality_clause",
+  "problem_type": "wrong_clause_citation",
+  "question": "If John Smith deliberately shares client data with outsiders, can TechCorp terminate him straight away without giving notice?",
+  "expected_chunks": [
+    16,
+    17,
+    18
+  ],
+  "answer_keywords": [
+    "without notice",
+    "immediate"
+  ],
+  "citation": {
+    "required": [
+      "7"
+    ],
+    "allowed": [
+      "7",
+      "8"
+    ]
+  },
+  "why": "Cited Clause 8 (Confidentiality) for the right to terminate immediately for willful breach of confidentiality; that right is in Clause 7 (Termination), and clause 8's text was not even in the context the answer was generated from. Naming clause 8 as where confidentiality is defined is fine; resting the termination right on it is the bug.",
+  "complaint": "a lawyer said it cited the wrong clause on termination, maybe Thursday.",
+  "logged_answer": "Yes. Deliberately sharing client data with outsiders would be a willful breach of confidentiality, which is one of the grounds on which the Company may terminate immediately and without notice. (Clause 8 (Confidentiality))",
+  "source": {
+    "trace_id": "b32136a9672bd89e297d77d87edcdf1a",
+    "ts_local": "2026-10-22T11:41:18.300+05:30",
+    "user_role": "lawyer",
+    "prompt_version": "answer-v2",
+    "prompt_sha": "11be289e8176",
+    "source_chunk_ids": [
+      1,
+      16,
+      17
+    ],
+    "context_chunk_ids": [
+      0,
+      1,
+      15,
+      16,
+      17
+    ]
+  },
+  "added": "2026-10-28"
+}
